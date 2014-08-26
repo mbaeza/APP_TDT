@@ -1,13 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
         <h:outputStylesheet name="css/style_base.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
     </h:head>
-    <h:body class="base_fondo base_superior">
-        a
+    <h:body class="base_superior">
+        
+        <div style="margin:0 auto; width: 411px;margin-top: 18%">
+            <h:form class="inicioSesión">
+                <h4 style="font-weight: bold;font-size: 55px ;margin: 0 auto;width: 390px;color: rgb(233, 233, 25);">Inicio de sesión</h4>
+                <br></br>
+                <br></br>
+                <h:panelGrid columns="2" cellpadding="10">
+                    
+                    <label  style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" for="usernameInput">Usuario</label>
+                    <p:inputText id="inputEmail"  value="#{loginBean.username}" />
+
+                    <label  style="font-weight: bold;cursor: default;font-size: xx-large; color: white;" for="passwordInput">Contraseña</label>
+                    <p:password value="#{loginBean.password}" id="inputPassword" />
+                    <p:commandButton type="submit" value="Entrar" action="#{loginBean.login()}"/>
+
+                </h:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
 

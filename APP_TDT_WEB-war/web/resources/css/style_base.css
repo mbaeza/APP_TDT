@@ -7,7 +7,14 @@ and open the template in the editor.
     Created on : 19-ago-2014, 18:16:26
     Author     : marcobaezasalazar
 */
-.base_fondo{
+
+.base_superior{
+    background-image: 
+        url("#{resource['images/base_superior.png']}");
+    background-repeat: repeat;
+    font-family: "Cabin Sketch",cursive;
+}
+.base_superior .fondo{
     
     background: #a0d8ef; /* Old browsers */
     background: -moz-linear-gradient(top,  #a0d8ef 0%, #ddf1f9 65%, #feffff 100%); /* FF3.6+ */
@@ -17,11 +24,23 @@ and open the template in the editor.
     background: -ms-linear-gradient(top,  #a0d8ef 0%,#ddf1f9 65%,#feffff 100%); /* IE10+ */
     background: linear-gradient(to bottom,  #a0d8ef 0%,#ddf1f9 65%,#feffff 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8ef', endColorstr='#feffff',GradientType=0 ); /* IE6-9 */
-    background-repeat: no-repeat;
-    background-size: 100% 500px;
 }
 
-.base_superior{
-    background-image: url("#{resource['images/base_superior.png']}");
-    background-position-y: 0;
+.inicioSesión{
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0px 0px 15px #8A8A8A;
+    padding: 2% 2% 2% 2%;
+    min-height: 100px;
+    min-width: 100px;
+    background: #5ab259; /* Old browsers */
+    background: -moz-linear-gradient(top,  #5ab259 0%, #308e29 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ab259), color-stop(100%,#308e29)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #5ab259 0%,#308e29 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ab259', endColorstr='#308e29',GradientType=0 ); /* IE6-9 */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }

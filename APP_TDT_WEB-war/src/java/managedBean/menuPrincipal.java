@@ -26,7 +26,7 @@ import org.primefaces.model.DefaultDashboardModel;
 @Named(value = "menuPrincipal")
 @RequestScoped
 public class menuPrincipal {
-
+//hola
 private DashboardModel model;
      
     

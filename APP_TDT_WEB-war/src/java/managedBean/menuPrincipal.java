@@ -6,18 +6,28 @@
 
 package managedBean;
 
-import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
 import javax.enterprise.context.*;
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
+import org.primefaces.component.panel.Panel;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.DashboardReorderEvent;
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.ToggleEvent;
 import org.primefaces.model.DashboardColumn;
 import org.primefaces.model.DashboardModel;
 import org.primefaces.model.DefaultDashboardColumn;
 import org.primefaces.model.DefaultDashboardModel;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -25,28 +35,40 @@ import org.primefaces.model.DefaultDashboardModel;
  */
 @Named(value = "menuPrincipal")
 @RequestScoped
-public class menuPrincipal {
+public class menuPrincipal implements Serializable{
 //hola
-private DashboardModel model;
-     
+private  DashboardModel model;
+private UploadedFile file;
+private final DashboardColumn column1, column2, column3, column4;
+private static final int BUFFER_SIZE = 6124000;   
+private String folderToUpload;
     
     public menuPrincipal() {
-        this.model = new DefaultDashboardModel();
-        DashboardColumn column1 = new DefaultDashboardColumn();
-        DashboardColumn column2 = new DefaultDashboardColumn();
-        DashboardColumn column3 = new DefaultDashboardColumn();
+        
+        model = new DefaultDashboardModel();
+        column1 = new DefaultDashboardColumn();
+        column2 = new DefaultDashboardColumn();
+        column3 = new DefaultDashboardColumn();
+        column4 = new DefaultDashboardColumn();
+        
+        
+        //column5 = new DefaultDashboardColumn();
+        //DashboardColumn column3 = new DefaultDashboardColumn();
          
-        column1.addWidget("sports");
-      
-         
-        column2.addWidget("lifestyle");
-      
-         
-        column3.addWidget("politics");
- 
+        
+        column1.addWidget("imagen1");
+        column1.addWidget("imagen1");
+        column2.addWidget("imagen2");
+        column3.addWidget("imagen3");
+        column4.addWidget("imagen4");
+        
         model.addColumn(column1);
         model.addColumn(column2);
         model.addColumn(column3);
+        model.addColumn(column4);
+        //model.addColumn(column5);
+       // model.addColumn(column3);
+        
     }
      
     public void handleReorder(DashboardReorderEvent event) {
@@ -54,7 +76,7 @@ private DashboardModel model;
         message.setSeverity(FacesMessage.SEVERITY_INFO);
         message.setSummary("Reordered: " + event.getWidgetId());
         message.setDetail("Item index: " + event.getItemIndex() + ", Column index: " + event.getColumnIndex() + ", Sender index: " + event.getSenderColumnIndex());
-         
+   
         addMessage(message);
     }
      
@@ -78,4 +100,82 @@ private DashboardModel model;
         return model;
     }
     
+    public void upload() {
+        if(file != null) {
+            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }          
+    }
+
+//    public void addWidget(){
+//        final DashboardColumn a  = new DefaultDashboardColumn();
+//        final Panel p = new Panel();
+//        p.setCloseTitle("asdasd");
+//        p.setId("er");
+//        p.setVisible(true);
+//        UIComponent component = FacesContext.getCurrentInstance().getViewRoot().findComponent("board");
+//        component.getChildren().add(p);
+//        a.addWidget("er");
+//        getModel().addColumn(a);
+//        System.out.println(getModel().getColumnCount());
+//    }
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+    
+    public void handleFileUpload(FileUploadEvent event) {
+        if(file != null) {
+            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+        File result = new File(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));
+        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(result);
+            byte[] buffer = new byte[BUFFER_SIZE];
+
+            int bulk;
+            InputStream inputStream = event.getFile().getInputstream();
+            
+            while (true) {
+                bulk = inputStream.read(buffer);
+                if (bulk < 0) {
+                    break;
+                }
+                fileOutputStream.write(buffer, 0, bulk);
+                fileOutputStream.flush();
+            }
+
+            fileOutputStream.close();
+            inputStream.close();
+
+            FacesMessage msg = new FacesMessage("File Description", "file name: " + event.getFile().getFileName() + "file size: " + event.getFile().getSize() / 1024 +
+            " Kb.content type: " + event.getFile().getContentType() + "The file was uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "The files were not uploaded!", "");
+            FacesContext.getCurrentInstance().addMessage(null, error);
+        }      
+    }    
+    
+//    public void addPanel(ActionEvent event) {
+//        UIComponent component = FacesContext.getCurrentInstance().getViewRoot().findComponent("myPanelGrid");
+//        if (component != null) {
+//            Panel p = new Panel();
+//            p.setClosable(true);
+//            p.setHeader("Test");
+//            p.setVisible(true);
+//            component.getChildren().add(p);
+//        }
+//    }
 }

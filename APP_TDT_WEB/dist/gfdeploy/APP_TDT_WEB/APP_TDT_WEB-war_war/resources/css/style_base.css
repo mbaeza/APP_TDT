@@ -44,3 +44,44 @@ and open the template in the editor.
 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
+
+.fondoGenerico{
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #8A8A8A;
+    padding: 2% 2% 2% 2%;
+    height: 500px;
+    width: 1000px;
+    background: #5ab259; /* Old browsers */
+    background: -moz-linear-gradient(top,  #5ab259 0%, #308e29 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5ab259), color-stop(100%,#308e29)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #5ab259 0%,#308e29 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #5ab259 0%,#308e29 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ab259', endColorstr='#308e29',GradientType=0 ); /* IE6-9 */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.ui-dashboard{
+    
+    width: 1000px;
+}
+
+.ui-dashboard-column{
+    
+    width: 200px;
+    height: 200px;
+    float: left;
+    padding-bottom: 100px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+
+.ui-dashboard{
+    width: 1000px;
+    height: 200px;
+    position: absolute; 
+    margin:0 auto;
+}

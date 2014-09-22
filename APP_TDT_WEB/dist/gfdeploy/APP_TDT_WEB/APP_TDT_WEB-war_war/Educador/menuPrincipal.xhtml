@@ -9,90 +9,77 @@
         <h:outputStylesheet name="css/style_base.css"/>
     </h:head>
     <h:body class="base_superior">
-        <h:panelGrid columns="2"  cellpadding="10">
-            <p:panelMenu style="width:300px">
-                <p:submenu label="Cantidad de Objetos" >                                                        
-                    <!--<p:selectOneMenu value="#{asignarConductorCamion.camion}">-->
-                        <!--<f:selectItems value="#{asignarConductorCamion.camiones}" var="camion" itemLabel="#{camion.patente}" itemValue="#{camion.id}"/>-->
-                    <!--</p:selectOneMenu>-->
-                </p:submenu>
-                <p:separator />
-                <p:submenu label="Navigations" >
-                    <p:submenu label="Links" icon="ui-icon-extlink">
-                        <p:submenu label="PrimeFaces" icon="ui-icon-heart">
-                            <p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home" />
-                            <p:menuitem value="Docs" url="http://www.primefaces.org/documentation" icon="ui-icon-document" />
-                            <p:menuitem value="Download" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
-                            <p:menuitem value="Support" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
-                        </p:submenu>
+       
+        <div style="margin:0 auto; width: 1000px;margin-top: 10%">
+            <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="2"  cellpadding="10">
+                <p:megaMenu style="margin-top:20px" >
+                    <p:submenu label="Ejercicios">
+                        <p:menuitem value="El Absurdo" url="#" />
+                        <p:column>   
+                            <p:submenu label="">
+                                <p:menuitem value="El Absurdo" url="#" />
+                                <p:menuitem value="Semejanza" url="#" />
+                                <p:menuitem value="Ubicación" url="#" />
+                                <p:menuitem value="memoria" url="#" />
+                              </p:submenu>  
+                        </p:column>                                  
                     </p:submenu>
-               
-                </p:submenu>
-            </p:panelMenu>
-            <p:megaMenu style="margin-top:20px">
-                <p:submenu label="TV" icon="ui-icon-check">
-                    <p:column>
-                        <p:submenu label="TV.1">
-                            <p:menuitem value="TV.1.1" url="#" />
-                            <p:menuitem value="TV.1.2" url="#" />
-                        </p:submenu>
-                        <p:submenu label="TV.2">
-                            <p:menuitem value="TV.2.1" url="#" />
-                            <p:menuitem value="TV.2.2" url="#" />
-                            <p:menuitem value="TV.2.3" url="#" />
-                        </p:submenu>
-                    </p:column>
+                    <p:submenu label="Alumnos">
+                        <p:menuitem value="El Absurdo" url="#" />
+                        <p:column>   
+                            <p:submenu label="">
+                                <p:menuitem value="Agregar Alumno" url="#" />
+                                <p:menuitem value="Modificar Alumno" url="#" />
+                                <p:menuitem value="Eliminar Alumno" url="#" />
+                                <p:menuitem value="Ver Alumno" url="#" />
+                            </p:submenu>  
+                        </p:column>                                  
+                    </p:submenu>
+                </p:megaMenu>
 
-                    <p:column>
-                        <p:submenu label="TV.4">
-                            <p:menuitem value="TV.4.1" url="#" />
-                            <p:menuitem value="TV.4.2" url="#" />
-                        </p:submenu>
-                        <p:submenu label="TV.5">
-                            <p:menuitem value="TV.5.1" url="#" />
-                            <p:menuitem value="TV.5.2" url="#" />
-                            <p:menuitem value="TV.5.3" url="#" />
-                        </p:submenu>
-                    </p:column>
+            </h:panelGrid>
+            <div class="fondoGenerico">
+		
+                    <p:growl id="msgs" showDetail="true" />
+                    <h:panelGrid columns="2"  cellpadding="10">  
 
-                    <p:column>
-                        <strong>Image</strong>
-                        
-                    </p:column>
-                </p:submenu>
-            </p:megaMenu>
-
-        </h:panelGrid>
-        <div style="height:500px">
-		<h:form>
-			<p:growl id="msgs" showDetail="true" />
-			<h:panelGrid columns="2">
-				<p:dashboard id="board" model="#{dashboardManagedBean.model}">
-					<p:ajax event="reorder" listener="#{dashboardManagedBean.handleReorder}" update="msgs" />
-					<p:panel id="Finance" header="Finance" closable="true" toggleable="true">
-						<h:outputText value="Finance Content"></h:outputText>
-					</p:panel>
-					<p:panel id="Sports" header="Sports" closable="true" toggleable="true">
-						<h:outputText value="Sports Content"></h:outputText>
-					</p:panel>
-					<p:panel id="News" header="News" closable="true" toggleable="true">
-						<h:outputText value="News Content"></h:outputText>
-					</p:panel>
-					<p:panel id="Cooking" header="Cooking" closable="true" toggleable="true">
-						<h:outputText value="Cooking Content"></h:outputText>
-					</p:panel>
-					<p:panel id="Technology" header="Technology" closable="true" toggleable="true">
-						<h:outputText value="Technology Content"></h:outputText>
-					</p:panel>
-				</p:dashboard>
-				<p:panel id="draggable">
-					<h:outputLabel value="Drag Panel Into Your Dashboard"></h:outputLabel>
-				</p:panel>
-				<p:draggable for="draggable" helper="clone" dashboard="board"></p:draggable>
-			</h:panelGrid>
-
-		</h:form>
-		</div>
+                        <p:dashboard  id="board" model="#{menuPrincipal.model}" >
+                            <p:ajax event="reorder" listener="#{menuPrincipal.handleReorder}" update="msgs" />   
+                            
+                             <p:panel id="imagen1" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                                <!--h:outputText value="Sports Content" /-->
+                                <p:growl id="messages" showDetail="true" />
+                                <p:fileUpload value="#{menuPrincipal.file}" update="messages" fileUploadListener="#{menuPrincipal.handleFileUpload}" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                            </p:panel>
+                            
+                             <p:panel id="imagen2" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                                <!--h:outputText value="Sports Content" /-->
+                                <p:growl id="messages1" showDetail="true" />
+                                <p:fileUpload  value="#{menuPrincipal.file}"  update="messages1" fileUploadListener="#{menuPrincipal.handleFileUpload}" label="seleccionar" style="width: 50px;" previewWidth="0"  mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                            </p:panel>
+                            
+                             <p:panel id="imagen3" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                                <!--h:outputText value="Sports Content" /-->
+                                <p:growl id="messages2" showDetail="true" />
+                                <p:fileUpload value="#{menuPrincipal.file}" update="messages2" fileUploadListener="#{menuPrincipal.handleFileUpload}" mode="advanced" label="asd" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="false" />                            
+                            </p:panel>
+                            
+                            <p:panel id="imagen4" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                                <!--h:outputText value="Sports Content" /-->
+                                <p:growl id="messages3" showDetail="true" />
+                                <p:fileUpload value="#{menuPrincipal.file}" update="messages3" fileUploadListener="#{menuPrincipal.handleFileUpload}" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                            </p:panel>
+                            
+                        </p:dashboard>
+                    </h:panelGrid>
+                    
+                    <div style="clear:both" />
+                
+            </div>
+                    </h:form>
+        </div>
+                
     </h:body>
 </html>
 

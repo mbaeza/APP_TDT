@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/style_base.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+    </h:head>
+    <h:body class="base_superior">
+       
+        <div style="margin:0 auto; margin-top: 2%">
+            <h:form enctype="multipart/form-data" >
+                
+                <h:panelGrid columns="2"  cellpadding="10">
+                    <p:megaMenu style="margin-top:20px" >
+                        <p:submenu label="Ejercicios">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="El Absurdo" url="#" />
+                                    <p:menuitem value="Semejanza" url="#" />
+                                    <p:menuitem value="Ubicación" url="#" />
+                                    <p:menuitem value="memoria" url="#" />
+                                  </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                        <p:submenu label="Alumnos">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="Agregar Alumno" url="#" />
+                                    <p:menuitem value="Modificar Alumno" url="#" />
+                                    <p:menuitem value="Eliminar Alumno" url="#" />
+                                    <p:menuitem value="Ver Alumno" url="#" />
+                                </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                    </p:megaMenu>
+                </h:panelGrid>
+            </h:form>
+               
+            <h:form id="form" style="margin: 0 auto;" enctype="multipart/form-data">
+                <h:panelGrid id="panel1" columns="2" style="margin: 0 auto" cellpadding="3">
+
+                    <p:scrollPanel id="scroolPanel" mode="native" styleClass="main" style="font-family: Cabin Sketch,cursive;width: 600px;height: 620px;border-right:1px solid rgba(0,0,0,0.4);">
+                        <h2>Diseña un ejercicio de alternativas para niños</h2>
+                        <ul class="cbp_tmtimeline">
+                            <li>                                
+                                <div class="cbp_tmicon">1</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa la pregunta del ejercicio</h2>
+                                    <p:inputText id="titulo" style="width: 350px" value="#{ejercicioAbsurdo.tituloPrincipal}">
+                                        <p:ajax event="keyup" update="form:out" listener="#{ejercicioAbsurdo.handleKeyEvent}" />
+                                    </p:inputText>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cbp_tmicon">2</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa la imagen principal</h2>
+                                    <p:growl id="mensajePrincipal" showDetail="true" />
+                                    <p:fileUpload  value="#{ejercicioAbsurdo.filePrincipal}" fileLimit="1" update="mensajePrincipal" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="margin-top: 5px;width: 520px;height: 270px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cbp_tmicon">3</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa las imágenes de respuesta</h2>
+                                    <p:growl id="mensajePrincipal1" showDetail="true" />
+                                    <p:fileUpload  value="#{ejercicioAbsurdo.filePrincipal}" fileLimit="4" update="mensajePrincipal1" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="margin-top: 5px;width: 520px;height: 400px"  mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                </div>
+                            </li>
+                        </ul>
+                    </p:scrollPanel>               
+                    <p:outputPanel styleClass="base_izquierda" id="form1" style="font-size: xx-large;" >                                               
+                        <!--<p:panelGrid columns="1" id ="elem" style="height: 600px">-->
+                            <h:outputText  style="width: 200px; margin-left: 80px;margin: 0 auto" id="out" value="#{ejercicioAbsurdo.text}" />
+                        <!--</p:panelGrid>-->
+                    </p:outputPanel>
+                </h:panelGrid>
+            </h:form>
+                    <!--p:growl id="msgs" showDetail="true" />
+                    <h:panelGrid columns="4"  cellpadding="10">                             
+                        <p:panel id="imagen1" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                            <!h:outputText value="Sports Content" />
+                            <p:growl id="messages" showDetail="true" />
+                            <p:fileUpload value="#{ejercicioAbsurdo.file}" update="messages" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                        </p:panel>
+
+                         <p:panel id="imagen2" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                            <!h:outputText value="Sports Content" />
+                            <p:growl id="messages1" showDetail="true" />
+                            <p:fileUpload  value="#{ejercicioAbsurdo.file}"  update="messages1" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" label="seleccionar" style="width: 50px;" previewWidth="0"  mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                        </p:panel>
+
+                         <p:panel id="imagen3" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                            <!h:outputText value="Sports Content" />
+                            <p:growl id="messages2" showDetail="true" />
+                            <p:fileUpload value="#{ejercicioAbsurdo.file}" update="messages2" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" mode="advanced" label="asd" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="false" />                            
+                        </p:panel>
+
+                        <p:panel id="imagen4" header="Sports" style="height: 200px;width: 200px" closable="true" >
+                            <!h:outputText value="Sports Content" />
+                            <p:growl id="messages3" showDetail="true" />
+                            <p:fileUpload value="#{ejercicioAbsurdo.file}" update="messages3" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" auto="true" />                            
+                        </p:panel>
+                    </h:panelGrid-->
+                    
+                    <div style="clear:both" />
+        </div>     
+    </h:body>
+</html>
+

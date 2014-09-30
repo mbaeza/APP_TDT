@@ -50,7 +50,7 @@ public class LoginBean implements Serializable {
             return "loginError?faces-redirect=true";
         }
         System.out.println(request.getHeader(username));
-        return "Educador/menuPrincipal?faces-redirect=true";
+        return "Educador/ejercicioAbsurdo?faces-redirect=true";
     }
     
     public void logout() {

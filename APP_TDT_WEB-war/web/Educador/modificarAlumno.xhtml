@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/style_base.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+    </h:head>
+    <h:body class="base_superior">
+            <h:form enctype="multipart/form-data" style="margin-left: -11px; margin-top: -11px;">
+                
+                <h:panelGrid columns="2" style="width: 110%" cellpadding="10">
+                    <p:megaMenu style="width: 110%;margin: 0 auto;position: fixed"  >
+                        <p:submenu label="Ejercicios" style="margin: 0 auto;">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="El Absurdo" url="ejercicioAbsurdo.xhtml" />
+                                    <p:menuitem value="Semejanza" url="#" />
+                                    <p:menuitem value="Ubicación" url="#" />
+                                    <p:menuitem value="memoria" url="#" />
+                                  </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                        <p:submenu label="Alumnos">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="Agregar Alumno" url="agregarAlumno.xhtml" />
+                                    <p:menuitem value="Modificar y Ver Alumno" url="modificarAlumno.xhtml" />                                    
+                                </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                    </p:megaMenu>
+                </h:panelGrid>
+            </h:form>
+        <div id="qwe" style="margin:0 auto; width: 960px;">
+            
+            <h:form id="form1" style="margin:0 auto;">               
+                <p:growl id="confirmacion" showDetail="true" life="2500" />
+                <div class="inicioSesión" style="position: inherit">
+                    <h4 style="font-weight: bold;font-size: 55px ;margin: 0 auto;width: 820px;color: rgb(233, 233, 25);">Modificar Información de Alumno</h4>                
+                </div>
+                <ul class="cbp_tmtimeline">
+                        <li>                                
+                            <div class="cbp_tmicon" >1</div>
+                            <div class="cbp_tmlabel" style="width:950px">
+                                <h2>Selecciona el Alumno a Modificar</h2>
+                                <p:dataTable style="width: 900px; height: 250px" id="tbl" var="alumno" value="#{modificarAlumno.alumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{modificarAlumno.alumnoSeleccionado}" selectionMode="single">
+                                    <p:ajax event="rowSelect" listener="#{modificarAlumno.onRowSelect}" update=":form1:formulario2" />
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Rut" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.rut}" />
+                                    </p:column>                        
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Nombre" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.nombre}" />
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Apellido Paterno" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.apellidoPaterno}" />
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Apellido Materno" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.apellidoMaterno}" />
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Fecha de nacimiento" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.fechaNacimiento}" />
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Especificación" />
+                                        </f:facet>
+                                        <h:outputText value="#{alumno.especificacion}" />
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cbp_tmicon">2</div>
+                            <div class="cbp_tmlabel" style="width:950px">
+                                <h2>Cambia la información de un alumno</h2>
+                                <h:panelGrid id ="formulario2" style="margin: 0 auto; text-align: left" columns="2" cellpadding="10">
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Rut: " />
+                                    <p:inputMask id="rut" style="width: 210px"  value="#{modificarAlumno.rut}" mask="999999999">
+                                        <p:watermark for="rut" value="Ingresa el Rut" />
+                                    </p:inputMask>
+
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Nombre: " />
+                                    <p:inputText id="Nombre" style="width: 210px" required="true" requiredMessage="Es requerido el Nombre" value="#{modificarAlumno.nombre}" >
+                                        <p:watermark for="Nombre" value="Ingresa el nombre" />
+                                    </p:inputText>
+
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Primer Apellido: " />
+                                    <p:inputText id="Primer_Apellido" style="width: 210px" required="true" requiredMessage="Es requerido el Primer Apellido" value="#{modificarAlumno.primerApellido}">
+                                        <p:watermark for="Primer_Apellido" value="Ingresa el primer apellido" />
+                                    </p:inputText>
+
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Segundo Apellido: " />
+                                    <p:inputText id="Segundo_Apellido" style="width: 210px" required="true" requiredMessage="Es requerido el Segundo Apellido" value="#{modificarAlumno.segundoApellido}" >
+                                        <p:watermark for="Segundo_Apellido" value="Ingresa el segundo apellido" />
+                                    </p:inputText>
+
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Fecha de Nacimiento: " />
+                                    <p:inputMask id="E-Mail" style="width: 210px" required="true" mask="99/99/9999" requiredMessage="Es requerida la fecha de nacimiento" value="#{modificarAlumno.fechaNacimiento}">
+                                        <p:watermark for="E-Mail" value="Ingresa la fecha de nacimiento" />
+                                    </p:inputMask>
+
+                                    <h:outputText style="font-weight: bold;cursor: default;font-size: xx-large;color: white;" value="Especificaciones del alumno: " />
+                                    <p:inputTextarea id="Contrasena" maxlength="100" addLine="true" style="width: 210px"  value="#{modificarAlumno.especificacion}">
+                                        <p:watermark for="Contrasena" value="Ingrese las especificaciones" />
+                                    </p:inputTextarea>
+                                </h:panelGrid>
+                                
+                                <p:commandButton value="Modificar" action="#{modificarAlumno.modificarAlumno()}" actionListener="#{modificarAlumno.confirmacionModificar}" update="confirmacion,tbl">
+                                <p:confirm header="Confirmación" message="¿Está seguro que desea modificar la información de este alumno?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />
+
+                                <p:confirmDialog  global="true" showEffect="fade" hideEffect="explode">
+                                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>                                                                               
+                    
+                            </div>
+                        </li>                            
+                    </ul>                                                                                                          
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

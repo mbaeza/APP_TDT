@@ -6,13 +6,23 @@
 
 package managedBean;
 
+import com.tdt.entityclass.Alumno;
+import com.tdt.entityclass.Ejercicio;
+import com.tdt.sessionbean.AbsurdoFacadeLocal;
+import com.tdt.sessionbean.AlumnoFacadeLocal;
+import com.tdt.sessionbean.EjercicioFacadeLocal;
+import com.tdt.sessionbean.ImagenFacadeLocal;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.*;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -38,53 +48,95 @@ import org.primefaces.model.UploadedFile;
 @Named(value = "ejercicioAbsurdo")
 @RequestScoped
 public class EjercicioAbsurdo implements Serializable{
+    @EJB
+    private AlumnoFacadeLocal alumnoFacade;
+    @EJB
+    private ImagenFacadeLocal imagenFacade;
+    @EJB
+    private AbsurdoFacadeLocal absurdoFacade;
+    @EJB
+    private EjercicioFacadeLocal ejercicioFacade;
+    
 //hola
 private  DashboardModel model;
 private UploadedFile file;
 private UploadedFile filePrincipal;
 private String tituloPrincipal;
-private final DashboardColumn column1, column2, column3, column4;
+//private final DashboardColumn column1, column2, column3, column4;
 private static final int BUFFER_SIZE = 6124000;   
 private String folderToUpload;
 private String text;
-private List<String> nombresArchivosUpload;
-    
+private final static List<String> nombresArchivosUpload = new ArrayList<>();
+private String imagenPrincipal;
+private final static  List<Integer> cont = new ArrayList();
+private boolean respuestaCorrecta1;
+private boolean respuestaCorrecta2;
+private boolean respuestaCorrecta3;
+private boolean respuestaCorrecta4;
+private String style1;
+private String style2;
+private String style3;
+private String style4;
+private List<Alumno> listaAlumnos;
+private Alumno alumnoSeleccionado;
+
+
+
     public EjercicioAbsurdo() {
-        nombresArchivosUpload = new ArrayList<>();
         
-        model = new DefaultDashboardModel();
-        column1 = new DefaultDashboardColumn();
-        column2 = new DefaultDashboardColumn();
-        column3 = new DefaultDashboardColumn();
-        column4 = new DefaultDashboardColumn();
+//        nombresArchivosUpload = new ArrayList<>();
         
+        setImagenPrincipal("interrogacion.png");
+        nombresArchivosUpload.add("interrogacion.png");
+        nombresArchivosUpload.add("interrogacion.png");
+        nombresArchivosUpload.add("interrogacion.png");
+        nombresArchivosUpload.add("interrogacion.png");
         
-        //column5 = new DefaultDashboardColumn();
-        //DashboardColumn column3 = new DefaultDashboardColumn();
-         
-        
-        column1.addWidget("imagen1");
-        column1.addWidget("imagen1");
-        column2.addWidget("imagen2");
-        column3.addWidget("imagen3");
-        column4.addWidget("imagen4");
-        
-        model.addColumn(column1);
-        model.addColumn(column2);
-        model.addColumn(column3);
-        model.addColumn(column4);
-        //model.addColumn(column5);
+//        nombresArchivosUpload = new ArrayList<>();
+//        
+//        model = new DefaultDashboardModel();
+//        column1 = new DefaultDashboardColumn();
+//        column2 = new DefaultDashboardColumn();
+//        column3 = new DefaultDashboardColumn();
+//        column4 = new DefaultDashboardColumn();
+//        
+//        
+//        //column5 = new DefaultDashboardColumn();
+//        //DashboardColumn column3 = new DefaultDashboardColumn();
+//         
+//        
+//        column1.addWidget("imagen1");
+//        column1.addWidget("imagen1");
+//        column2.addWidget("imagen2");
+//        column3.addWidget("imagen3");
+//        column4.addWidget("imagen4");
+//        
+//        model.addColumn(column1);
+//        model.addColumn(column2);
+//        model.addColumn(column3);
+//        model.addColumn(column4);
+//        model.addColumn(column5);
        // model.addColumn(column3);
         
     }
 
+    @PostConstruct
+    public void init() {
+        listaAlumnos = alumnoFacade.findAll();
+    }
+    
     public List<String> getNombresArchivosUpload() {
         return nombresArchivosUpload;
     }
-
-    public void setNombresArchivosUpload(List<String> nombresArchivosUpload) {
-        this.nombresArchivosUpload = nombresArchivosUpload;
+    
+    public void generarEjercicio(){
+//        Ejercicio nuevoEjercicio = new Ejercicio();
+//        nuevoEjercicio.set
+//        ejercicioFacade.create(null);
     }
+//    public void setNombresArchivosUpload(List<String> nombresArchivosUpload) {
+//        this.nombresArchivosUpload = nombresArchivosUpload;
+//    }
      
     public void handleReorder(DashboardReorderEvent event) {
         FacesMessage message = new FacesMessage();
@@ -94,6 +146,7 @@ private List<String> nombresArchivosUpload;
    
         addMessage(message);
     }
+    
      
     public void handleClose(CloseEvent event) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Panel Closed", "Closed panel id:'" + event.getComponent().getId() + "'");
@@ -154,17 +207,37 @@ private List<String> nombresArchivosUpload;
         this.text = text;
     }
      
+    public void onCompletedUpload(){
+        nombresArchivosUpload.remove(1);
+        nombresArchivosUpload.add(remove2(file.getFileName()));
+    }
     public void handleFileUpload(FileUploadEvent event) {
+//        cont.add(cont.size());
+        System.out.println("contador: " + cont.size());
         if(file != null) {
-            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+            FacesMessage message = new FacesMessage("Subida Realizada ", remove2(event.getFile().getFileName()) + " se ha subido con exito.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
         ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files" + event.getFile().getFileName());
-        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));
-        getNombresArchivosUpload().add(event.getFile().getFileName());
+        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/" + event.getFile().getFileName());
         
-        System.out.println(event.getFile().getFileName());
+//        if(cont.size()>4)
+//            cont.clear();
+                 
+        nombresArchivosUpload.remove(cont.size());
+    //            System.out.println(filePrincipal.getFileName());
+        nombresArchivosUpload.add(cont.size(),remove2(event.getFile().getFileName()));
+        cont.add(cont.size());
+//        setText(getNombresArchivosUpload().get(0)+getNombresArchivosUpload().get(1));
+    //               System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));        
+        System.out.println(getNombresArchivosUpload().get(0));
+        System.out.println(getNombresArchivosUpload().get(1));
+        System.out.println(getNombresArchivosUpload().get(2));
+        System.out.println(getNombresArchivosUpload().get(3));
+//        System.out.println("");
+//        getNombresArchivosUpload().add(remove2(file.getFileName()));
+        
+//        System.out.println(event.getFile().getFileName());
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(result);
             byte[] buffer = new byte[BUFFER_SIZE];
@@ -197,8 +270,74 @@ private List<String> nombresArchivosUpload;
         }  
         
         
-    }    
-    
+        
+    }   
+    public void generarStyle1(){
+        if(respuestaCorrecta1 == true)
+            setStyle1("border-color: green;border-style:solid");
+        else
+            setStyle1("border-color: none;border-style:none");
+    }
+    public void generarStyle2(){
+        if(respuestaCorrecta2 == true)
+            setStyle2("border-color: green;border-style:solid");
+        else
+            setStyle2("border-color: none;border-style:none");
+    }
+    public void generarStyle3(){
+        if(respuestaCorrecta3 == true)
+            setStyle3("border-color: green;border-style:solid");
+        else
+            setStyle3("border-color: none;border-style:none");
+    }
+    public void generarStyle4(){
+        if(respuestaCorrecta4 == true)
+            setStyle4("border-color: green;border-style:solid");
+        else
+            setStyle4("border-color: none;border-style:none");
+    }
+    public void handleFileUploadImagenPrincipal(FileUploadEvent event) {
+        if(file != null) {
+            FacesMessage message = new FacesMessage("Subida Realizada ", remove2(file.getFileName()) + " se ha subido con exito.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+//        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/" + remove2(event.getFile().getFileName()));
+//        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));       
+      
+        setImagenPrincipal(remove2(event.getFile().getFileName()));
+//        System.out.println(getImagenPrincipal());
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(result);
+            byte[] buffer = new byte[BUFFER_SIZE];
+
+            int bulk;
+            InputStream inputStream = event.getFile().getInputstream();
+            
+            while (true) {
+                bulk = inputStream.read(buffer);
+                if (bulk < 0) {
+                    break;
+                }
+                fileOutputStream.write(buffer, 0, bulk);
+                fileOutputStream.flush();
+            }
+
+            fileOutputStream.close();
+            inputStream.close();
+
+            FacesMessage msg = new FacesMessage("File Description", "file name: " + event.getFile().getFileName() + "file size: " + event.getFile().getSize() / 1024 +
+            " Kb.content type: " + event.getFile().getContentType() + "The file was uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+            FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "The files were not uploaded!", "");
+            FacesContext.getCurrentInstance().addMessage(null, error);
+        }  
+    }
 //    public void addPanel(ActionEvent event) {
 //        UIComponent component = FacesContext.getCurrentInstance().getViewRoot().findComponent("myPanelGrid");
 //        if (component != null) {
@@ -209,6 +348,13 @@ private List<String> nombresArchivosUpload;
 //            component.getChildren().add(p);
 //        }
 //    }
+    public static String remove2(String input) {
+        // Descomposición canónica
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        // Nos quedamos únicamente con los caracteres ASCII
+        Pattern pattern = Pattern.compile("\\P{ASCII}");
+        return pattern.matcher(normalized).replaceAll("");
+    }
 
     public UploadedFile getFilePrincipal() {
         return filePrincipal;
@@ -233,4 +379,127 @@ private List<String> nombresArchivosUpload;
     public void setFolderToUpload(String folderToUpload) {
         this.folderToUpload = folderToUpload;
     }
+    
+    public String getImagenPrincipal() {
+        return imagenPrincipal;
+    }
+
+    public void setImagenPrincipal(String imagenPrincipal) {
+        this.imagenPrincipal = imagenPrincipal;
+    }
+
+    public boolean isRespuestaCorrecta1() {
+        return respuestaCorrecta1;
+    }
+
+    public void setRespuestaCorrecta1(boolean respuestaCorrecta1) {
+        this.respuestaCorrecta1 = respuestaCorrecta1;
+    }
+
+    public AlumnoFacadeLocal getAlumnoFacade() {
+        return alumnoFacade;
+    }
+
+    public void setAlumnoFacade(AlumnoFacadeLocal alumnoFacade) {
+        this.alumnoFacade = alumnoFacade;
+    }
+
+    public Alumno getAlumnoSeleccionado() {
+        return alumnoSeleccionado;
+    }
+
+    public void setAlumnoSeleccionado(Alumno alumnoSeleccionado) {
+        this.alumnoSeleccionado = alumnoSeleccionado;
+    }
+
+    public boolean isRespuestaCorrecta2() {
+        return respuestaCorrecta2;
+    }
+
+    public void setRespuestaCorrecta2(boolean respuestaCorrecta2) {
+        this.respuestaCorrecta2 = respuestaCorrecta2;
+    }
+
+    public boolean isRespuestaCorrecta3() {
+        return respuestaCorrecta3;
+    }
+
+    public void setRespuestaCorrecta3(boolean respuestaCorrecta3) {
+        this.respuestaCorrecta3 = respuestaCorrecta3;
+    }
+
+    public boolean isRespuestaCorrecta4() {
+        return respuestaCorrecta4;
+    }
+
+    public void setRespuestaCorrecta4(boolean respuestaCorrecta4) {
+        this.respuestaCorrecta4 = respuestaCorrecta4;
+    }
+
+    public String getStyle1() {
+        return style1;
+    }
+
+    public void setStyle1(String style1) {
+        this.style1 = style1;
+    }
+
+    public String getStyle2() {
+        return style2;
+    }
+
+    public void setStyle2(String style2) {
+        this.style2 = style2;
+    }
+
+    public String getStyle3() {
+        return style3;
+    }
+
+    public void setStyle3(String style3) {
+        this.style3 = style3;
+    }
+
+    public String getStyle4() {
+        return style4;
+    }
+
+    public void setStyle4(String style4) {
+        this.style4 = style4;
+    }
+
+    public ImagenFacadeLocal getImagenFacade() {
+        return imagenFacade;
+    }
+
+    public void setImagenFacade(ImagenFacadeLocal imagenFacade) {
+        this.imagenFacade = imagenFacade;
+    }
+
+    public AbsurdoFacadeLocal getAbsurdoFacade() {
+        return absurdoFacade;
+    }
+
+    public void setAbsurdoFacade(AbsurdoFacadeLocal absurdoFacade) {
+        this.absurdoFacade = absurdoFacade;
+    }
+
+    public EjercicioFacadeLocal getEjercicioFacade() {
+        return ejercicioFacade;
+    }
+
+    public void setEjercicioFacade(EjercicioFacadeLocal ejercicioFacade) {
+        this.ejercicioFacade = ejercicioFacade;
+    }
+
+    public List<Alumno> getListaAlumnos() {
+        return listaAlumnos;
+    }
+
+    public void setListaAlumnos(List<Alumno> listaAlumnos) {
+        this.listaAlumnos = listaAlumnos;
+    }
+    
+    
+    
 }

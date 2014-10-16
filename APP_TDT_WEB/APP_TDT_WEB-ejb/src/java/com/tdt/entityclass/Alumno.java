@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -32,12 +34,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Alumno.findAll", query = "SELECT a FROM Alumno a"),
     @NamedQuery(name = "Alumno.findByIdAlumno", query = "SELECT a FROM Alumno a WHERE a.idAlumno = :idAlumno"),
-    @NamedQuery(name = "Alumno.findByNombre", query = "SELECT a FROM Alumno a WHERE a.nombre = :nombre"),
-    @NamedQuery(name = "Alumno.findByApellidoPaterno", query = "SELECT a FROM Alumno a WHERE a.apellidoPaterno = :apellidoPaterno"),
-    @NamedQuery(name = "Alumno.findByApellidoMaterno", query = "SELECT a FROM Alumno a WHERE a.apellidoMaterno = :apellidoMaterno"),
-    @NamedQuery(name = "Alumno.findByFechaNacimiento", query = "SELECT a FROM Alumno a WHERE a.fechaNacimiento = :fechaNacimiento"),
+    @NamedQuery(name = "Alumno.findByNombreAlumno", query = "SELECT a FROM Alumno a WHERE a.nombreAlumno = :nombreAlumno"),
+    @NamedQuery(name = "Alumno.findByApellidoPaternoAlumno", query = "SELECT a FROM Alumno a WHERE a.apellidoPaternoAlumno = :apellidoPaternoAlumno"),
+    @NamedQuery(name = "Alumno.findByApellidoMaternoAlumno", query = "SELECT a FROM Alumno a WHERE a.apellidoMaternoAlumno = :apellidoMaternoAlumno"),
     @NamedQuery(name = "Alumno.findByRut", query = "SELECT a FROM Alumno a WHERE a.rut = :rut"),
-    @NamedQuery(name = "Alumno.findByEspecificacion", query = "SELECT a FROM Alumno a WHERE a.especificacion = :especificacion")})
+    @NamedQuery(name = "Alumno.findByFechaNacimiento", query = "SELECT a FROM Alumno a WHERE a.fechaNacimiento = :fechaNacimiento")})
 public class Alumno implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,25 +47,25 @@ public class Alumno implements Serializable {
     @Column(name = "ID_ALUMNO")
     private Integer idAlumno;
     @Size(max = 100)
-    @Column(name = "NOMBRE")
-    private String nombre;
+    @Column(name = "NOMBRE_ALUMNO")
+    private String nombreAlumno;
     @Size(max = 100)
-    @Column(name = "APELLIDO_PATERNO")
-    private String apellidoPaterno;
+    @Column(name = "APELLIDO_PATERNO_ALUMNO")
+    private String apellidoPaternoAlumno;
     @Size(max = 100)
-    @Column(name = "APELLIDO_MATERNO")
-    private String apellidoMaterno;
-    @Size(max = 15)
-    @Column(name = "FECHA_NACIMIENTO")
-    private String fechaNacimiento;
-    @Size(max = 20)
+    @Column(name = "APELLIDO_MATERNO_ALUMNO")
+    private String apellidoMaternoAlumno;
+    @Size(max = 100)
     @Column(name = "RUT")
     private String rut;
-    @Size(max = 1000)
-    @Column(name = "ESPECIFICACION")
-    private String especificacion;
+    @Size(max = 100)
+    @Column(name = "FECHA_NACIMIENTO")
+    private String fechaNacimiento;
     @OneToMany(mappedBy = "idAlumno")
-    private Collection<Ejercicio> ejercicioCollection;
+    private Collection<AlumnoColaborativo> alumnoColaborativoCollection;
+    @JoinColumn(name = "ID_CENTRO_EDUCACIONAL", referencedColumnName = "ID_CENTRO_EDUCACIONAL")
+    @ManyToOne(optional = false)
+    private CentroEducacional idCentroEducacional;
 
     public Alumno() {
     }
@@ -81,36 +82,28 @@ public class Alumno implements Serializable {
         this.idAlumno = idAlumno;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreAlumno() {
+        return nombreAlumno;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
     }
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
+    public String getApellidoPaternoAlumno() {
+        return apellidoPaternoAlumno;
     }
 
-    public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
+    public void setApellidoPaternoAlumno(String apellidoPaternoAlumno) {
+        this.apellidoPaternoAlumno = apellidoPaternoAlumno;
     }
 
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
+    public String getApellidoMaternoAlumno() {
+        return apellidoMaternoAlumno;
     }
 
-    public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setApellidoMaternoAlumno(String apellidoMaternoAlumno) {
+        this.apellidoMaternoAlumno = apellidoMaternoAlumno;
     }
 
     public String getRut() {
@@ -121,21 +114,29 @@ public class Alumno implements Serializable {
         this.rut = rut;
     }
 
-    public String getEspecificacion() {
-        return especificacion;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEspecificacion(String especificacion) {
-        this.especificacion = especificacion;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     @XmlTransient
-    public Collection<Ejercicio> getEjercicioCollection() {
-        return ejercicioCollection;
+    public Collection<AlumnoColaborativo> getAlumnoColaborativoCollection() {
+        return alumnoColaborativoCollection;
     }
 
-    public void setEjercicioCollection(Collection<Ejercicio> ejercicioCollection) {
-        this.ejercicioCollection = ejercicioCollection;
+    public void setAlumnoColaborativoCollection(Collection<AlumnoColaborativo> alumnoColaborativoCollection) {
+        this.alumnoColaborativoCollection = alumnoColaborativoCollection;
+    }
+
+    public CentroEducacional getIdCentroEducacional() {
+        return idCentroEducacional;
+    }
+
+    public void setIdCentroEducacional(CentroEducacional idCentroEducacional) {
+        this.idCentroEducacional = idCentroEducacional;
     }
 
     @Override

@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/style_base.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+    </h:head>
+    <h:body class="base_superior">
+       
+        <div style="margin:0 auto;">
+            <h:form enctype="multipart/form-data" style="margin-left: -11px; margin-top: -11px;">
+                
+                <h:panelGrid columns="2" style="width: 110%" cellpadding="10">
+                    <p:megaMenu style="width: 110%;z-index: 100;margin: 0 auto;position: fixed"  >
+                        <p:submenu label="Ejercicios" style="margin: 0 auto;">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="El Absurdo" url="ejercicioSemejanza.xhtml" />
+                                    <p:menuitem value="Semejanza" url="#" />
+                                    <p:menuitem value="Ubicación" url="#" />
+                                    <p:menuitem value="memoria" url="#" />
+                                  </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                        <p:submenu label="Alumnos">
+                            <p:menuitem value="El Absurdo" url="#" />
+                            <p:column>   
+                                <p:submenu label="">
+                                    <p:menuitem value="Agregar Alumno" url="agregarAlumno.xhtml" />
+                                    <p:menuitem value="Modificar y Ver Alumno" url="ejercicioSemejanza.xhtml" />                                    
+                                </p:submenu>  
+                            </p:column>                                  
+                        </p:submenu>
+                    </p:megaMenu>
+                </h:panelGrid>
+            </h:form>
+            <div class="inicioSesión" style="height: 10px;width: 700px;margin: 0 auto;position: inherit;margin-top: 35px">
+                <h4 style="font-weight: bold;font-size: 55px ;margin: 0 auto;height: 10px;width: 500px;color: rgb(233, 233, 25);">Ejercicio de semejanzas</h4>
+            </div>   
+             
+            <h:form id="form" style="margin: 0 auto;" enctype="multipart/form-data">
+                <p:growl id="confirmacion" showDetail="true" life="5000" />
+                <h:panelGrid id="panel1" columns="2" style="margin: 0 auto" cellpadding="3">
+
+                    <p:scrollPanel id="scroolPanel" mode="native" styleClass="main" style="z-index: 1;border: none;background: none;font-family: Cabin Sketch,cursive;width: 600px;height: 620px;//border-right:1px solid rgba(0,0,0,0.4);>">
+                        <h2>Diseña un ejercicio de semejanzas para niños</h2>
+                        <ul class="cbp_tmtimeline">
+                            <li>                                
+                                <div class="cbp_tmicon">1</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa el nombre del ejercicio</h2>
+                                    <p:inputText id="titulo2" style="width: 350px" value="#{ejercicioSemejanza.nombreEjercicio}"/>                                                                           
+                                </div>
+                            </li>
+                            <li>                                
+                                <div class="cbp_tmicon">2</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa una descripción del ejercicio</h2>
+                                        <p:inputTextarea maxlength="100" id="titulo3" style="width: 350px" value="#{ejercicioSemejanza.descripcionEjercicio}"/>                                                                           
+                                </div>
+                            </li>
+                            <li>                                
+                                <div class="cbp_tmicon">3</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa la pregunta del ejercicio</h2>
+                                    <p:inputText id="titulo" style="width: 350px" value="#{ejercicioSemejanza.tituloPrincipal}">
+                                        <p:ajax event="keyup" update="form:out" listener="#{ejercicioSemejanza.handleKeyEvent}" />
+                                    </p:inputText>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cbp_tmicon">4</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Ingresa la imagen principal </h2>
+                                    <p:growl id="mensajePrincipal" showDetail="true" />
+                                    
+                                    <p:fileUpload  value="#{ejercicioSemejanza.filePrincipal}" fileLimit="1" update="mensajePrincipal,imagenPrincipal" fileUploadListener="#{ejercicioSemejanza.handleFileUploadImagenPrincipal}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="margin-top: 5px;width: 520px;height: 270px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cbp_tmicon">5</div>
+                                <div class="cbp_tmlabel">
+                                    
+                                    <h2>Ingresa las imágenes semejantes a la imagen principal</h2>
+                                    <p:growl id="mensajePrincipal1" showDetail="true" />
+                                    <p:fileUpload  value="#{ejercicioSemejanza.filePrincipal}"  multiple="true" fileLimit="4" update="mensajePrincipal1,imagen1,imagen2,imagen3,imagen4" fileUploadListener="#{ejercicioSemejanza.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="margin-top: 5px;width: 520px;height: 400px"  mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    
+                                </div>
+                            </li>  
+                            <li>
+                                <div class="cbp_tmicon">5</div>
+                                <div class="cbp_tmlabel">
+                                    
+                                    <h2>Ingresa las imágenes no semejantes a la imagen principal</h2>
+                                    <p:growl id="mensajePrincipal12" showDetail="true" />
+                                    <p:fileUpload  value="#{ejercicioSemejanza.filePrincipal}"  multiple="true" fileLimit="4" update="mensajePrincipal1,imagen11,imagen21,imagen31,imagen41" fileUploadListener="#{ejercicioSemejanza.handleFileUploadNoSemejante}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="margin-top: 5px;width: 520px;height: 400px"  mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    
+                                </div>
+                            </li>  
+                            <li>                                
+                                <div class="cbp_tmicon">7</div>
+                                <div class="cbp_tmlabel">
+                                    <h2>Guardar Cambios</h2>
+                                    <p:commandButton value="Guardar" action="#{ejercicioSemejanza.generarEjercicio()}" actionListener="#{ejercicioSemejanza.confirmacionAgregar}" update="confirmacion">
+                                    <p:confirm header="Confirmación" message="¿Está seguro que desea agregar este ejercicio?" icon="ui-icon-alert" />                                        
+                                    </p:commandButton>
+                                    <p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />
+
+                                    <p:confirmDialog  global="true" showEffect="fade" hideEffect="explode">
+                                        <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                    </p:confirmDialog> 
+                                </div>
+                            </li>
+
+                        </ul>
+                    </p:scrollPanel>               
+                    <p:outputPanel styleClass="base_izquierda" id="form1" style="font-size: xx-large;" >     
+                        
+                        <h:panelGrid columns="1" cellpadding="10" id ="elem" style="height: 300px;width:800px; margin:0 auto;">
+                            
+                            <h:outputText style="width: 200px; margin-left: 80px;margin: 0 auto" id="out" value="#{ejercicioSemejanza.text}" />
+                            
+                            <h:graphicImage id="imagenPrincipal" style="margin-left: 250px" url="../files/#{ejercicioSemejanza.imagenPrincipal}" width="150" height="150" />
+                            
+                        </h:panelGrid>
+                            
+                        <h:panelGrid columns="4" cellpadding="10" id ="elem1" style=" margin-left: -5px;">
+                            
+                            <h:graphicImage id="imagen1" url="../files/#{ejercicioSemejanza.nombresArchivosUpload.get(0)}" width="150" height="150" />
+                            <h:graphicImage id="imagen2" url="../files/#{ejercicioSemejanza.nombresArchivosUpload.get(1)}" width="150" height="150"/>
+                            <h:graphicImage id="imagen3" url="../files/#{ejercicioSemejanza.nombresArchivosUpload.get(2)}" width="150" height="150" />
+                            <h:graphicImage id="imagen4" url="../files/#{ejercicioSemejanza.nombresArchivosUpload.get(3)}" width="150" height="150"/>
+                            
+                            <h:graphicImage id="imagen11" url="../files/#{ejercicioSemejanza.nombresArchivosUploadNoSemejantes.get(0) }" width="150" height="150" />
+                            <h:graphicImage id="imagen21" url="../files/#{ejercicioSemejanza.nombresArchivosUploadNoSemejantes.get(1)}" width="150" height="150"/>
+                            <h:graphicImage id="imagen31" url="../files/#{ejercicioSemejanza.nombresArchivosUploadNoSemejantes.get(2)}" width="150" height="150" />
+                            <h:graphicImage id="imagen41" url="../files/#{ejercicioSemejanza.nombresArchivosUploadNoSemejantes.get(3)}" width="150" height="150"/>
+                            
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+            </h:form>
+                  
+                    
+                    <div style="clear:both" />
+        </div>     
+    </h:body>
+</html>
+

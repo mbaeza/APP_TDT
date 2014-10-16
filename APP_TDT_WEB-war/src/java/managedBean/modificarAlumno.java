@@ -47,13 +47,13 @@ public class modificarAlumno {
     }
     
     public void modificarAlumno(){
-        alumnoSeleccionado.setApellidoMaterno(segundoApellido);                
-        alumnoSeleccionado.setApellidoMaterno(segundoApellido);
-        alumnoSeleccionado.setApellidoPaterno(primerApellido);
-        alumnoSeleccionado.setNombre(nombre);
-        alumnoSeleccionado.setRut(rut);
-        alumnoSeleccionado.setEspecificacion(especificacion);
-        alumnoSeleccionado.setFechaNacimiento(fechaNacimiento);
+//        alumnoSeleccionado.setApellidoMaterno(segundoApellido);                
+//        alumnoSeleccionado.setApellidoMaterno(segundoApellido);
+//        alumnoSeleccionado.setApellidoPaterno(primerApellido);
+//        alumnoSeleccionado.setNombre(nombre);
+//        alumnoSeleccionado.setRut(rut);
+//        alumnoSeleccionado.setEspecificacion(especificacion);
+//        alumnoSeleccionado.setFechaNacimiento(fechaNacimiento);
         alumnoFacade.edit(alumnoSeleccionado);
     }
     
@@ -64,12 +64,12 @@ public class modificarAlumno {
 
     public void onRowSelect(SelectEvent event) {
 //        System.out.println("asdasdasd");
-        setNombre(alumnoSeleccionado.getNombre());
-        setRut(alumnoSeleccionado.getRut());
-        setPrimerApellido(alumnoSeleccionado.getApellidoPaterno());
-        setSegundoApellido(alumnoSeleccionado.getApellidoMaterno());
-        setFechaNacimiento(alumnoSeleccionado.getFechaNacimiento());
-        setEspecificacion(alumnoSeleccionado.getEspecificacion());
+//        setNombre(alumnoSeleccionado.getNombre());
+//        setRut(alumnoSeleccionado.getRut());
+//        setPrimerApellido(alumnoSeleccionado.getApellidoPaterno());
+//        setSegundoApellido(alumnoSeleccionado.getApellidoMaterno());
+//        setFechaNacimiento(alumnoSeleccionado.getFechaNacimiento());
+//        setEspecificacion(alumnoSeleccionado.getEspecificacion());
     } 
 
     public String getNombre() {

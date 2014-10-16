@@ -6,8 +6,11 @@
 
 package managedBean;
 
+import com.tdt.entityclass.Absurdo;
+import com.tdt.entityclass.AbsurdoPK;
 import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.Ejercicio;
+import com.tdt.entityclass.Imagen;
 import com.tdt.sessionbean.AbsurdoFacadeLocal;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
@@ -67,31 +70,52 @@ private static final int BUFFER_SIZE = 6124000;
 private String folderToUpload;
 private String text;
 private final static List<String> nombresArchivosUpload = new ArrayList<>();
+private final static List<String> nombresArchivosUploadPrincipal = new ArrayList<>();
 private String imagenPrincipal;
 private final static  List<Integer> cont = new ArrayList();
-private boolean respuestaCorrecta1;
-private boolean respuestaCorrecta2;
-private boolean respuestaCorrecta3;
-private boolean respuestaCorrecta4;
+private final static  List<Boolean> subirArchivo = new ArrayList<Boolean>(){
+    {
+        add(false);
+    }
+};
+private boolean respuestaCorrecta1 = false;
+private boolean respuestaCorrecta2 = false;
+private boolean respuestaCorrecta3 = false;
+private boolean respuestaCorrecta4 = false;
 private String style1;
 private String style2;
 private String style3;
 private String style4;
 private List<Alumno> listaAlumnos;
 private Alumno alumnoSeleccionado;
+private String nombreEjercicio;
+private String descripcionEjercicio;
+
 
 
 
     public EjercicioAbsurdo() {
         
 //        nombresArchivosUpload = new ArrayList<>();
-        
-        setImagenPrincipal("interrogacion.png");
-        nombresArchivosUpload.add("interrogacion.png");
-        nombresArchivosUpload.add("interrogacion.png");
-        nombresArchivosUpload.add("interrogacion.png");
-        nombresArchivosUpload.add("interrogacion.png");
-        
+        if(subirArchivo.get(0) == false){
+            setImagenPrincipal("interrogacion.png");
+            nombresArchivosUpload.add(0, "interrogacion.png");
+            nombresArchivosUpload.add(1, "interrogacion.png");
+            nombresArchivosUpload.add(2, "interrogacion.png");
+            nombresArchivosUpload.add(3, "interrogacion.png");
+            
+            respuestaCorrecta1 = false;
+            respuestaCorrecta2 = false;
+            respuestaCorrecta3 = false;
+            respuestaCorrecta4 = false;
+            nombreEjercicio= ""; 
+            tituloPrincipal= "";
+            descripcionEjercicio = "";
+            
+            nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
+            cont.clear();
+        }
+        subirArchivo.add(0, false);
 //        nombresArchivosUpload = new ArrayList<>();
 //        
 //        model = new DefaultDashboardModel();
@@ -123,21 +147,92 @@ private Alumno alumnoSeleccionado;
     @PostConstruct
     public void init() {
         listaAlumnos = alumnoFacade.findAll();
+//        nombresArchivosUpload.add(0,"interrogacion.png");
+//        nombresArchivosUpload.add(1,"interrogacion.png");
+//        nombresArchivosUpload.add(2,"interrogacion.png");
+//        nombresArchivosUpload.add(3,"interrogacion.png");
     }
     
     public List<String> getNombresArchivosUpload() {
         return nombresArchivosUpload;
     }
     
-    public void generarEjercicio(){
-//        Ejercicio nuevoEjercicio = new Ejercicio();
-//        nuevoEjercicio.set
-//        ejercicioFacade.create(null);
+    public void generarEjercicio() throws IOException{
+      
+            //generar el ejercicio nuevo
+            Ejercicio nuevoEjercicio = new Ejercicio();
+            nuevoEjercicio.setNombreEjercicio(nombreEjercicio);
+            nuevoEjercicio.setDescripcionEjercicio(descripcionEjercicio);
+            ejercicioFacade.create(nuevoEjercicio);                
+
+
+            //generar el ejercicio especifico
+            Absurdo nuevoAbsurdo = new Absurdo();
+            nuevoAbsurdo.setColorTexto("#0000");
+            nuevoAbsurdo.setDescripcionEjercicio(descripcionEjercicio);
+            nuevoAbsurdo.setEjercicio(nuevoEjercicio);
+            nuevoAbsurdo.setNombreEjercicio(nombreEjercicio);
+            nuevoAbsurdo.setTextoPrincipal(tituloPrincipal); 
+
+            
+            AbsurdoPK abspk = new AbsurdoPK();
+            
+            //Se crea imagen
+            Imagen nuevaImagen = new Imagen();
+            
+            for (Ejercicio a : ejercicioFacade.findAll()){
+                if(a.equals(nuevoEjercicio)){
+                    abspk.setIdEjercicio(a.getIdEjercicio());                   
+                    nuevaImagen.setIdEjercicio(a);
+                            }
+            } 
+            nuevoAbsurdo.setAbsurdoPK(abspk);
+            absurdoFacade.create(nuevoAbsurdo);
+
+            //se suben las imagenes            
+            nuevaImagen.setRespuestaCorrecta(false);
+            nuevaImagen.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
+            nuevaImagen.setPrincipal(true);                        
+            nuevaImagen.setRespuestaCorrecta(false);
+            imagenFacade.create(nuevaImagen);
+
+            List<Boolean> respuestasCorrecta = new ArrayList<Boolean>(){
+                {
+                    add(respuestaCorrecta1);
+                    add(respuestaCorrecta2);
+                    add(respuestaCorrecta3);
+                    add(respuestaCorrecta4);
+                }
+            };
+
+            for(int i = 0;i<4;i++){
+                if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
+                    Imagen nuevaImagen2 = new Imagen();
+                    nuevaImagen2.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setPrincipal(false);
+                    nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
+                    nuevaImagen2.setIdEjercicio(nuevoEjercicio);
+                    imagenFacade.create(nuevaImagen2);
+                }
+                System.out.println(nombresArchivosUpload.get(i));
+            }
+
+        // reinicializar variables
+        respuestaCorrecta1 = false;
+        respuestaCorrecta2 = false;
+        respuestaCorrecta3 = false;
+        respuestaCorrecta4 = false;
+        nombreEjercicio= ""; 
+        tituloPrincipal= "";
+        descripcionEjercicio = "";
+        nombresArchivosUpload.add(0,"interrogacion.png");
+        nombresArchivosUpload.add(1,"interrogacion.png");
+        nombresArchivosUpload.add(2,"interrogacion.png");
+        nombresArchivosUpload.add(3,"interrogacion.png");
+        nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioAbsurdo.xhtml");
     }
-//    public void setNombresArchivosUpload(List<String> nombresArchivosUpload) {
-//        this.nombresArchivosUpload = nombresArchivosUpload;
-//    }
-     
+
     public void handleReorder(DashboardReorderEvent event) {
         FacesMessage message = new FacesMessage();
         message.setSeverity(FacesMessage.SEVERITY_INFO);
@@ -147,7 +242,11 @@ private Alumno alumnoSeleccionado;
         addMessage(message);
     }
     
-     
+    public void confirmacionAgregar(ActionEvent actionEvent){
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Agregación realizada", "Se ha agregado un nuevo ejercicio del sistema satisfactoriamente");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    } 
+    
     public void handleClose(CloseEvent event) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Panel Closed", "Closed panel id:'" + event.getComponent().getId() + "'");
          
@@ -211,6 +310,7 @@ private Alumno alumnoSeleccionado;
         nombresArchivosUpload.remove(1);
         nombresArchivosUpload.add(remove2(file.getFileName()));
     }
+    
     public void handleFileUpload(FileUploadEvent event) {
 //        cont.add(cont.size());
         System.out.println("contador: " + cont.size());
@@ -224,7 +324,7 @@ private Alumno alumnoSeleccionado;
 //        if(cont.size()>4)
 //            cont.clear();
                  
-        nombresArchivosUpload.remove(cont.size());
+        //nombresArchivosUpload.remove(cont.size());
     //            System.out.println(filePrincipal.getFileName());
         nombresArchivosUpload.add(cont.size(),remove2(event.getFile().getFileName()));
         cont.add(cont.size());
@@ -234,6 +334,7 @@ private Alumno alumnoSeleccionado;
         System.out.println(getNombresArchivosUpload().get(1));
         System.out.println(getNombresArchivosUpload().get(2));
         System.out.println(getNombresArchivosUpload().get(3));
+        subirArchivo.add(0, true);
 //        System.out.println("");
 //        getNombresArchivosUpload().add(remove2(file.getFileName()));
         
@@ -277,24 +378,32 @@ private Alumno alumnoSeleccionado;
             setStyle1("border-color: green;border-style:solid");
         else
             setStyle1("border-color: none;border-style:none");
+        
+          subirArchivo.add(0, true);
     }
     public void generarStyle2(){
         if(respuestaCorrecta2 == true)
             setStyle2("border-color: green;border-style:solid");
         else
             setStyle2("border-color: none;border-style:none");
+        
+          subirArchivo.add(0, true);
     }
     public void generarStyle3(){
         if(respuestaCorrecta3 == true)
             setStyle3("border-color: green;border-style:solid");
         else
             setStyle3("border-color: none;border-style:none");
+        
+          subirArchivo.add(0, true);
     }
     public void generarStyle4(){
         if(respuestaCorrecta4 == true)
             setStyle4("border-color: green;border-style:solid");
         else
             setStyle4("border-color: none;border-style:none");
+        
+          subirArchivo.add(0, true);
     }
     public void handleFileUploadImagenPrincipal(FileUploadEvent event) {
         if(file != null) {
@@ -306,6 +415,8 @@ private Alumno alumnoSeleccionado;
 //        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));       
       
         setImagenPrincipal(remove2(event.getFile().getFileName()));
+        nombresArchivosUploadPrincipal.add(0,remove2(event.getFile().getFileName()));
+        subirArchivo.add(0, true);
 //        System.out.println(getImagenPrincipal());
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(result);
@@ -498,6 +609,22 @@ private Alumno alumnoSeleccionado;
 
     public void setListaAlumnos(List<Alumno> listaAlumnos) {
         this.listaAlumnos = listaAlumnos;
+    }
+
+    public String getNombreEjercicio() {
+        return nombreEjercicio;
+    }
+
+    public void setNombreEjercicio(String nombreEjercicio) {
+        this.nombreEjercicio = nombreEjercicio;
+    }
+
+    public String getDescripcionEjercicio() {
+        return descripcionEjercicio;
+    }
+
+    public void setDescripcionEjercicio(String descripcionEjercicio) {
+        this.descripcionEjercicio = descripcionEjercicio;
     }
     
     

@@ -42,7 +42,7 @@ public class AgregarUsuario {
         usuarioPk.setEmail(mail);
         usuario.setApellidoMaterno(segundoApellido);
         usuario.setApellidoPaterno(primerApellido);
-        usuario.setNombre(nombre);
+//        usuario.setNombre(nombre);
         usuario.setRut(rut);
         usuario.setPassword(password);
         usuario.setUsuarioPK(usuarioPk);

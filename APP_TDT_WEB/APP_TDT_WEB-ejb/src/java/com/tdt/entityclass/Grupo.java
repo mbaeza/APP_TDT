@@ -32,8 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Grupo.findAll", query = "SELECT g FROM Grupo g"),
     @NamedQuery(name = "Grupo.findByIdGrupo", query = "SELECT g FROM Grupo g WHERE g.idGrupo = :idGrupo"),
-    @NamedQuery(name = "Grupo.findByNombre", query = "SELECT g FROM Grupo g WHERE g.nombre = :nombre")})
+    @NamedQuery(name = "Grupo.findByNombreGrupo", query = "SELECT g FROM Grupo g WHERE g.nombreGrupo = :nombreGrupo")})
 public class Grupo implements Serializable {
+    @Size(max = 100)
+    @Column(name = "NOMBRE")
+    private String nombre;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +44,8 @@ public class Grupo implements Serializable {
     @Column(name = "ID_GRUPO")
     private Integer idGrupo;
     @Size(max = 100)
-    @Column(name = "NOMBRE")
-    private String nombre;
+    @Column(name = "NOMBRE_GRUPO")
+    private String nombreGrupo;
     @JoinColumns({
         @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO"),
         @JoinColumn(name = "EMAIL", referencedColumnName = "EMAIL")})
@@ -64,12 +67,12 @@ public class Grupo implements Serializable {
         this.idGrupo = idGrupo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreGrupo() {
+        return nombreGrupo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreGrupo(String nombreGrupo) {
+        this.nombreGrupo = nombreGrupo;
     }
 
     public Usuario getUsuario() {
@@ -103,6 +106,14 @@ public class Grupo implements Serializable {
     @Override
     public String toString() {
         return "com.tdt.entityclass.Grupo[ idGrupo=" + idGrupo + " ]";
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }

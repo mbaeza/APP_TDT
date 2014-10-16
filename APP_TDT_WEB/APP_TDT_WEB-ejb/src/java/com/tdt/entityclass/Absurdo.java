@@ -7,21 +7,16 @@
 package com.tdt.entityclass;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,70 +27,65 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Absurdo.findAll", query = "SELECT a FROM Absurdo a"),
-    @NamedQuery(name = "Absurdo.findByIdAtributo", query = "SELECT a FROM Absurdo a WHERE a.idAtributo = :idAtributo"),
-    @NamedQuery(name = "Absurdo.findByTamanoLetra", query = "SELECT a FROM Absurdo a WHERE a.tamanoLetra = :tamanoLetra"),
-    @NamedQuery(name = "Absurdo.findByColorLetra", query = "SELECT a FROM Absurdo a WHERE a.colorLetra = :colorLetra"),
+    @NamedQuery(name = "Absurdo.findByIdEjercicio", query = "SELECT a FROM Absurdo a WHERE a.absurdoPK.idEjercicio = :idEjercicio"),
+    @NamedQuery(name = "Absurdo.findByIdAbsurdo", query = "SELECT a FROM Absurdo a WHERE a.absurdoPK.idAbsurdo = :idAbsurdo"),
+    @NamedQuery(name = "Absurdo.findByDescripcionEjercicio", query = "SELECT a FROM Absurdo a WHERE a.descripcionEjercicio = :descripcionEjercicio"),
+    @NamedQuery(name = "Absurdo.findByNombreEjercicio", query = "SELECT a FROM Absurdo a WHERE a.nombreEjercicio = :nombreEjercicio"),
     @NamedQuery(name = "Absurdo.findByTextoPrincipal", query = "SELECT a FROM Absurdo a WHERE a.textoPrincipal = :textoPrincipal"),
-    @NamedQuery(name = "Absurdo.findByRespuestaCorrecta1", query = "SELECT a FROM Absurdo a WHERE a.respuestaCorrecta1 = :respuestaCorrecta1"),
-    @NamedQuery(name = "Absurdo.findByRespuestaCorrecta2", query = "SELECT a FROM Absurdo a WHERE a.respuestaCorrecta2 = :respuestaCorrecta2"),
-    @NamedQuery(name = "Absurdo.findByRespuestaCorrecta3", query = "SELECT a FROM Absurdo a WHERE a.respuestaCorrecta3 = :respuestaCorrecta3"),
-    @NamedQuery(name = "Absurdo.findByRespuestaCorrecta4", query = "SELECT a FROM Absurdo a WHERE a.respuestaCorrecta4 = :respuestaCorrecta4")})
+    @NamedQuery(name = "Absurdo.findByColorTexto", query = "SELECT a FROM Absurdo a WHERE a.colorTexto = :colorTexto")})
 public class Absurdo implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "ID_ATRIBUTO")
-    private Integer idAtributo;
-    @Size(max = 100)
-    @Column(name = "TAMANO_LETRA")
-    private String tamanoLetra;
-    @Size(max = 100)
-    @Column(name = "COLOR_LETRA")
-    private String colorLetra;
+    @EmbeddedId
+    protected AbsurdoPK absurdoPK;
+    @Size(max = 200)
+    @Column(name = "DESCRIPCION_EJERCICIO")
+    private String descripcionEjercicio;
+    @Size(max = 200)
+    @Column(name = "NOMBRE_EJERCICIO")
+    private String nombreEjercicio;
     @Size(max = 100)
     @Column(name = "TEXTO_PRINCIPAL")
     private String textoPrincipal;
-    @Column(name = "RESPUESTA_CORRECTA1")
-    private Boolean respuestaCorrecta1;
-    @Column(name = "RESPUESTA_CORRECTA2")
-    private Boolean respuestaCorrecta2;
-    @Column(name = "RESPUESTA_CORRECTA3")
-    private Boolean respuestaCorrecta3;
-    @Column(name = "RESPUESTA_CORRECTA4")
-    private Boolean respuestaCorrecta4;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAtributo")
-    private Collection<Imagen> imagenCollection;
+    @Size(max = 100)
+    @Column(name = "COLOR_TEXTO")
+    private String colorTexto;
+    @JoinColumn(name = "ID_EJERCICIO", referencedColumnName = "ID_EJERCICIO", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Ejercicio ejercicio;
 
     public Absurdo() {
     }
 
-    public Absurdo(Integer idAtributo) {
-        this.idAtributo = idAtributo;
+    public Absurdo(AbsurdoPK absurdoPK) {
+        this.absurdoPK = absurdoPK;
     }
 
-    public Integer getIdAtributo() {
-        return idAtributo;
+    public Absurdo(int idEjercicio, int idAbsurdo) {
+        this.absurdoPK = new AbsurdoPK(idEjercicio, idAbsurdo);
     }
 
-    public void setIdAtributo(Integer idAtributo) {
-        this.idAtributo = idAtributo;
+    public AbsurdoPK getAbsurdoPK() {
+        return absurdoPK;
     }
 
-    public String getTamanoLetra() {
-        return tamanoLetra;
+    public void setAbsurdoPK(AbsurdoPK absurdoPK) {
+        this.absurdoPK = absurdoPK;
     }
 
-    public void setTamanoLetra(String tamanoLetra) {
-        this.tamanoLetra = tamanoLetra;
+    public String getDescripcionEjercicio() {
+        return descripcionEjercicio;
     }
 
-    public String getColorLetra() {
-        return colorLetra;
+    public void setDescripcionEjercicio(String descripcionEjercicio) {
+        this.descripcionEjercicio = descripcionEjercicio;
     }
 
-    public void setColorLetra(String colorLetra) {
-        this.colorLetra = colorLetra;
+    public String getNombreEjercicio() {
+        return nombreEjercicio;
+    }
+
+    public void setNombreEjercicio(String nombreEjercicio) {
+        this.nombreEjercicio = nombreEjercicio;
     }
 
     public String getTextoPrincipal() {
@@ -106,51 +96,26 @@ public class Absurdo implements Serializable {
         this.textoPrincipal = textoPrincipal;
     }
 
-    public Boolean getRespuestaCorrecta1() {
-        return respuestaCorrecta1;
+    public String getColorTexto() {
+        return colorTexto;
     }
 
-    public void setRespuestaCorrecta1(Boolean respuestaCorrecta1) {
-        this.respuestaCorrecta1 = respuestaCorrecta1;
+    public void setColorTexto(String colorTexto) {
+        this.colorTexto = colorTexto;
     }
 
-    public Boolean getRespuestaCorrecta2() {
-        return respuestaCorrecta2;
+    public Ejercicio getEjercicio() {
+        return ejercicio;
     }
 
-    public void setRespuestaCorrecta2(Boolean respuestaCorrecta2) {
-        this.respuestaCorrecta2 = respuestaCorrecta2;
-    }
-
-    public Boolean getRespuestaCorrecta3() {
-        return respuestaCorrecta3;
-    }
-
-    public void setRespuestaCorrecta3(Boolean respuestaCorrecta3) {
-        this.respuestaCorrecta3 = respuestaCorrecta3;
-    }
-
-    public Boolean getRespuestaCorrecta4() {
-        return respuestaCorrecta4;
-    }
-
-    public void setRespuestaCorrecta4(Boolean respuestaCorrecta4) {
-        this.respuestaCorrecta4 = respuestaCorrecta4;
-    }
-
-    @XmlTransient
-    public Collection<Imagen> getImagenCollection() {
-        return imagenCollection;
-    }
-
-    public void setImagenCollection(Collection<Imagen> imagenCollection) {
-        this.imagenCollection = imagenCollection;
+    public void setEjercicio(Ejercicio ejercicio) {
+        this.ejercicio = ejercicio;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idAtributo != null ? idAtributo.hashCode() : 0);
+        hash += (absurdoPK != null ? absurdoPK.hashCode() : 0);
         return hash;
     }
 
@@ -161,7 +126,7 @@ public class Absurdo implements Serializable {
             return false;
         }
         Absurdo other = (Absurdo) object;
-        if ((this.idAtributo == null && other.idAtributo != null) || (this.idAtributo != null && !this.idAtributo.equals(other.idAtributo))) {
+        if ((this.absurdoPK == null && other.absurdoPK != null) || (this.absurdoPK != null && !this.absurdoPK.equals(other.absurdoPK))) {
             return false;
         }
         return true;
@@ -169,7 +134,7 @@ public class Absurdo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tdt.entityclass.Absurdo[ idAtributo=" + idAtributo + " ]";
+        return "com.tdt.entityclass.Absurdo[ absurdoPK=" + absurdoPK + " ]";
     }
     
 }

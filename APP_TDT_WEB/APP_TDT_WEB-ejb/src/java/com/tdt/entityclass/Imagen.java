@@ -30,35 +30,44 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Imagen.findAll", query = "SELECT i FROM Imagen i"),
-    @NamedQuery(name = "Imagen.findByIdImage", query = "SELECT i FROM Imagen i WHERE i.idImage = :idImage"),
-    @NamedQuery(name = "Imagen.findByUrlImagen", query = "SELECT i FROM Imagen i WHERE i.urlImagen = :urlImagen")})
+    @NamedQuery(name = "Imagen.findByIdImagen", query = "SELECT i FROM Imagen i WHERE i.idImagen = :idImagen"),
+    @NamedQuery(name = "Imagen.findByUrlImagen", query = "SELECT i FROM Imagen i WHERE i.urlImagen = :urlImagen"),
+    @NamedQuery(name = "Imagen.findByRespuestaCorrecta", query = "SELECT i FROM Imagen i WHERE i.respuestaCorrecta = :respuestaCorrecta"),
+    @NamedQuery(name = "Imagen.findByOrden", query = "SELECT i FROM Imagen i WHERE i.orden = :orden"),
+    @NamedQuery(name = "Imagen.findByPrincipal", query = "SELECT i FROM Imagen i WHERE i.principal = :principal")})
 public class Imagen implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "ID_IMAGE")
-    private Integer idImage;
-    @Size(max = 100)
+    @Column(name = "ID_IMAGEN")
+    private Integer idImagen;
+    @Size(max = 200)
     @Column(name = "URL_IMAGEN")
     private String urlImagen;
-    @JoinColumn(name = "ID_ATRIBUTO", referencedColumnName = "ID_ATRIBUTO")
+    @Column(name = "RESPUESTA_CORRECTA")
+    private Boolean respuestaCorrecta;
+    @Column(name = "ORDEN")
+    private Integer orden;
+    @Column(name = "PRINCIPAL")
+    private Boolean principal;
+    @JoinColumn(name = "ID_EJERCICIO", referencedColumnName = "ID_EJERCICIO")
     @ManyToOne(optional = false)
-    private Absurdo idAtributo;
+    private Ejercicio idEjercicio;
 
     public Imagen() {
     }
 
-    public Imagen(Integer idImage) {
-        this.idImage = idImage;
+    public Imagen(Integer idImagen) {
+        this.idImagen = idImagen;
     }
 
-    public Integer getIdImage() {
-        return idImage;
+    public Integer getIdImagen() {
+        return idImagen;
     }
 
-    public void setIdImage(Integer idImage) {
-        this.idImage = idImage;
+    public void setIdImagen(Integer idImagen) {
+        this.idImagen = idImagen;
     }
 
     public String getUrlImagen() {
@@ -69,18 +78,42 @@ public class Imagen implements Serializable {
         this.urlImagen = urlImagen;
     }
 
-    public Absurdo getIdAtributo() {
-        return idAtributo;
+    public Boolean getRespuestaCorrecta() {
+        return respuestaCorrecta;
     }
 
-    public void setIdAtributo(Absurdo idAtributo) {
-        this.idAtributo = idAtributo;
+    public void setRespuestaCorrecta(Boolean respuestaCorrecta) {
+        this.respuestaCorrecta = respuestaCorrecta;
+    }
+
+    public Integer getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Integer orden) {
+        this.orden = orden;
+    }
+
+    public Boolean getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(Boolean principal) {
+        this.principal = principal;
+    }
+
+    public Ejercicio getIdEjercicio() {
+        return idEjercicio;
+    }
+
+    public void setIdEjercicio(Ejercicio idEjercicio) {
+        this.idEjercicio = idEjercicio;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idImage != null ? idImage.hashCode() : 0);
+        hash += (idImagen != null ? idImagen.hashCode() : 0);
         return hash;
     }
 
@@ -91,7 +124,7 @@ public class Imagen implements Serializable {
             return false;
         }
         Imagen other = (Imagen) object;
-        if ((this.idImage == null && other.idImage != null) || (this.idImage != null && !this.idImage.equals(other.idImage))) {
+        if ((this.idImagen == null && other.idImagen != null) || (this.idImagen != null && !this.idImagen.equals(other.idImagen))) {
             return false;
         }
         return true;
@@ -99,7 +132,7 @@ public class Imagen implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tdt.entityclass.Imagen[ idImage=" + idImage + " ]";
+        return "com.tdt.entityclass.Imagen[ idImagen=" + idImagen + " ]";
     }
     
 }

@@ -7,21 +7,21 @@
 package com.tdt.entityclass;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,123 +32,124 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Ejercicio.findAll", query = "SELECT e FROM Ejercicio e"),
-    @NamedQuery(name = "Ejercicio.findByIdAtributo", query = "SELECT e FROM Ejercicio e WHERE e.idAtributo = :idAtributo"),
-    @NamedQuery(name = "Ejercicio.findByIdObservacion", query = "SELECT e FROM Ejercicio e WHERE e.idObservacion = :idObservacion"),
-    @NamedQuery(name = "Ejercicio.findByDescripcion", query = "SELECT e FROM Ejercicio e WHERE e.descripcion = :descripcion"),
-    @NamedQuery(name = "Ejercicio.findByNombre", query = "SELECT e FROM Ejercicio e WHERE e.nombre = :nombre"),
-    @NamedQuery(name = "Ejercicio.findByObservacion", query = "SELECT e FROM Ejercicio e WHERE e.observacion = :observacion")})
+    @NamedQuery(name = "Ejercicio.findByIdEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.idEjercicio = :idEjercicio"),
+    @NamedQuery(name = "Ejercicio.findByDescripcionEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.descripcionEjercicio = :descripcionEjercicio"),
+    @NamedQuery(name = "Ejercicio.findByNombreEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.nombreEjercicio = :nombreEjercicio")})
 public class Ejercicio implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ID_ATRIBUTO")
-    private int idAtributo;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "ID_OBSERVACION")
-    private Integer idObservacion;
-    @Size(max = 1000)
-    @Column(name = "DESCRIPCION")
-    private String descripcion;
-    @Size(max = 100)
-    @Column(name = "NOMBRE")
-    private String nombre;
-    @Size(max = 1000)
-    @Column(name = "OBSERVACION")
-    private String observacion;
-    @JoinColumn(name = "ID_ALUMNO", referencedColumnName = "ID_ALUMNO")
-    @ManyToOne
-    private Alumno idAlumno;
-    @JoinColumn(name = "ID_CURSO", referencedColumnName = "ID_CURSO")
-    @ManyToOne
-    private Curso idCurso;
-    @JoinColumns({
-        @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO"),
-        @JoinColumn(name = "EMAIL", referencedColumnName = "EMAIL")})
-    @ManyToOne(optional = false)
-    private Usuario usuario;
+    @Column(name = "ID_EJERCICIO")
+    private Integer idEjercicio;
+    @Size(max = 200)
+    @Column(name = "DESCRIPCION_EJERCICIO")
+    private String descripcionEjercicio;
+    @Size(max = 200)
+    @Column(name = "NOMBRE_EJERCICIO")
+    private String nombreEjercicio;
+    @OneToMany(mappedBy = "idEjercicio")
+    private Collection<AsignarEjercicio> asignarEjercicioCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ejercicio")
+    private Collection<Memorize> memorizeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ejercicio")
+    private Collection<Secuencia> secuenciaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ejercicio")
+    private Collection<Absurdo> absurdoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ejercicio")
+    private Collection<Semejanza> semejanzaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEjercicio")
+    private Collection<Imagen> imagenCollection;
 
     public Ejercicio() {
     }
 
-    public Ejercicio(Integer idObservacion) {
-        this.idObservacion = idObservacion;
+    public Ejercicio(Integer idEjercicio) {
+        this.idEjercicio = idEjercicio;
     }
 
-    public Ejercicio(Integer idObservacion, int idAtributo) {
-        this.idObservacion = idObservacion;
-        this.idAtributo = idAtributo;
+    public Integer getIdEjercicio() {
+        return idEjercicio;
     }
 
-    public int getIdAtributo() {
-        return idAtributo;
+    public void setIdEjercicio(Integer idEjercicio) {
+        this.idEjercicio = idEjercicio;
     }
 
-    public void setIdAtributo(int idAtributo) {
-        this.idAtributo = idAtributo;
+    public String getDescripcionEjercicio() {
+        return descripcionEjercicio;
     }
 
-    public Integer getIdObservacion() {
-        return idObservacion;
+    public void setDescripcionEjercicio(String descripcionEjercicio) {
+        this.descripcionEjercicio = descripcionEjercicio;
     }
 
-    public void setIdObservacion(Integer idObservacion) {
-        this.idObservacion = idObservacion;
+    public String getNombreEjercicio() {
+        return nombreEjercicio;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public void setNombreEjercicio(String nombreEjercicio) {
+        this.nombreEjercicio = nombreEjercicio;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    @XmlTransient
+    public Collection<AsignarEjercicio> getAsignarEjercicioCollection() {
+        return asignarEjercicioCollection;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setAsignarEjercicioCollection(Collection<AsignarEjercicio> asignarEjercicioCollection) {
+        this.asignarEjercicioCollection = asignarEjercicioCollection;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    @XmlTransient
+    public Collection<Memorize> getMemorizeCollection() {
+        return memorizeCollection;
     }
 
-    public String getObservacion() {
-        return observacion;
+    public void setMemorizeCollection(Collection<Memorize> memorizeCollection) {
+        this.memorizeCollection = memorizeCollection;
     }
 
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
+    @XmlTransient
+    public Collection<Secuencia> getSecuenciaCollection() {
+        return secuenciaCollection;
     }
 
-    public Alumno getIdAlumno() {
-        return idAlumno;
+    public void setSecuenciaCollection(Collection<Secuencia> secuenciaCollection) {
+        this.secuenciaCollection = secuenciaCollection;
     }
 
-    public void setIdAlumno(Alumno idAlumno) {
-        this.idAlumno = idAlumno;
+    @XmlTransient
+    public Collection<Absurdo> getAbsurdoCollection() {
+        return absurdoCollection;
     }
 
-    public Curso getIdCurso() {
-        return idCurso;
+    public void setAbsurdoCollection(Collection<Absurdo> absurdoCollection) {
+        this.absurdoCollection = absurdoCollection;
     }
 
-    public void setIdCurso(Curso idCurso) {
-        this.idCurso = idCurso;
+    @XmlTransient
+    public Collection<Semejanza> getSemejanzaCollection() {
+        return semejanzaCollection;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public void setSemejanzaCollection(Collection<Semejanza> semejanzaCollection) {
+        this.semejanzaCollection = semejanzaCollection;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    @XmlTransient
+    public Collection<Imagen> getImagenCollection() {
+        return imagenCollection;
+    }
+
+    public void setImagenCollection(Collection<Imagen> imagenCollection) {
+        this.imagenCollection = imagenCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idObservacion != null ? idObservacion.hashCode() : 0);
+        hash += (idEjercicio != null ? idEjercicio.hashCode() : 0);
         return hash;
     }
 
@@ -159,7 +160,7 @@ public class Ejercicio implements Serializable {
             return false;
         }
         Ejercicio other = (Ejercicio) object;
-        if ((this.idObservacion == null && other.idObservacion != null) || (this.idObservacion != null && !this.idObservacion.equals(other.idObservacion))) {
+        if ((this.idEjercicio == null && other.idEjercicio != null) || (this.idEjercicio != null && !this.idEjercicio.equals(other.idEjercicio))) {
             return false;
         }
         return true;
@@ -167,7 +168,7 @@ public class Ejercicio implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tdt.entityclass.Ejercicio[ idObservacion=" + idObservacion + " ]";
+        return "com.tdt.entityclass.Ejercicio[ idEjercicio=" + idEjercicio + " ]";
     }
     
 }

@@ -38,12 +38,12 @@ public class AgregarAlumno {
 
     public void agregarAlumno(){
         Alumno alumno = new Alumno();        
-        alumno.setApellidoMaterno(segundoApellido);
-        alumno.setApellidoPaterno(primerApellido);
-        alumno.setNombre(nombre);
-        alumno.setRut(rut);
-        alumno.setEspecificacion(fechaNacimiento);
-        alumno.setFechaNacimiento(fechaNacimiento);
+//        alumno.setApellidoMaterno(segundoApellido);
+//        alumno.setApellidoPaterno(primerApellido);
+//        alumno.setNombre(nombre);
+//        alumno.setRut(rut);
+//        alumno.setEspecificacion(fechaNacimiento);
+//        alumno.setFechaNacimiento(fechaNacimiento);
         alumnoFacade.create(alumno);
     }
     

@@ -8,9 +8,10 @@ and open the template in the editor.
     Author     : marcobaezasalazar
 */
 
-.base_superior{
+.body_general{
     background-image: 
-        url("#{resource['images/base_superior.png']}");
+        url("#{resource['images/base_superior2.png']}");
+    color: #22980B;
     background-repeat: repeat;
     background-color: lightblue;
     font-family: "Cabin Sketch",cursive;
@@ -77,6 +78,7 @@ and open the template in the editor.
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
 
+
 .ui-widget-content{
     //background: none;
     color:green;
@@ -88,11 +90,12 @@ and open the template in the editor.
     background-image: 
         url("#{resource['images/ipad.png']}");
     background-repeat: no-repeat;
-    width: 800px;
+    width: 685px;
     height: 620px;
     padding: 60px;
     font-family: "Cabin Sketch",cursive;
 }
+
 
 .ui-fileupload{
     font-family: "Cabin Sketch",cursive;
@@ -355,8 +358,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4df5b', end
 	}	
 }
 
-/* General Blueprint Style */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/* General Blueprint Style 
+
 @font-face {
 	font-family: 'bpicons';
 	src:url('../fonts/bpicons/bpicons.eot');
@@ -366,19 +369,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4df5b', end
 		url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
-} /* Made with http://icomoon.io/ */
+}  Made with http://icomoon.io/ 
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-body, html { font-size: 100%; padding: 0; margin: 0;}
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+ Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ 
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
-body {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
-    color: #BEF8AF;
-}
 
 a {
 	color: #f0f0f0;
@@ -542,5 +540,5 @@ a:hover {
 
 	.container > header > span {
 		text-indent: 30px;
-	}
-}
+	}*/
+/*}*/

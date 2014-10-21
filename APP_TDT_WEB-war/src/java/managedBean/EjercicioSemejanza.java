@@ -177,22 +177,10 @@ private String descripcionEjercicio;
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);
                     imagenFacade.create(nuevaImagen2);
                 }
-                System.out.println(nombresArchivosUpload.get(i));
+                System.out.println(nombresArchivosUploadNoSemejantes.get(i));
             }
 
         // reinicializar variables
-        respuestaCorrecta1 = false;
-        respuestaCorrecta2 = false;
-        respuestaCorrecta3 = false;
-        respuestaCorrecta4 = false;
-        nombreEjercicio= ""; 
-        tituloPrincipal= "";
-        descripcionEjercicio = "";
-        nombresArchivosUpload.add(0,"interrogacion.png");
-        nombresArchivosUpload.add(1,"interrogacion.png");
-        nombresArchivosUpload.add(2,"interrogacion.png");
-        nombresArchivosUpload.add(3,"interrogacion.png");
-        nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
         FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioAbsurdo.xhtml");
     }
 
@@ -269,8 +257,15 @@ private String descripcionEjercicio;
         nombresArchivosUpload.add(cont.size(),remove2(event.getFile().getFileName()));
         cont.add(cont.size());
       
-        subirArchivo.add(0, true);
         
+        
+          System.out.println("-------------------------");
+        System.out.println("U: "+nombresArchivosUpload.get(0));
+        System.out.println("U: "+nombresArchivosUpload.get(1));
+        System.out.println("U: "+nombresArchivosUpload.get(2));
+        System.out.println("U: "+nombresArchivosUpload.get(3));
+        System.out.println("-------------------------");
+        subirArchivo.add(0, true);
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(result);
             byte[] buffer = new byte[BUFFER_SIZE];
@@ -315,8 +310,16 @@ private String descripcionEjercicio;
         nombresArchivosUploadNoSemejantes.add(cont1.size(),remove2(event.getFile().getFileName()));
         cont1.add(cont1.size());
              
-        subirArchivo.add(0, true);
         
+        
+        System.out.println("-------------------------");
+        System.out.println(nombresArchivosUploadNoSemejantes.get(0));
+        System.out.println(nombresArchivosUploadNoSemejantes.get(1));
+        System.out.println(nombresArchivosUploadNoSemejantes.get(2));
+        System.out.println(nombresArchivosUploadNoSemejantes.get(3));
+        System.out.println("-------------------------");
+        
+        subirArchivo.add(0, true);
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(result);
             byte[] buffer = new byte[BUFFER_SIZE];

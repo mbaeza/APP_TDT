@@ -150,27 +150,19 @@ private String descripcionEjercicio;
             memorizeFacade.create(nuevoMemoria);
 
             //se suben las imagenes            
-            nuevaImagen.setRespuestaCorrecta(false);
-            nuevaImagen.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
-            nuevaImagen.setPrincipal(true);                        
-            nuevaImagen.setRespuestaCorrecta(false);
-            imagenFacade.create(nuevaImagen);
+//            nuevaImagen.setRespuestaCorrecta(false);
+//            nuevaImagen.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
+//            nuevaImagen.setPrincipal(true);                        
+//            nuevaImagen.setRespuestaCorrecta(false);
+//            imagenFacade.create(nuevaImagen);
 
-            List<Boolean> respuestasCorrecta = new ArrayList<Boolean>(){
-                {
-                    add(respuestaCorrecta1);
-                    add(respuestaCorrecta2);
-                    add(respuestaCorrecta3);
-                    add(respuestaCorrecta4);
-                }
-            };
 
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
                     nuevaImagen2.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
-                    nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
+//                    nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);
                     imagenFacade.create(nuevaImagen2);
                 }

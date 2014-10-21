@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta charset="UTF-8" />
+        <h:outputStylesheet name="css/demo.css" />
+        <h:outputStylesheet name="css/style_base.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <h:outputStylesheet name="css/component.css" />
+        <h:outputScript name="js/modernizr.custom.js"/>
+    </h:head>
+    <h:body class="body_general" >
+        <div class="fs-form-wrap" id="fs-form-wrap">
+            <div class="fs-title" style="font-size: 50px;">
+                    Agregar un ejercicio de respuesta multiple
+            </div>
+            <h:form id="myform" class="fs-form fs-form-full" >
+                <p:growl id="confirmacion" showDetail="true" life="5000" />
+
+                    <ol class="fs-fields"> 
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el alumno para modificar su información" />                                                                                                
+                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl" var="alumno" value="#{modificarAlumnos.listaAlumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{modificarAlumnos.alumnoSeleccionado}" selectionMode="single">
+                                        <p:ajax event="rowSelect" listener="#{modificarAlumnos.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Nombres" />
+                                            </f:facet>
+                                            <h:outputText value="#{alumno.nombreAlumno}" />
+                                        </p:column>                        
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Apellido Paterno" />
+                                            </f:facet>
+                                            <h:outputText value="#{alumno.apellidoPaternoAlumno}" />
+                                        </p:column>
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Apellido Materno" />
+                                            </f:facet>
+                                            <h:outputText value="#{alumno.apellidoMaternoAlumno}" />
+                                        </p:column>
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Rut" />
+                                            </f:facet>
+                                            <h:outputText value="#{alumno.rut}" />
+                                        </p:column>
+                                    </p:dataTable>
+                                </pm:field>
+                            </li>   
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el Rut" />
+                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{modificarAlumnos.rut}" />
+                                    <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
+                                </pm:field>
+                                
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del alumno" />
+                                    <p:inputText  required="true" id="q2" class="fs-anim-lower" type="text" value="#{modificarAlumnos.nombre}" />
+                                    <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
+                                </pm:field>
+                                
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido paterno" />
+                                    
+                                    <p:inputText  required="true" id="q3" class="fs-anim-lower" type="text" value="#{modificarAlumnos.primerApellido}" />
+                                </pm:field>
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q3" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido materno" />
+                                   
+                                    <p:inputText  required="true" id="q4" class="fs-anim-lower" type="text" value="#{modificarAlumnos.segundoApellido}" />
+                                </pm:field>
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q4" style="font-family: Cabin Sketch ,cursive"  value="Ingresa fecha de nacimiento" />
+                                   
+                                    <p:inputMask  mask="99/99/9999" required="true" id="q5" class="fs-anim-lower"  value="#{modificarAlumnos.fechaNacimiento}" />
+                                </pm:field>
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del centro educacional" />                                                                                                
+                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl1" var="centro" value="#{modificarAlumnos.centrosEducacionales}" rowKey="#{centro.idCentroEducacional}" paginator="true" rows="5" selection="#{modificarAlumnos.centroSeleccionado}" selectionMode="single">
+                                        <!--<p:ajax event="rowSelect" listener="#{modificarCentroEducacional.onRowSelect}" update=":myform:q1,:myform:q2" />-->
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Nombre Centro Educacional" />
+                                            </f:facet>
+                                            <h:outputText value="#{centro.nombreCentroEducacional}" />
+                                        </p:column>                        
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Ubicacion Centro Educacional" />
+                                            </f:facet>
+                                            <h:outputText value="#{centro.ubicacion}" />
+                                        </p:column>
+                                    </p:dataTable>
+                                </pm:field>
+                            </li>
+                    </ol><!-- /fs-fields -->
+                   <div id="xx" class="prueba" style="margin-top: 6%;">
+                       Guardar Cambios
+                    </div>
+                    <!--<button class="fs-submit" type="submit">Send answers</button>-->
+
+                    <p:commandButton  class="fs-submit" value="Guardar" action="#{modificarAlumnos.modificarAlumno()}" actionListener="#{modificarAlumnos.confirmacionAgregar}" update="confirmacion">
+                <p:confirm header="Confirmación" message="¿Está seguro que desea agregar este ejercicio?" icon="ui-icon-alert" />                                        
+                </p:commandButton>
+                <!--<p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />-->
+
+                <p:confirmDialog  global="true" showEffect="fade" hideEffect="explode">
+                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog> 
+            </h:form><!-- /fs-form -->
+        </div><!-- /fs-form-wrap -->
+
+
+
+		<h:outputScript name="js/classie.js"></h:outputScript>
+		<h:outputScript name="js/selectFx.js"></h:outputScript>
+		<h:outputScript name="js/fullscreenForm.js"></h:outputScript>
+		<h:outputScript>
+			(function() {
+				var formWrap = document.getElementById( 'fs-form-wrap' );
+
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+					new SelectFx( el, {
+						stickyPlaceholder: false,
+						onChange: function(val){
+							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+						}
+					});
+				} );
+
+				new FForm( formWrap, {
+					onReview : function() {
+						classie.add( document.body, 'overview' ); // for demo purposes only
+					}
+				} );
+			})();
+                        
+		</h:outputScript>
+    </h:body>
+</html>
+

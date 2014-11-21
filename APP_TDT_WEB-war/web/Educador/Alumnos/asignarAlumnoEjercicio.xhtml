@@ -25,9 +25,30 @@
                     <ol class="fs-fields"> 
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el alumno para modificar su información" />                                                                                                
-                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl" var="alumno" value="#{modificarAlumnos.listaAlumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{modificarAlumnos.alumnoSeleccionado}" selectionMode="single">
-                                        <p:ajax event="rowSelect" listener="#{modificarAlumnos.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el ejercicio a asignar" />                                                                                                
+                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl" var="ejercicio" value="#{asignarAlumnoEjercicio.ejercicios}" rowKey="#{ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{asignarAlumnoEjercicio.ejercicioSeleccionado}" selectionMode="single">
+                                        <!--<p:ajax event="rowSelect" listener="#{asignarAlumnoEjercicio.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />-->
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Nombre del Ejercicio" />
+                                            </f:facet>
+                                            <h:outputText value="#{ejercicio.nombreEjercicio}" />
+                                        </p:column>                        
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Descrición del Ejercicio" />
+                                            </f:facet>
+                                            <h:outputText value="#{ejercicio.descripcionEjercicio}" />
+                                        </p:column>                      
+                                    </p:dataTable>
+                                </pm:field>
+                            </li>
+                            <li>
+                                <pm:field>
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona los alumnos que participan en el ejercicio" />                                                                                                
+                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 850px; height: 250px" id="tbl1" var="alumno" value="#{asignarAlumnoEjercicio.listaAlumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{asignarAlumnoEjercicio.alumnosSeleccionados}" >
+                                        <!--<p:ajax event="rowSelect" listener="#{modificarAlumnos.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />-->
+                                        <p:column selectionMode="multiple" style="width:30px;text-align:center"/>
                                         <p:column>
                                             <f:facet name="header">
                                                 <h:outputText value="Nombres" />
@@ -57,68 +78,27 @@
                             </li>   
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el Rut" />
-                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{modificarAlumnos.rut}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa la finalidad de la realción ejercicio alumno" />
+                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{asignarAlumnoEjercicio.observacion}" />
                                     <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
                                 </pm:field>
                                 
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del alumno" />
-                                    <p:inputText  required="true" id="q2" class="fs-anim-lower" type="text" value="#{modificarAlumnos.nombre}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Explicar los alumnos seleccionados" />
+                                    <p:inputText  required="true" id="q2" class="fs-anim-lower" type="text" value="#{asignarAlumnoEjercicio.observacionColaboracion}" />
                                     <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
                                 </pm:field>
                                 
-                            </li>
-                            <li>
-                                <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido paterno" />
-                                    
-                                    <p:inputText  required="true" id="q3" class="fs-anim-lower" type="text" value="#{modificarAlumnos.primerApellido}" />
-                                </pm:field>
-                            </li>
-                            <li>
-                                <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q3" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido materno" />
-                                   
-                                    <p:inputText  required="true" id="q4" class="fs-anim-lower" type="text" value="#{modificarAlumnos.segundoApellido}" />
-                                </pm:field>
-                            </li>
-                            <li>
-                                <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q4" style="font-family: Cabin Sketch ,cursive"  value="Ingresa fecha de nacimiento" />
-                                   
-                                    <p:inputMask  mask="99/99/9999" required="true" id="q5" class="fs-anim-lower"  value="#{modificarAlumnos.fechaNacimiento}" />
-                                </pm:field>
-                            </li>
-                            <li>
-                                <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del centro educacional" />                                                                                                
-                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl1" var="centro" value="#{modificarAlumnos.centrosEducacionales}" rowKey="#{centro.idCentroEducacional}" paginator="true" rows="5" selection="#{modificarAlumnos.centroSeleccionado}" selectionMode="single">
-                                        <!--<p:ajax event="rowSelect" listener="#{modificarCentroEducacional.onRowSelect}" update=":myform:q1,:myform:q2" />-->
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Nombre Centro Educacional" />
-                                            </f:facet>
-                                            <h:outputText value="#{centro.nombreCentroEducacional}" />
-                                        </p:column>                        
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Ubicacion Centro Educacional" />
-                                            </f:facet>
-                                            <h:outputText value="#{centro.ubicacion}" />
-                                        </p:column>
-                                    </p:dataTable>
-                                </pm:field>
-                            </li>
+                            </li>                                              
                     </ol><!-- /fs-fields -->
                    <div id="xx" class="prueba" style="margin-top: 6%;">
                        Guardar Cambios
                     </div>
                     <!--<button class="fs-submit" type="submit">Send answers</button>-->
 
-                    <p:commandButton  class="fs-submit" value="Guardar" action="#{modificarAlumnos.modificarAlumno()}" actionListener="#{modificarAlumnos.confirmacionAgregar}" update="confirmacion">
+                    <p:commandButton  class="fs-submit" value="Guardar" action="#{asignarAlumnoEjercicio.asignarAlumnoEjercicio()}" actionListener="#{asignarAlumnoEjercicio.confirmacionAgregar}" update="confirmacion">
                 <p:confirm header="Confirmación" message="¿Está seguro que desea modificar esta información?" icon="ui-icon-alert" />                                        
                 </p:commandButton>
                 <!--<p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />-->

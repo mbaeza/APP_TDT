@@ -13,12 +13,17 @@ import com.tdt.entityclass.Usuario;
 import com.tdt.sessionbean.AlumnoColaborativoFacadeLocal;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.AsignarEjercicioFacadeLocal;
+import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
+import managedBean.LoginBean;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 /**
  *
@@ -27,6 +32,8 @@ import javax.enterprise.context.RequestScoped;
 @Named(value = "asignarAlumnoEjercicio")
 @RequestScoped
 public class AsignarAlumnoEjercicio {
+    @EJB
+    private EjercicioFacadeLocal ejercicioFacade;
     @EJB
     private AlumnoColaborativoFacadeLocal alumnoColaborativoFacade;
     @EJB
@@ -40,7 +47,7 @@ public class AsignarAlumnoEjercicio {
     private Alumno alumnoSeleccionado;
     private List<Ejercicio> ejercicios;
     private Ejercicio ejercicioSeleccionado;
-    private Usuario usuarioSeleccionado;
+    private Usuario usuarioSeleccionado = new LoginBean().getUsuarioActual();
     private List<Usuario> usuarios;
     private List<Alumno> alumnosSeleccionados;
     private String observacion;
@@ -54,6 +61,7 @@ public class AsignarAlumnoEjercicio {
     public void init(){
         listaAlumnos = alumnoFacade.findAll();   
         usuarios = usuarioFacade.findAll();    
+        ejercicios = ejercicioFacade.findAll();
     } 
     
     public void asignarAlumnoEjercicio(){
@@ -72,6 +80,11 @@ public class AsignarAlumnoEjercicio {
             
         }
             
+    }
+    
+    public void confirmacionAgregar(ActionEvent actionEvent){
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Asignación realizada", "Se ha asignado un alumno a un ejercicio de forma satisfactoria");
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
     public List<Ejercicio> getEjercicios() {
@@ -167,7 +180,19 @@ public class AsignarAlumnoEjercicio {
     public void setObservacionColaboracion(String observacionColaboracion) {
         this.observacionColaboracion = observacionColaboracion;
     }
+    
+    public String getObservacionColaboracion() {
+        return observacionColaboracion;
+    }
 
+    public AlumnoColaborativoFacadeLocal getAlumnoColaborativoFacade() {
+        return alumnoColaborativoFacade;
+    }
 
+    public void setAlumnoColaborativoFacade(AlumnoColaborativoFacadeLocal alumnoColaborativoFacade) {
+        this.alumnoColaborativoFacade = alumnoColaborativoFacade;
+    }
+
+    
     
 }

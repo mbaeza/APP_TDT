@@ -30,5 +30,7 @@ public interface UsuarioFacadeLocal {
     List<Usuario> findRange(int[] range);
 
     int count();
+
+    Usuario validarSesionMovil(String email, String password);
     
 }

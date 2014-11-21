@@ -6,7 +6,10 @@
 
 package managedBean;
 
+import com.tdt.entityclass.Usuario;
+import com.tdt.sessionbean.UsuarioFacadeLocal;
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -21,9 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 @Named(value = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
+    @EJB
+    private UsuarioFacadeLocal usuarioFacade;
 
     private String username;
     private String password;
+    private static Usuario usuarioActual;
     
     public String getUsername() {
     return username;
@@ -37,6 +43,23 @@ public class LoginBean implements Serializable {
     public void setPassword(String password) {
     this.password = password;
     }
+
+    public UsuarioFacadeLocal getUsuarioFacade() {
+        return usuarioFacade;
+    }
+
+    public void setUsuarioFacade(UsuarioFacadeLocal usuarioFacade) {
+        this.usuarioFacade = usuarioFacade;
+    }
+
+    public Usuario getUsuarioActual() {
+        return usuarioActual;
+    }
+
+    public void setUsuarioActual(Usuario usuarioActual) {
+        this.usuarioActual = usuarioActual;
+    }
+    
     
     public String login () {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -45,12 +68,17 @@ public class LoginBean implements Serializable {
         
         try {
             request.login(this.username, this.password);
+            for(Usuario user: usuarioFacade.findAll()){
+                if(user.getUsuarioPK().getEmail().equals(this.username)){
+                    setUsuarioActual(user);
+                }
+            }
         } catch (ServletException e) {
             context.addMessage(null, new FacesMessage("Login failed."));
             return "loginError?faces-redirect=true";
         }
         System.out.println(request.getHeader(username));
-        return "Educador/ejercicioAbsurdo?faces-redirect=true";
+        return "Educador/Ejercicios/principalEjercicios?faces-redirect=true";
     }
     
     public void logout() {

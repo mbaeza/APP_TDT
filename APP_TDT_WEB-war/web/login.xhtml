@@ -8,7 +8,7 @@
         <h:outputStylesheet name="css/style_base.css"/>
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
     </h:head>
-    <h:body class="base_superior">
+    <h:body class="body_general">
         
         <div style="margin:0 auto; width: 411px;margin-top: 18%">
             <h:form class="inicioSesión">
@@ -22,8 +22,7 @@
 
                     <label  style="font-weight: bold;cursor: default;font-size: xx-large; color: white;" for="passwordInput">Contraseña</label>
                     <p:password value="#{loginBean.password}" id="inputPassword" />
-                    <p:commandButton type="submit" value="Entrar" action="#{loginBean.login()}"/>
-                    <p:commandButton type="submit" value="Registrarme ya!" action="faces/registroUsuario"/>
+                    <p:commandButton type="submit" value="Entrar" action="#{loginBean.login()}"/>               
                 </h:panelGrid>
             </h:form>
         </div>

@@ -31,15 +31,26 @@
             <web-resource-name>Educador</web-resource-name>
             <description/>
             <url-pattern>/faces/Educador/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>PUT</http-method>
-            <http-method>HEAD</http-method>
-            <http-method>OPTIONS</http-method>
-            <http-method>TRACE</http-method>
-            <http-method>DELETE</http-method>
         </web-resource-collection>
         <auth-constraint>
             <description/>
+            <role-name>Educador</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Administrador</display-name>
+        <web-resource-collection>
+            <web-resource-name>Administrador</web-resource-name>
+            <description/>
+            <url-pattern>/faces/Administrador/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Administrador</role-name>
         </auth-constraint>
         <user-data-constraint>
             <description/>
@@ -74,6 +85,10 @@
             <param-value>/Users/marcobaezasalazar/APP_TDT</param-value>
         </init-param>
     </filter>
+    <security-role>
+        <description/>
+        <role-name>Administrador</role-name>
+    </security-role>
     <ejb-local-ref>
         <ejb-ref-name>UsuarioFacade</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="pagosHibernate" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>cl.bch.motorpagos.persistencia.Cliente</class>
+		<class>cl.bch.motorpagos.persistencia.Comercio</class>
+		<class>cl.bch.motorpagos.persistencia.Convenio</class>
+		<class>cl.bch.motorpagos.persistencia.Cuenta</class>
+		<class>cl.bch.motorpagos.persistencia.CuentasConvenio</class>
+		<class>cl.bch.motorpagos.persistencia.CuentasConvenioPK</class>
+		<class>cl.bch.motorpagos.persistencia.CuentasCliente</class>
+		<class>cl.bch.motorpagos.persistencia.CuentasClientePK</class>
+		<class>cl.bch.motorpagos.persistencia.Dispositivo</class>
+		<class>cl.bch.motorpagos.persistencia.DispositivosCliente</class>
+		<class>cl.bch.motorpagos.persistencia.DispositivosClientePK</class>
+		<class>cl.bch.motorpagos.persistencia.DispositivosConvenio</class>
+		<class>cl.bch.motorpagos.persistencia.DispositivosConvenioPK</class>
+		<class>cl.bch.motorpagos.persistencia.TrxsPago</class>
+		<class>cl.bch.motorpagos.persistencia.LimiteCuenta</class>
+		<class>cl.bch.motorpagos.persistencia.LimiteCuentaPK</class>
+		<class>cl.bch.motorpagos.persistencia.AdmCuentasHist</class>
+		<class>cl.bch.motorpagos.persistencia.AdmCuentasHistPK</class>
+		<class>cl.bch.motorpagos.persistencia.AvatarConvenio</class>
+		<class>cl.bch.motorpagos.persistencia.VersionesApp</class>
+		<class>cl.bch.motorpagos.persistencia.VersionesAppPK</class>
+		<class>cl.bch.motorpagos.persistencia.UsuariosAdm</class>
+		<properties>			
+			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
+		</properties>
+	</persistence-unit>
+</persistence>

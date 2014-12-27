@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HojaResumenContratoCreditoConsumo" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="2bb77a27-6706-4d3f-8f72-9640e5fce7d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="256"/>
+	<field name="ruta_imagenes" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String"/>
+	<field name="fecha_header" class="java.lang.String"/>
+	<field name="CAE" class="java.lang.String"/>
+	<field name="nombre_titular" class="java.lang.String"/>
+	<field name="fecha_reporte" class="java.lang.String"/>
+	<field name="monto_liquido" class="java.lang.String"/>
+	<field name="plazo_credito" class="java.lang.String"/>
+	<field name="valor_cuota" class="java.lang.String"/>
+	<field name="valor_ultima_cuota" class="java.lang.String"/>
+	<field name="garantias_asociadas" class="java.lang.String"/>
+	<field name="costo_total" class="java.lang.String"/>
+	<field name="impuestos" class="java.lang.String"/>
+	<field name="gastos_notariales" class="java.lang.String"/>
+	<field name="monto_bruto" class="java.lang.String"/>
+	<field name="valor_cuota_referencia" class="java.lang.String"/>
+	<field name="costo_mensual_desgravamen" class="java.lang.String"/>
+	<field name="costo_total_desgravamen" class="java.lang.String"/>
+	<field name="cobertura_desgravamen" class="java.lang.String"/>
+	<field name="codigo_poliza_desgravamen" class="java.lang.String"/>
+	<field name="numero_poliza_desgravamen" class="java.lang.String"/>
+	<field name="compania_desgravamen" class="java.lang.String"/>
+	<field name="intermediario_desgravamen" class="java.lang.String"/>
+	<field name="costo_mensual_desempleo" class="java.lang.String"/>
+	<field name="costo_total_desempleo" class="java.lang.String"/>
+	<field name="cobertura_desempleo" class="java.lang.String"/>
+	<field name="codigo_poliza_desempleo" class="java.lang.String"/>
+	<field name="numero_poliza_desempleo" class="java.lang.String"/>
+	<field name="compania_desempleo" class="java.lang.String"/>
+	<field name="intermediario_desempleo" class="java.lang.String"/>
+	<field name="costo_mensual_accidente" class="java.lang.String"/>
+	<field name="costo_total_accidente" class="java.lang.String"/>
+	<field name="cobertura_accidente" class="java.lang.String"/>
+	<field name="codigo_poliza_accidente" class="java.lang.String"/>
+	<field name="numero_poliza_accidente" class="java.lang.String"/>
+	<field name="compania_accidente" class="java.lang.String"/>
+	<field name="intermediario_accidente" class="java.lang.String"/>
+	<field name="cargo_prepago" class="java.lang.String"/>
+	<field name="plazo_aviso_pago_anticipado" class="java.lang.String"/>
+	<field name="interes_moratorio" class="java.lang.String"/>
+	<field name="gastos_cobranza" class="java.lang.String"/>
+	<field name="advertencia_1" class="java.lang.String"/>
+	<field name="advertencia_2" class="java.lang.String"/>
+	<field name="advertencia_3" class="java.lang.String"/>
+	<field name="advertencia_4" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="41" width="535" height="1" uuid="72e66441-d0be-4da4-8634-66f7923534f7"/>
+			</line>
+			<textField>
+				<reportElement x="379" y="26" width="156" height="18" uuid="92859a2a-4332-458c-93b7-8df5b1be5fd5"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_header}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="535" height="23" uuid="4cd7f4c8-988a-4bfd-8cd6-9efb6950fd5c"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Hoja Resumen Contrato Crédito de Consumo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="676" splitType="Stretch">
+			<staticText>
+				<reportElement x="213" y="486" width="54" height="11" uuid="7b50350e-2fc6-4368-af57-a5d54f0c4011"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°8 Contrato]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="535" height="1" uuid="73cd89fc-5784-4c71-b057-9e4a260ddf4c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="27" width="535" height="1" uuid="59f5d23a-dee1-4336-9af2-ba84f9f1748f"/>
+			</line>
+			<staticText>
+				<reportElement x="378" y="0" width="39" height="20" uuid="b0021005-f9bc-4668-9cf1-6cf39407076c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CAE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="417" y="0" width="79" height="20" uuid="69f9bc59-4fdf-42a1-bb26-4c69a52e4250"/>
+				<textElement markup="none">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CAE}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="373" y="23" width="162" height="1" uuid="862c100b-9342-44a0-9f0c-217fc47cec3d"/>
+			</line>
+			<line>
+				<reportElement x="373" y="1" width="1" height="22" uuid="6429a517-4d96-4b94-a0c3-894bcec50ef3"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="28" width="267" height="11" uuid="f40ff99b-1b2d-4a78-919a-44251c4fe7b3"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre del Titular:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="39" width="267" height="11" uuid="80d56b7f-2944-4e64-8cc4-282ae7c1d0c9"/>
+				<box leftPadding="2">
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="28" width="267" height="11" uuid="97b6a48e-b319-41b7-b003-62a7ffc2f966"/>
+				<box>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_titular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="39" width="267" height="11" uuid="d6dac356-6742-4999-a232-36c025e09cba"/>
+				<box>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_reporte}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="50" width="535" height="14" backcolor="#CCCCCC" uuid="7941412b-2803-48ee-ac45-5cacb8e1e7da"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[I.   Producto Principal]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="64" width="267" height="11" uuid="df5f6ba5-cfbb-4a4e-bf1d-43201e6fba02"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto_liquido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="64" width="213" height="11" uuid="0f3fed95-9b85-485f-a0be-ff9f73ec1ea5"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Monto Líquido del Crédito (pesos)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="213" height="11" uuid="3351fa56-6e6a-48c7-b8a1-d4cfd63a90b4"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Plazo del Crédito (meses)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="75" width="267" height="11" uuid="db74a1fe-d904-4a4f-b952-670c08cc7933"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{plazo_credito}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="86" width="213" height="11" uuid="250dbd17-5120-4fbd-9f9a-14e4d677ad97"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor de la Cuota (pesos)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="86" width="267" height="11" uuid="7db5b45c-9db2-488b-9627-b086fa5c6975"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor_cuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="97" width="267" height="11" uuid="0169eb7a-ff7a-4c04-877a-52f0515f02d3"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor_ultima_cuota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="97" width="213" height="11" uuid="4e874a95-4764-48f4-9da0-0e7d17d46cf2"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valor de la Última Cuota (pesos)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="108" width="267" height="11" uuid="73e881f4-a07e-4a44-b864-76b1c23c01f6"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{garantias_asociadas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="108" width="267" height="11" uuid="4291530e-a56b-4cee-a988-85556e210fe8"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Garantías Asociadas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="119" width="267" height="11" uuid="df504a00-f2df-4041-b6f2-c9372558ed6c"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="213" height="11" uuid="c56e0d0e-cc21-4027-85cb-e55c26a24fdd"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Costo Total del Crédito (pesos)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="130" width="267" height="11" uuid="11d8502e-4456-43ad-a370-ddcaf6f012f0"/>
+				<box>
+					<leftPen lineWidth="0.75" lineStyle="Solid"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CAE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="130" width="267" height="11" uuid="cb9190c5-f6d2-44f4-ad03-98bf39e2772c"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carga Anual Equivalente(CAE)(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="326" width="267" height="11" uuid="6b2fa3f4-5034-4b16-9a99-976357ef4d9b"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="155" width="535" height="14" backcolor="#CCCCCC" uuid="b3ac60a3-9d79-4fcb-ad9d-3cee7bcc0821"/>
+				<box leftPadding="4">
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gastos o Cargos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="169" width="213" height="11" uuid="d989385b-8698-4e87-a336-a7256b306726"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Impuestos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="169" width="267" height="11" uuid="63e6cf71-4727-45e5-9710-9f0975f79189"/>
+				<box>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{impuestos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="180" width="213" height="11" uuid="28e6770b-423e-4075-845b-5114d4f3cbd2"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Gastos Notariales]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="180" width="267" height="11" uuid="c0222802-cf14-4803-be59-2d8cede8256f"/>
+				<box>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_notariales}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="191" width="213" height="11" uuid="f097d460-b081-48e3-b4ce-befed2ca6596"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Monto Bruto del Crédito]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="191" width="267" height="11" uuid="4c95ee13-9819-44d7-9aa5-b19e06a4c46d"/>
+				<box>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto_bruto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="202" width="535" height="14" backcolor="#CCCCCC" uuid="40eee0c7-2c0c-4982-a73c-0b072d64a2ee"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gastos o Cargos por Productos o Servicios Voluntariamente Contratados]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="216" width="267" height="11" uuid="a1e94796-02e6-44e5-aee3-84a4543f5e9a"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor_cuota_referencia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="216" width="267" height="11" uuid="09b554f4-245d-4113-8bf7-559185e90802"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Cuota Referencia (pesos)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="227" width="213" height="11" uuid="8b81f17c-e00d-4716-bd43-da627cb414b2"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Seguro Desgravamen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="238" width="267" height="11" uuid="fda47f08-f977-4372-95d7-0716aa23a61c"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Costo Mensual (pesos)(2)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="238" width="267" height="11" uuid="d42f45fe-309e-425e-bef2-95852d00606f"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo_mensual_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="249" width="267" height="11" uuid="c77a4ae2-9343-4b39-befb-06df12540b57"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Costo Total (pesos)(2)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="249" width="267" height="11" uuid="ec7c236f-139f-4313-a403-01eaa05be363"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo_total_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="260" width="267" height="22" uuid="cc2143ee-e267-4fbd-a891-3361f0600fbd"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cobertura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="260" width="267" height="22" uuid="10d62e77-3771-48ab-ab1c-d4777ab9f03d"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cobertura_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="282" width="267" height="11" uuid="566ffaf1-0e59-4d55-878c-e7cf5c43af1d"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Código de Póliza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="282" width="267" height="11" uuid="942be73d-ae07-4379-a07d-475629dbf8d6"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo_poliza_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="293" width="267" height="11" uuid="3d3884dc-42ef-4a3c-be5f-d98a61583aa4"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Número de Póliza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="293" width="267" height="11" uuid="46aeecf0-1128-4491-8d48-77ced0cbd2e9"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_poliza_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="304" width="267" height="11" uuid="9848e6ac-5b55-440f-a3fc-5392b41b116a"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Compañía]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="304" width="267" height="11" uuid="38a4ca3a-29aa-45b9-9ec7-731ba51e29d9"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compania_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="315" width="267" height="11" uuid="b2f2276c-cf4e-49d2-a460-dc9011d20ec1"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Intermediario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="315" width="267" height="11" uuid="6512b7c1-1b18-477b-864f-2ca54cebe0f2"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intermediario_desgravamen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="326" width="213" height="11" uuid="44d2d5fc-d911-4a15-9678-d1dbad9d7c51"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Seguro Cesantía]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="337" width="267" height="11" uuid="8f65c714-b47a-4a2d-8ea6-ce85a0f4a04c"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Costo Mensual (pesos)(2)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="337" width="267" height="11" uuid="903dc5bc-45ca-4d48-bc8e-2744207dacdc"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo_mensual_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="348" width="267" height="11" uuid="6ff9d969-4a12-47ac-b2c9-2f73651180da"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Costo Total (pesos)(2)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="348" width="267" height="11" uuid="f0e956d9-c968-4864-a94e-6af581b1045a"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo_total_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="359" width="267" height="22" uuid="2e5c6338-3fed-45e8-9953-85e60d43b1e1"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cobertura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="359" width="267" height="22" uuid="199fd0df-8048-4fa2-81f5-f1eea718c6b9"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cobertura_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="381" width="267" height="11" uuid="2545dc2b-c7c6-4db9-99f7-d83bb2658318"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Código de Póliza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="381" width="267" height="11" uuid="6faf7c25-0955-4dfb-bf61-382c966fbecc"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo_poliza_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="392" width="267" height="11" uuid="bfd4ce95-0a2a-4ee4-be28-9105becec932"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Número de Póliza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="392" width="267" height="11" uuid="4ae25d45-95ce-4327-923a-417ca955473e"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_poliza_desempleo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="403" width="267" height="11" uuid="b6a0b815-0000-4cb7-a0ad-314cf6952890"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compania_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="403" width="267" height="11" uuid="f8935446-91a1-4041-83fe-2482e9053964"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Compañía]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="414" width="267" height="11" uuid="2e41efc5-4ad9-4186-be9a-d243ea37f4dd"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Intermediario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="414" width="267" height="11" uuid="948df459-a588-4b70-83a9-4a054ea285fd"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intermediario_desempleo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="425" width="535" height="14" backcolor="#CCCCCC" uuid="f8ef451c-c0a3-48a9-92bc-ce349b23721c"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[III.   Condiciones de Prepago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="439" width="213" height="11" uuid="2ca76a29-c48a-4602-b983-79d87c99668d"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cargo Prepago (%)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="439" width="267" height="11" uuid="cdd96f8f-3fd4-4cf1-97be-422c95d2ffe9"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo_prepago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="450" width="267" height="11" uuid="c9e7613a-7527-4ce4-98fd-e5557608b355"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Plazo de aviso para pago anticipado o prepago]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="450" width="267" height="11" uuid="dec67cab-da53-40df-bd7a-0ffa802bc62e"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{plazo_aviso_pago_anticipado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="475" width="213" height="11" uuid="1515133c-9fcc-4428-8ba7-d8463032437e"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Interés moratorio (%)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="461" width="535" height="14" backcolor="#CCCCCC" uuid="f08808ec-fdde-4504-b56b-9a20b61ae3c8"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IV.   Costos por atraso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="486" width="213" height="33" uuid="8165b939-9744-432a-8f7c-f76777e1e318"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Gastos de Cobranza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="268" y="486" width="267" height="33" uuid="1a3394da-315c-45e1-96dd-036667ef9dcb"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_cobranza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="475" width="267" height="11" uuid="b3fa1599-5d84-4624-8ebd-76c42ef213ab"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{interes_moratorio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="519" width="535" height="14" backcolor="#CCCCCC" uuid="30193a84-4778-4306-9ccf-f6e930b9ace9"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Advertencia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="533" width="535" height="32" uuid="9e78b188-c230-4b08-8fdc-544cbee8d7e2"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Justified" markup="none">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{advertencia_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="565" width="535" height="23" uuid="18fd8371-b6e3-4390-bed2-fd44bb94a9ac"/>
+				<box leftPadding="2" rightPadding="2">
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{advertencia_2}.concat("\n").concat($F{advertencia_3})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="268" y="227" width="267" height="11" uuid="7522b050-0fad-4e8b-bd9a-1f820c480de5"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="141" width="535" height="14" backcolor="#CCCCCC" uuid="c78f3eb5-442a-4fac-8326-c9b8abb482b4"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[II.   Gastos o Cargos Propios del Crédito]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="588" width="535" height="10" uuid="cf7bfd4e-f909-4269-8e01-67821e1a6dfd"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{advertencia_4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="213" y="64" width="54" height="11" uuid="89c6e24e-0a30-47c9-bda7-2ddcc1c4b7ca"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="75" width="54" height="11" uuid="79ac9570-e547-4db2-994a-324f2b31c5d2"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="86" width="54" height="11" uuid="202d2d1e-b6e5-4080-8e9b-5f7cd7d73d64"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="97" width="54" height="11" uuid="4ced6349-7d10-49bc-864f-7e0db83c9311"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="119" width="54" height="11" uuid="07ca0111-5d79-4851-8ca5-1cea9d74951f"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="169" width="54" height="11" uuid="2b1e5fd7-b720-4920-bd40-8682f1dc3e00"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="180" width="54" height="11" uuid="cfc1d4ad-aedf-4d5a-942d-c1991f9128ae"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="191" width="54" height="11" uuid="3838b7fd-67bf-4e6e-8e04-3de503f70a04"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°1 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="227" width="54" height="11" uuid="1fcebed2-4067-4e5e-8ee1-f49d08e378c1"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°6 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="326" width="54" height="11" uuid="9ab86dc7-b253-44d6-975c-7a115ca72347"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°7 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="439" width="54" height="11" uuid="29e3b520-7642-4183-92d7-d2053f5a06eb"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°3 Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="475" width="54" height="11" uuid="86b3f9ea-c3ef-4ac1-8dc0-fe8d879058c5"/>
+				<box leftPadding="2">
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N°2 Contrato]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="0" width="535" height="28" uuid="0103d0b9-4658-492e-a3e2-961faf643ee4"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="52" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="1" width="534" height="1" forecolor="#CCCCCC" uuid="ca54867c-dc14-4767-83ba-d00a2819e7d0"/>
+			</line>
+			<textField>
+				<reportElement x="113" y="3" width="256" height="49" uuid="d7ac9318-f5bc-49cc-bc82-4b8f956df763"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Infórmese sobre la garantía estatal de los depósitos en su banco o en www.sbif.cl" + "\n" +
+(($F{marca}.equals("Edwards")) ? "Citi y el diseño del arco es una marca de servicio registrada de Citigroup Inc." + "\n" + "Uso bajo licencia" + "\n" : "")
++ "© " + (new java.text.SimpleDateFormat("yyyy")).format(new Date()) + ", Banco de Chile. Todos los derechos reservados."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="371" y="4" width="1" height="35" forecolor="#CCCCCC" uuid="a3beeabc-9a32-41fe-b262-01e50b79e4e4"/>
+			</line>
+			<textField>
+				<reportElement x="395" y="3" width="139" height="28" uuid="e05485ac-842f-4d37-af4c-093792598796"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="7" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Juntos por el medioambiente" + "\n" +
+"prefiera los medios digitales al papel impreso."]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="52">
+			<line>
+				<reportElement x="1" y="1" width="534" height="1" forecolor="#CCCCCC" uuid="18909b2a-0226-4d2d-ac2b-c4f66965673c"/>
+			</line>
+			<textField>
+				<reportElement x="113" y="3" width="256" height="49" uuid="0bcc1773-b139-4b84-96a5-a1ab3b382a40"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Infórmese sobre la garantía estatal de los depósitos en su banco o en www.sbif.cl" + "\n" +
+(($F{marca}.equals("Edwards")) ? "Citi y el diseño del arco es una marca de servicio registrada de Citigroup Inc." + "\n" + "Uso bajo licencia" + "\n" : "")
++ "© " + (new java.text.SimpleDateFormat("yyyy")).format(new Date()) + ", Banco de Chile. Todos los derechos reservados."]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="371" y="4" width="1" height="35" forecolor="#CCCCCC" uuid="dd05d375-d3a1-4b14-b9bd-79168937544f"/>
+			</line>
+			<textField>
+				<reportElement x="395" y="3" width="139" height="28" uuid="65f2a6c4-8398-4716-be05-11a25c65fe4a"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="7" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Juntos por el medioambiente" + "\n" +
+"prefiera los medios digitales al papel impreso."]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="520" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="15" uuid="8dfdc94f-45ed-4937-8c1c-3385075f6da0"/>
+				<box>
+					<bottomPen lineWidth="2.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Definiciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="535" height="505" uuid="8a6684bc-3092-45a7-9320-400f8038eaba"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[<style isBold='true'>1. Hoja Resumen:</style> La hoja inicial que antecede a los Contratos de Adhesión de Crédito de Consumo, que contiene un resumen estandarizado de sus principales cláusulas y que los Proveedores deben incluir en sus cotizaciones para facilitar su comparación por los Consumidores, cuyo formato, contenido y demás características se establecen en el presente reglamento para cualquier tipo de Crédito de Consumo.
+<style isBold='true'>2. Monto Líquido del Crédito:</style> Monto total que efectivamente recibe el Consumidor para satisfacer el objeto del contrato en el periodo inicial o personalmente por un tercero autorizado por el Consumidor.
+<style isBold='true'>3. Plazo del Crédito:</style> El periodo establecido en el contrato para el pago total del Crédito de Consumo.
+<style isBold='true'>4. Valor de la Cuota:</style> El monto que se obliga a pagar un Consumidor al contratar un Crédito de Consumo en forma periódica, que considera todos los intereses, amortizaciones, Gastos o Cargos Propios del Crédito y Gastos o Cargos por Productos o Servicios Voluntariamente Contratados.
+<style isBold='true'>5. Costo Total del Crédito:</style> El monto total que debe asumir el consumidor, y que corresponde a la suma de todos los pagos periódicos definidos como Valor de la Cuota en función al plazo acordado, incluyendo cualquier pago en el periodo inicial.
+<style isBold='true'>6. Carga Anual Equivalente o "CAE":</style> El Indicador que, expresado en forma de porcentaje, revela el costo de un crédito en un período anual, cualquiera sea el plazo pactado para el pago de la obligación.
+La Carga Anual Equivalente incluye el capital, tasa de interés, el plazo del Crédito de Consumo, todos los Gastos o Cargos Propios del Crédito y los Gastos o Cargos por Productos o Servicios Voluntariamente Contratados, si los hubiere.
+<style isBold='true'>7. Gastos o Cargos Propios del Crédito:</style> Todas aquellas obligaciones en dinero, cualquiera sea su naturaleza o denominación, derivadas en la contratación de un Crédito de Consumo y devengadas a favor del Proveedor o de un tercero, que no correspondan a tasa de interés ni a capital y que deban pagarse por el Consumidor.
+Tendrán este carácter los impuestos y gastos notariales, además de los que sean definidos como tales por una disposición legal o reglamentaria.
+<style isBold='true'>8. Monto Bruto del Crédito:</style> El monto Líquido del Crédito más los Gastos o Cargos Propios del Crédito y Gastos o Cargos por Productos o Servicios Voluntariamente Contratados que se efectúan en el período inicial.
+<style isBold='true'>9. Gastos o Cargos por Productos o Servicios Voluntariamente Contratados:</style> Todas aquellas obligaciones en dinero, cualquiera sea su naturaleza o denominación, por productos o servicios proporcionados por el Proveedor, o por un tercero contratado por intermedio del Proveedor, respecto de las cuales el Consumidor puede prescindir al contratar un Crédito de Consumo.
+Podrán tener este carácter la póliza de seguro, individual o colectiva, cuyo objeto asegurado es saldo insoluto del Crédito de Consumo, si el Consumidor los puede contratar libremente en cualquier entidad que la comercialice en los términos previstos en el artículo 8° de la Ley N°20.448.
+<style isBold='true'>10. Valor de la Cuota Básica de Referencia:</style> El monto que se obliga a pagar un Consumidor al Contratar un Crédito de Consumo en forma periódica, que considera sólo los intereses, amortizaciones y Gastos o Cargos Propios del Crédito.
+<style isBold='true'>11. Comisión por Pago Anticipado o Prepago:</style> El valor extraordinario y voluntario que asume el Consumidor al pagar en forma anticipada el Crédito de Consumo, sea en forma total o parcial, esto es, antes del plazo establecido para ello. Este cargo se rige por el Artículo 10 de la Ley N°18.010.
+<style isBold='true'>12. Interés Moratorio:</style> La tasa de interés que se aplica por no pagar una obligación en la fecha estipulada.
+<style isBold='true'>13. Gastos de Cobranza:</style> El monto correspondiente al costo de la cobranza extrajudicial de una obligación vencida y no pagada en la fecha establecida en el contrato, traspasado por el Proveedor al Consumidor, y que sólo se puede cobrar si se han transcurrido quince días corridos desde el atraso, según lo dispuesto en el artículo 37 de la Ley de Protección del Consumidor.
+<style isBold='true'>14. Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo:</style> Nombre propio que caracteriza a un producto o servicio financiero que se ofrece en forma conjunta a un crédito de consumo.
+<style isBold='true'>15. Costo Periódico del  Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo:</style> El monto que el consumidor se obliga a pagar periódicamente por el Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo que se ha contratado en forma conjunta a un crédito de consumo.
+<style isBold='true'>16. Costo Total del Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo:</style> La suma de todos los montos que el consumidor se obliga a pagar por el Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo que se ha contratado en forma conjunta a un crédito de consumo que deberá informarse al Consumidor mientras no se extingan todas las obligaciones contraídas.
+<style isBold='true'>17. Características Esenciales del Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo:</style>  El detalle o especificación de las cualidades, beneficios y elementos relevantes e inherentes del Producto o Servicio Asociado, Simultáneo, Adicional, Especial o Conexo que se ha contratado en forma conjunta a un crédito de consumo.
+<style isBold='true'>18. Crédito de  Consumo:</style> El producto financiero en virtud del cual una parte denominada proveedor, entrega o se obliga a entregar una cantidad cierta de dinero a otra parte denominada consumidor, que se obliga a pagarla en un determinado plazo o número de cuotas, incluyendo la suma de dinero que resulte de la aplicación de una tasa de interés determinada al momento de su contratación.
+<style isBold='true'>19. Consumidor:</style> La persona natural o jurídica que contrata, a título oneroso y como destinario final, un Crédito de Consumo.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

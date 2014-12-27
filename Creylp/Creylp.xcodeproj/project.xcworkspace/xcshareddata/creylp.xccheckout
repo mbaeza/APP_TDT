@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E8385CC3-3A95-445C-97DF-CC08F9B0E262</string>
+	<key>IDESourceControlProjectName</key>
+	<string>creylp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8304033279462B84BA19C01853D2F9932EC949AB</key>
+		<string>https://github.com/mbaeza/APP_TDT.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>creylp/creylp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8304033279462B84BA19C01853D2F9932EC949AB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mbaeza/APP_TDT.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8304033279462B84BA19C01853D2F9932EC949AB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8304033279462B84BA19C01853D2F9932EC949AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>APP_TDT</string>
+		</dict>
+	</array>
+</dict>
+</plist>

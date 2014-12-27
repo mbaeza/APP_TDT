@@ -14,6 +14,8 @@
 		3D62B4E41A0C37F000F093D1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D62B4E21A0C37F000F093D1 /* LaunchScreen.xib */; };
 		3D62B4F01A0C37F000F093D1 /* am_tdtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62B4EF1A0C37F000F093D1 /* am_tdtTests.swift */; };
 		3D62B4FE1A0C69C700F093D1 /* IniciarSesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D62B4FD1A0C69C700F093D1 /* IniciarSesion.swift */; };
+		92296AA21A2137A70017C6D0 /* SecuenciaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92296AA11A2137A70017C6D0 /* SecuenciaViewController.swift */; };
+		92BABA3F1A22341700DED5EA /* TickleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BABA3E1A22341700DED5EA /* TickleGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		3D62B4EE1A0C37F000F093D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D62B4EF1A0C37F000F093D1 /* am_tdtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = am_tdtTests.swift; sourceTree = "<group>"; };
 		3D62B4FD1A0C69C700F093D1 /* IniciarSesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IniciarSesion.swift; sourceTree = "<group>"; };
+		92296AA11A2137A70017C6D0 /* SecuenciaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuenciaViewController.swift; path = ../SecuenciaViewController.swift; sourceTree = "<group>"; };
+		92BABA3E1A22341700DED5EA /* TickleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TickleGestureRecognizer.swift; path = ../TickleGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		3D62B4D61A0C37F000F093D1 /* am_tdt */ = {
 			isa = PBXGroup;
 			children = (
+				92BABA3E1A22341700DED5EA /* TickleGestureRecognizer.swift */,
+				92296AA11A2137A70017C6D0 /* SecuenciaViewController.swift */,
 				3D62B4D91A0C37F000F093D1 /* AppDelegate.swift */,
 				3D62B4DB1A0C37F000F093D1 /* ViewController.swift */,
 				3D62B4DD1A0C37F000F093D1 /* Main.storyboard */,
@@ -217,7 +223,9 @@
 			files = (
 				3D62B4DC1A0C37F000F093D1 /* ViewController.swift in Sources */,
 				3D62B4FE1A0C69C700F093D1 /* IniciarSesion.swift in Sources */,
+				92BABA3F1A22341700DED5EA /* TickleGestureRecognizer.swift in Sources */,
 				3D62B4DA1A0C37F000F093D1 /* AppDelegate.swift in Sources */,
+				92296AA21A2137A70017C6D0 /* SecuenciaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

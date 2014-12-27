@@ -95,15 +95,16 @@ class IniciarSesion: UIViewController {
                        // prefs.synchronize()
                         
                         self.dismissViewControllerAnimated(true, completion: nil)
-                        var alertView:UIAlertView = UIAlertView()
-                        alertView.title = "Sign in OK!"
-                        alertView.show()
+                        
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("viewController") as UIViewController
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                        
 
                     } else {
                         var error_msg:NSString
                         
-                        if jsonData["error_message"] as? NSString != nil {
-                            error_msg = jsonData["error_message"] as NSString
+                        if success == "99" {
+                            error_msg = jsonData.valueForKey("respuesta")?.valueForKey("glosa") as NSString
                         } else {
                             error_msg = "Unknown Error"
                         }

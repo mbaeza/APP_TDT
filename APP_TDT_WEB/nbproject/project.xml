@@ -8,11 +8,11 @@
             <web-module-libraries/>
             <web-module-additional-libraries>
                 <library>
-                    <file>${reference.APP_TDT_WEB-ejb.dist-ear}</file>
+                    <file>${reference.APP_TDT_WEB-war.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
                 <library>
-                    <file>${reference.APP_TDT_WEB-war.dist-ear}</file>
+                    <file>${reference.APP_TDT_WEB-ejb.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
             </web-module-additional-libraries>

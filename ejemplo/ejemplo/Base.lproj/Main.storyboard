@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ejemplo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monkey.png" translatesAutoresizingMaskIntoConstraints="NO" id="JKH-Rg-FJn">
+                                <rect key="frame" x="135" y="85" width="186" height="190"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ESe-pg-w1x" appends="YES" id="MJI-Wu-OoG"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="monkeyPan" destination="ESe-pg-w1x" id="eSl-Mh-FJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="3wL-py-Mr1"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ESe-pg-w1x">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="6Bh-W8-DGZ"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="jIH-2t-LXx"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="XGk-1L-CXv"/>
+                <rotationGestureRecognizer id="gR9-d7-DB5"/>
+            </objects>
+            <point key="canvasLocation" x="323" y="166"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="monkey.png" width="168" height="168"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="309" y="342.99999999999994"/>
         </scene>
-        <!--View Controller-->
+        <!--Secuencia View Controller-->
         <scene sceneID="JhE-iU-nHz">
             <objects>
-                <viewController id="fRR-yT-1co" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fRR-yT-1co" customClass="SecuenciaViewController" customModule="am_tdt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hIh-Rw-3ZT"/>
                         <viewControllerLayoutGuide type="bottom" id="Ikj-cJ-3kx"/>
@@ -71,19 +71,43 @@
                     <view key="view" contentMode="scaleToFill" id="b6w-CT-oEh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6s-Ar-4wP">
+                                <rect key="frame" x="34" y="158" width="127" height="87"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-ys-gcg">
+                                <rect key="frame" x="169" y="158" width="127" height="87"/>
+                                <color key="backgroundColor" red="0.0" green="0.36348416966022334" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-yu-VM7">
+                                <rect key="frame" x="304" y="158" width="127" height="87"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-bQ-DCQ">
+                                <rect key="frame" x="439" y="158" width="127" height="87"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fhX-ID-MeI"/>
+                    <connections>
+                        <outlet property="Imagen1" destination="f6s-Ar-4wP" id="8o4-lO-tFA"/>
+                        <outlet property="Imagen2" destination="NhA-ys-gcg" id="xUb-xD-H7s"/>
+                        <outlet property="Imagen3" destination="FlI-bQ-DCQ" id="etB-n1-ckk"/>
+                        <outlet property="bananaPan" destination="NhA-ys-gcg" id="E4D-o8-cJA"/>
+                        <outlet property="monkeyPan" destination="f6s-Ar-4wP" id="KZX-EO-JA6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG2-CI-ew7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1960.9999999999998" y="341"/>
+            <point key="canvasLocation" x="1960" y="341"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--pantallaPrincipal-->
         <scene sceneID="NML-Iy-kWL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Aft-ct-Zex" sceneMemberID="viewController">
+                <navigationController title="pantallaPrincipal" automaticallyAdjustsScrollViewInsets="NO" id="Aft-ct-Zex" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ExI-aL-UNu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NGK-FV-RxK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: lib/Framework_Neos_v_1_1.jar 
+ lib/commons-codec-1.3.jar 
+ lib/mysql-connector-java-5.1.28-bin.jar 
+ lib/libCIO.jar
+

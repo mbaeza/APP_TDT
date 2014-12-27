@@ -6,3 +6,11 @@
 /APP_TDT_WEB/build/
 /APP_TDT_WEB-war/dist/
 /APP_TDT_WEB/APP_TDT_WEB-ejb/dist/
+/APP_TDT_WEB-ejb/nbproject/private/
+/APP_TDT_WEB-ejb/build/
+/APP_TDT_WEB-ejb/dist/
+/pruebaJboos/nbproject/private/
+/pruebaJboos/pruebaJboos-war/nbproject/private/
+/pruebaJboos/pruebaJboos-ejb/nbproject/private/
+/appJasper/nbproject/private/
+/appJasper/build/

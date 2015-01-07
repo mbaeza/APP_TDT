@@ -97,7 +97,7 @@ class IniciarSesionViewController: UIViewController {
                         
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("viewController") as UIViewController
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as UIViewController
                         self.presentViewController(viewController, animated: true, completion: nil)
                         
                         

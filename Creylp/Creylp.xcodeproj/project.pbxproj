@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		928365741A5CC8E200C5DDA0 /* CabinSketch-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 928365721A5CC8E100C5DDA0 /* CabinSketch-Bold.otf */; };
+		928365751A5CC8E200C5DDA0 /* CabinSketch-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 928365731A5CC8E200C5DDA0 /* CabinSketch-Regular.otf */; };
+		928365781A5CD77500C5DDA0 /* woman83.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365771A5CD77500C5DDA0 /* woman83.png */; };
+		9283657B1A5CDA6200C5DDA0 /* woman81.png in Resources */ = {isa = PBXBuildFile; fileRef = 9283657A1A5CDA6200C5DDA0 /* woman81.png */; };
+		9283657D1A5CDA8F00C5DDA0 /* woman82.png in Resources */ = {isa = PBXBuildFile; fileRef = 9283657C1A5CDA8F00C5DDA0 /* woman82.png */; };
+		9283657F1A5CDB8D00C5DDA0 /* pen38.png in Resources */ = {isa = PBXBuildFile; fileRef = 9283657E1A5CDB8D00C5DDA0 /* pen38.png */; };
+		928365841A5CE14200C5DDA0 /* kids1.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365801A5CE14200C5DDA0 /* kids1.png */; };
+		928365851A5CE14200C5DDA0 /* idea13.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365811A5CE14200C5DDA0 /* idea13.png */; };
+		928365861A5CE14200C5DDA0 /* book135.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365821A5CE14200C5DDA0 /* book135.png */; };
+		928365871A5CE14200C5DDA0 /* two174.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365831A5CE14200C5DDA0 /* two174.png */; };
 		92B3B1F11A239BDE0091DA58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B1F01A239BDE0091DA58 /* AppDelegate.swift */; };
 		92B3B1F31A239BDE0091DA58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B1F21A239BDE0091DA58 /* ViewController.swift */; };
 		92B3B1F61A239BDE0091DA58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B3B1F41A239BDE0091DA58 /* Main.storyboard */; };
@@ -29,6 +39,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		928365721A5CC8E100C5DDA0 /* CabinSketch-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Bold.otf"; sourceTree = "<group>"; };
+		928365731A5CC8E200C5DDA0 /* CabinSketch-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Regular.otf"; sourceTree = "<group>"; };
+		928365771A5CD77500C5DDA0 /* woman83.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman83.png; sourceTree = "<group>"; };
+		9283657A1A5CDA6200C5DDA0 /* woman81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman81.png; sourceTree = "<group>"; };
+		9283657C1A5CDA8F00C5DDA0 /* woman82.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woman82.png; sourceTree = "<group>"; };
+		9283657E1A5CDB8D00C5DDA0 /* pen38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen38.png; sourceTree = "<group>"; };
+		928365801A5CE14200C5DDA0 /* kids1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kids1.png; sourceTree = "<group>"; };
+		928365811A5CE14200C5DDA0 /* idea13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idea13.png; sourceTree = "<group>"; };
+		928365821A5CE14200C5DDA0 /* book135.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book135.png; sourceTree = "<group>"; };
+		928365831A5CE14200C5DDA0 /* two174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two174.png; sourceTree = "<group>"; };
 		92B3B1EB1A239BDE0091DA58 /* creylp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creylp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B3B1EF1A239BDE0091DA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B3B1F01A239BDE0091DA58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +83,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		928365761A5CC91400C5DDA0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				928365721A5CC8E100C5DDA0 /* CabinSketch-Bold.otf */,
+				928365731A5CC8E200C5DDA0 /* CabinSketch-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		928365791A5CD78400C5DDA0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				928365801A5CE14200C5DDA0 /* kids1.png */,
+				928365811A5CE14200C5DDA0 /* idea13.png */,
+				928365821A5CE14200C5DDA0 /* book135.png */,
+				928365831A5CE14200C5DDA0 /* two174.png */,
+				9283657E1A5CDB8D00C5DDA0 /* pen38.png */,
+				9283657C1A5CDA8F00C5DDA0 /* woman82.png */,
+				9283657A1A5CDA6200C5DDA0 /* woman81.png */,
+				928365771A5CD77500C5DDA0 /* woman83.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		92B3B1E21A239BDE0091DA58 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +128,8 @@
 		92B3B1ED1A239BDE0091DA58 /* creylp */ = {
 			isa = PBXGroup;
 			children = (
+				928365791A5CD78400C5DDA0 /* Image */,
+				928365761A5CC91400C5DDA0 /* Fonts */,
 				92B3B2181A23A10F0091DA58 /* SecuenciaViewController.swift */,
 				92B3B2161A239D580091DA58 /* IniciarSesionViewController.swift */,
 				92B3B1F01A239BDE0091DA58 /* AppDelegate.swift */,
@@ -179,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 92B3B1E61A239BDE0091DA58 /* Build configuration list for PBXProject "creylp" */;
+			buildConfigurationList = 92B3B1E61A239BDE0091DA58 /* Build configuration list for PBXProject "Creylp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -203,7 +249,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928365741A5CC8E200C5DDA0 /* CabinSketch-Bold.otf in Resources */,
 				92B3B1F61A239BDE0091DA58 /* Main.storyboard in Resources */,
+				928365841A5CE14200C5DDA0 /* kids1.png in Resources */,
+				9283657D1A5CDA8F00C5DDA0 /* woman82.png in Resources */,
+				928365751A5CC8E200C5DDA0 /* CabinSketch-Regular.otf in Resources */,
+				928365781A5CD77500C5DDA0 /* woman83.png in Resources */,
+				928365861A5CE14200C5DDA0 /* book135.png in Resources */,
+				9283657F1A5CDB8D00C5DDA0 /* pen38.png in Resources */,
+				928365871A5CE14200C5DDA0 /* two174.png in Resources */,
+				9283657B1A5CDA6200C5DDA0 /* woman81.png in Resources */,
+				928365851A5CE14200C5DDA0 /* idea13.png in Resources */,
 				92B3B1FB1A239BDE0091DA58 /* LaunchScreen.xib in Resources */,
 				92B3B1F81A239BDE0091DA58 /* Images.xcassets in Resources */,
 			);
@@ -410,7 +466,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		92B3B1E61A239BDE0091DA58 /* Build configuration list for PBXProject "creylp" */ = {
+		92B3B1E61A239BDE0091DA58 /* Build configuration list for PBXProject "Creylp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92B3B2081A239BDE0091DA58 /* Debug */,
@@ -426,6 +482,7 @@
 				92B3B20C1A239BDE0091DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92B3B20D1A239BDE0091DA58 /* Build configuration list for PBXNativeTarget "creylpTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +491,7 @@
 				92B3B20F1A239BDE0091DA58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

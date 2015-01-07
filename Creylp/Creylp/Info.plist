@@ -37,5 +37,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CabinSketch-Bold.otf</string>
+		<string>CabinSketch-Regular.otf</string>
+	</array>
 </dict>
 </plist>

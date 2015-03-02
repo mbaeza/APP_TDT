@@ -189,7 +189,7 @@ private String descripcionEjercicio;
 
             //se suben las imagenes            
             nuevaImagen.setRespuestaCorrecta(false);
-            nuevaImagen.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
+            nuevaImagen.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
             nuevaImagen.setPrincipal(true);                        
             nuevaImagen.setRespuestaCorrecta(false);
             imagenFacade.create(nuevaImagen);
@@ -197,7 +197,7 @@ private String descripcionEjercicio;
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
                     nuevaImagen2.setOrden(i);
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);
@@ -308,7 +308,7 @@ private String descripcionEjercicio;
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
         ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/" + event.getFile().getFileName());
+        File result = new File("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/" + event.getFile().getFileName());
         
 //        if(cont.size()>4)
 //            cont.clear();
@@ -400,7 +400,7 @@ private String descripcionEjercicio;
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
 //        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/" + remove2(event.getFile().getFileName()));
+        File result = new File("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/" + remove2(event.getFile().getFileName()));
 //        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));       
       
         setImagenPrincipal(remove2(event.getFile().getFileName()));

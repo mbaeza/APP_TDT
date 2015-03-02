@@ -6,10 +6,15 @@
 package cl.creylp.ws;
 
 import cl.tdt.objeto.Respuesta;
+import cl.tdt.objeto.RespuestaEjercicio;
 import cl.tdt.objeto.RespuestaUsuario;
+import com.tdt.entityclass.Ejercicio;
+import static com.tdt.entityclass.Grupo_.usuario;
 import com.tdt.entityclass.Usuario;
-import com.tdt.entityclass.UsuarioPK;
+import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
+import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.InitialContext;
@@ -30,8 +35,9 @@ import javax.ws.rs.PUT;
  */
 @Path("ServiciosWeb")
 public class ServiciosWeb {
+    EjercicioFacadeLocal ejercicioFacade = lookupEjercicioFacadeLocal();
     UsuarioFacadeLocal usuarioFacade = lookupUsuarioFacadeLocal();
-
+ 
     @Context
     private UriInfo context;
 
@@ -70,6 +76,23 @@ public class ServiciosWeb {
             return response;
         }
     }
+    
+    
+    @GET
+    @Produces("application/json")
+    @Path("/ObtenerEjercicios/")
+    public RespuestaEjercicio obtenerEjercicios() {
+        
+        RespuestaEjercicio respuestaEjercicio = new RespuestaEjercicio();
+        Respuesta respuesta = new Respuesta();
+       
+        respuesta.setCodigo("00");
+        respuesta.setGlosa("Correcto");
+        respuestaEjercicio.setListaEjercicios(ejercicioFacade.findAll());
+        respuestaEjercicio.setRespuesta(respuesta);
+        return respuestaEjercicio;
+                
+    }
 
     /**
      * PUT method for updating or creating an instance of ServiciosWeb
@@ -85,6 +108,16 @@ public class ServiciosWeb {
         try {
             javax.naming.Context c = new InitialContext();
             return (UsuarioFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/UsuarioFacade!com.tdt.sessionbean.UsuarioFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private EjercicioFacadeLocal lookupEjercicioFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (EjercicioFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/EjercicioFacade!com.tdt.sessionbean.EjercicioFacadeLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

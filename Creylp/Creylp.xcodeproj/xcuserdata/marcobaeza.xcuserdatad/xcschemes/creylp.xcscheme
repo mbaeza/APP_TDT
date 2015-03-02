@@ -17,7 +17,7 @@
                BlueprintIdentifier = "92B3B1EA1A239BDE0091DA58"
                BuildableName = "creylp.app"
                BlueprintName = "creylp"
-               ReferencedContainer = "container:creylp.xcodeproj">
+               ReferencedContainer = "container:Creylp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "92B3B1FF1A239BDE0091DA58"
                BuildableName = "creylpTests.xctest"
                BlueprintName = "creylpTests"
-               ReferencedContainer = "container:creylp.xcodeproj">
+               ReferencedContainer = "container:Creylp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "92B3B1FF1A239BDE0091DA58"
                BuildableName = "creylpTests.xctest"
                BlueprintName = "creylpTests"
-               ReferencedContainer = "container:creylp.xcodeproj">
+               ReferencedContainer = "container:Creylp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "92B3B1EA1A239BDE0091DA58"
             BuildableName = "creylp.app"
             BlueprintName = "creylp"
-            ReferencedContainer = "container:creylp.xcodeproj">
+            ReferencedContainer = "container:Creylp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "92B3B1EA1A239BDE0091DA58"
             BuildableName = "creylp.app"
             BlueprintName = "creylp"
-            ReferencedContainer = "container:creylp.xcodeproj">
+            ReferencedContainer = "container:Creylp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,7 +96,7 @@
             BlueprintIdentifier = "92B3B1EA1A239BDE0091DA58"
             BuildableName = "creylp.app"
             BlueprintName = "creylp"
-            ReferencedContainer = "container:creylp.xcodeproj">
+            ReferencedContainer = "container:Creylp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

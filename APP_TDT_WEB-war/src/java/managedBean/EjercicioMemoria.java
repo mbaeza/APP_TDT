@@ -160,7 +160,7 @@ private String descripcionEjercicio;
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
 //                    nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);
@@ -259,7 +259,7 @@ private String descripcionEjercicio;
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
         ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
-        File result = new File("/Users/marcobaezasalazar/APP_TDT/APP_TDT_WEB-war/web/files/" + event.getFile().getFileName());
+        File result = new File("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/" + event.getFile().getFileName());
 
         nombresArchivosUpload.add(cont.size(),remove2(event.getFile().getFileName()));
         cont.add(cont.size());

@@ -5,15 +5,17 @@
  */
 package cl.creylp.ws;
 
+import cl.tdt.objeto.AlumnoTemporal;
 import cl.tdt.objeto.Respuesta;
+import cl.tdt.objeto.RespuestaAlumnoEjercicio;
 import cl.tdt.objeto.RespuestaEjercicio;
 import cl.tdt.objeto.RespuestaUsuario;
-import com.tdt.entityclass.Ejercicio;
-import static com.tdt.entityclass.Grupo_.usuario;
+import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.Usuario;
+import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +37,7 @@ import javax.ws.rs.PUT;
  */
 @Path("ServiciosWeb")
 public class ServiciosWeb {
+    AlumnoFacadeLocal alumnoFacade = lookupAlumnoFacadeLocal();
     EjercicioFacadeLocal ejercicioFacade = lookupEjercicioFacadeLocal();
     UsuarioFacadeLocal usuarioFacade = lookupUsuarioFacadeLocal();
  
@@ -68,6 +71,7 @@ public class ServiciosWeb {
             response.setApellidoPaterno(usuario.getApellidoPaterno());
             response.setIdCentroEducacional(usuario.getIdCentroEducacional().getIdCentroEducacional().toString());
             response.setNombreUsuario(usuario.getNombreUsuario());
+            response.setIdUsuario(""+usuario.getUsuarioPK().getIdUsuario());
             return response;
         }else{
             miResp.setCodigo("99");
@@ -80,20 +84,79 @@ public class ServiciosWeb {
     
     @GET
     @Produces("application/json")
-    @Path("/ObtenerEjercicios/")
-    public RespuestaEjercicio obtenerEjercicios() {
+    @Path("/ObtenerEjercicios/{tipoEjercicio}/{idUsuario}")
+    public RespuestaEjercicio obtenerEjercicios(@PathParam("tipoEjercicio") String tipoEjercicio, @PathParam("idUsuario") String idUsuario) {
         
         RespuestaEjercicio respuestaEjercicio = new RespuestaEjercicio();
         Respuesta respuesta = new Respuesta();
        
         respuesta.setCodigo("00");
         respuesta.setGlosa("Correcto");
-        respuestaEjercicio.setListaEjercicios(ejercicioFacade.findAll());
+        respuestaEjercicio.setListaEjercicios(ejercicioFacade.obtenerEjercicios(tipoEjercicio, idUsuario));
         respuestaEjercicio.setRespuesta(respuesta);
         return respuestaEjercicio;
                 
     }
+    
+    @GET
+    @Produces("application/json")
+    @Path("/ObtenerAlumnosEjercicios/{idEjercicio}/{idUsuario}")
+    public RespuestaAlumnoEjercicio obtenerAlumnosEjercicios(@PathParam("idEjercicio") String idEjercicio, @PathParam("idUsuario") String idUsuario) {
+        
+        RespuestaAlumnoEjercicio respuestaAlumno = new RespuestaAlumnoEjercicio();
+        Respuesta respuesta = new Respuesta();
+        List<AlumnoTemporal> alumnosTemporal = new ArrayList<>();
+        
+        respuesta.setCodigo("00");
+        respuesta.setGlosa("Correcto");
+        AlumnoTemporal alumnoTemporal = new AlumnoTemporal();
+        
+        for(Alumno alumno: alumnoFacade.obtenerAlumnosPorEjercicio(idEjercicio, idUsuario)){
+            alumnoTemporal.setApellidoMaterno(alumno.getApellidoMaternoAlumno());
+            alumnoTemporal.setApellidoPaterno(alumno.getApellidoPaternoAlumno());
+            alumnoTemporal.setFechaNacimiento(alumno.getFechaNacimiento());
+            alumnoTemporal.setNombre(alumno.getNombreAlumno());
+            alumnoTemporal.setIdAlumno(alumno.getIdAlumno().toString());
+            alumnoTemporal.setRut(alumno.getRut());
+            alumnosTemporal.add(alumnoTemporal);
+        }
+        
+        respuestaAlumno.setListaAlumnos(alumnosTemporal);
+        respuestaAlumno.setRespuesta(respuesta);
+        return respuestaAlumno;
+                
+    }
 
+    
+    @GET
+    @Produces("application/json")
+    @Path("/ObtenerAlumnosEjercicios/{idEjercicio}/{idUsuario}")
+    public RespuestaAlumnoEjercicio obtenerImágenEjercicios(@PathParam("idEjercicio") String idEjercicio, @PathParam("idUsuario") String idUsuario) {
+        
+        RespuestaAlumnoEjercicio respuestaAlumno = new RespuestaAlumnoEjercicio();
+        Respuesta respuesta = new Respuesta();
+        List<AlumnoTemporal> alumnosTemporal = new ArrayList<>();
+        
+        respuesta.setCodigo("00");
+        respuesta.setGlosa("Correcto");
+        AlumnoTemporal alumnoTemporal = new AlumnoTemporal();
+        
+        for(Alumno alumno: alumnoFacade.obtenerAlumnosPorEjercicio(idEjercicio, idUsuario)){
+            alumnoTemporal.setApellidoMaterno(alumno.getApellidoMaternoAlumno());
+            alumnoTemporal.setApellidoPaterno(alumno.getApellidoPaternoAlumno());
+            alumnoTemporal.setFechaNacimiento(alumno.getFechaNacimiento());
+            alumnoTemporal.setNombre(alumno.getNombreAlumno());
+            alumnoTemporal.setIdAlumno(alumno.getIdAlumno().toString());
+            alumnoTemporal.setRut(alumno.getRut());
+            alumnosTemporal.add(alumnoTemporal);
+        }
+        
+        respuestaAlumno.setListaAlumnos(alumnosTemporal);
+        respuestaAlumno.setRespuesta(respuesta);
+        return respuestaAlumno;
+                
+    }
+    
     /**
      * PUT method for updating or creating an instance of ServiciosWeb
      * @param content representation for the resource
@@ -118,6 +181,16 @@ public class ServiciosWeb {
         try {
             javax.naming.Context c = new InitialContext();
             return (EjercicioFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/EjercicioFacade!com.tdt.sessionbean.EjercicioFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private AlumnoFacadeLocal lookupAlumnoFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (AlumnoFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/AlumnoFacade!com.tdt.sessionbean.AlumnoFacadeLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

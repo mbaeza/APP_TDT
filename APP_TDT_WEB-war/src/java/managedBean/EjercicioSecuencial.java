@@ -188,16 +188,16 @@ private String descripcionEjercicio;
             secuenciaFacade.create(nuevoSecuencia);
 
             //se suben las imagenes            
-            nuevaImagen.setRespuestaCorrecta(false);
-            nuevaImagen.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
-            nuevaImagen.setPrincipal(true);                        
-            nuevaImagen.setRespuestaCorrecta(false);
-            imagenFacade.create(nuevaImagen);
+//            nuevaImagen.setRespuestaCorrecta(false);
+//            nuevaImagen.setUrlImagen("/APP_TDT_WEB-war/faces/files/"+nombresArchivosUploadPrincipal.get(0));
+//            nuevaImagen.setPrincipal(true);                        
+//            nuevaImagen.setRespuestaCorrecta(false);
+//            imagenFacade.create(nuevaImagen);
 
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("/APP_TDT_WEB-war/faces/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
                     nuevaImagen2.setOrden(i);
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);
@@ -219,7 +219,7 @@ private String descripcionEjercicio;
         nombresArchivosUpload.add(2,"interrogacion.png");
         nombresArchivosUpload.add(3,"interrogacion.png");
         nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
-        FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioAbsurdo.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioSecuencialII.xhtml");
     }
 
     public void handleReorder(DashboardReorderEvent event) {

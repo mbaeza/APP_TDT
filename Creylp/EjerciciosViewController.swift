@@ -12,7 +12,11 @@ class EjerciciosViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
+    var tipoEjercicio:String!;
+    var idUsuario:String!;
+    
     var items: [String] = []
+    var itemsIdEjercicio: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +28,7 @@ class EjerciciosViewController: UIViewController, UITableViewDelegate, UITableVi
         
        // NSLog("PostData: %@",post);
         
-        var url:NSURL = NSURL(string: "http://localhost:8080/APP_TDT_WEB-war/webresources/ServiciosWeb/ObtenerEjercicios/")!
+        var url:NSURL = NSURL(string: "http://localhost:8080/APP_TDT_WEB-war/webresources/ServiciosWeb/ObtenerEjercicios/"+tipoEjercicio+"/"+idUsuario)!
         
         var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
         
@@ -71,43 +75,43 @@ class EjerciciosViewController: UIViewController, UITableViewDelegate, UITableVi
                     NSLog("Obtener Ejercicios SUCCESS");
                     
                     let ejercicios:NSArray = jsonData.valueForKey("listaEjercicios")?  as NSArray
-                    
+                    NSLog("Obtener Ejercicios SUCCESS");
                    // var ej:NSDictionary = ejercicios[0] as NSDictionary
                     
                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as NSString
                     // NSLog("Valor de la descripcion: " +  valor);
                     
                     for( var i = 0;i<ejercicios.count;i++ ){
+                        
                         var ejercicio:NSDictionary = ejercicios[i] as NSDictionary
                         var nombreEjercicio:NSString = ejercicio.valueForKey("nombreEjercicio") as NSString
+                        var idEjercicio:Int = ejercicio.valueForKey("idEjercicio") as Int
+                        
                         NSLog("Nombre del ejercicio: " + nombreEjercicio);
                         items.append(nombreEjercicio);
-                        
+                        itemsIdEjercicio.append(String(idEjercicio))
 
                     }
+                   // items.append(tipoEjercicio);
                     
                     var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                     // prefs.setObject(username, forKey: "USERNAME")
                     //prefs.setInteger(1, forKey: "ISLOGGEDIN")
                     // prefs.synchronize()
-                    
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as UIViewController
-                    self.presentViewController(viewController, animated: true, completion: nil)
+         
                 
                 } else {
                     var alertView:UIAlertView = UIAlertView()
-                    alertView.title = "Sign in Failed!"
-                    alertView.message = "Connection Failed"
+                    alertView.title = "Error de servicio"
+                    alertView.message = "No fue posible obtener los ejercicios"
                     alertView.delegate = self
                     alertView.addButtonWithTitle("OK")
                     alertView.show()
                 }
             } else {
                 var alertView:UIAlertView = UIAlertView()
-                alertView.title = "Sign in Failed!"
-                alertView.message = "Connection Failure"
+                alertView.title = "Error de conexión"
+                alertView.message = "Conexión Erronea"
                 if let error = reponseError {
                     alertView.message = (error.localizedDescription)
                 }
@@ -130,7 +134,7 @@ class EjerciciosViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("UITableViewCell") as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         
@@ -141,15 +145,23 @@ class EjerciciosViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as UITableViewCell
+        let indexPath = self.tableView.indexPathForCell(cell)
+        
+        // load the selected model
+        let item = self.items[indexPath!.row]
+        
+        let viewController = segue.destinationViewController as EjercicioAlumnoViewController
+        // set the model to be viewed
+        viewController.idUsuario = self.idUsuario;
+        viewController.idEjercicio = self.itemsIdEjercicio[indexPath!.row]
     }
-    */
+
     
 
 }

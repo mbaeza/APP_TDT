@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -32,10 +34,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Ejercicio.findAll", query = "SELECT e FROM Ejercicio e"),
+    @NamedQuery(name = "Ejercicio.findByTipo", query = "SELECT e FROM Ejercicio e, TipoEjercicio te, AsignarEjercicio ae WHERE ae.idEjercicio.idEjercicio = e.idEjercicio AND ae.usuario.usuarioPK.idUsuario = :idUsuario AND te.nombreTipoEjercicio =:nombreTipoEjercicio AND te.idTipoEjercicio = e.fkTipoEjercicio.idTipoEjercicio "),
     @NamedQuery(name = "Ejercicio.findByIdEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.idEjercicio = :idEjercicio"),
     @NamedQuery(name = "Ejercicio.findByDescripcionEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.descripcionEjercicio = :descripcionEjercicio"),
     @NamedQuery(name = "Ejercicio.findByNombreEjercicio", query = "SELECT e FROM Ejercicio e WHERE e.nombreEjercicio = :nombreEjercicio")})
 public class Ejercicio implements Serializable {
+    @JoinColumn(name = "FK_TIPO_EJERCICIO", referencedColumnName = "ID_TIPO_EJERCICIO")
+    @ManyToOne
+    private TipoEjercicio fkTipoEjercicio;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -169,6 +175,14 @@ public class Ejercicio implements Serializable {
     @Override
     public String toString() {
         return "com.tdt.entityclass.Ejercicio[ idEjercicio=" + idEjercicio + " ]";
+    }
+
+    public TipoEjercicio getFkTipoEjercicio() {
+        return fkTipoEjercicio;
+    }
+
+    public void setFkTipoEjercicio(TipoEjercicio fkTipoEjercicio) {
+        this.fkTipoEjercicio = fkTipoEjercicio;
     }
     
 }

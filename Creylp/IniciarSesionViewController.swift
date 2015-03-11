@@ -14,6 +14,8 @@ class IniciarSesionViewController: UIViewController {
     
     @IBOutlet weak var txtPassword: UITextField!
     
+    var iniciarSesion:Int = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,8 +99,25 @@ class IniciarSesionViewController: UIViewController {
                         
                         self.dismissViewControllerAnimated(true, completion: nil)
                         
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as UIViewController
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                        
+                        
+                        iniciarSesion = 1;
+                       
+                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let viewController = storyBoard.instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as MenuInicialViewController
+                        
+                        let idUsuarioValor:NSString = jsonData.valueForKey("idUsuario")  as NSString
+                        viewController.idUsuario = idUsuarioValor;
+                        
+                        //viewController.segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: <#UIViewController#>, identifier: "SegueMenuPrincipal");
+                        
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        //viewController.segueForUnwindingToViewController(<#toViewController: UIViewController#>, fromViewController: <#UIViewController#>, identifier: <#String?#>)
+                        
+                        self.presentViewController(navigationController, animated: true, completion: nil)
+
+                        
+                      //  self.presentViewController(viewController, animated: true, completion: nil)
                         
                         
                     } else {
@@ -139,13 +158,20 @@ class IniciarSesionViewController: UIViewController {
             }
         }
     }
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+   /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "SegueMenuPrincipal" && self.iniciarSesion == 1{
+            let nav = segue.destinationViewController as UINavigationController;
+            let vc = nav.viewControllers[0] as MenuInicialViewController;
+            //let vc = segue.destinationViewController as EjerciciosViewController;
+            vc.idUsuario = "s";
+        }
+
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
-    }
-    */
+    }*/
+
 }

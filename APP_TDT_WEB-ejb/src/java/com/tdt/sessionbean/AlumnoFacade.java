@@ -7,9 +7,12 @@
 package com.tdt.sessionbean;
 
 import com.tdt.entityclass.Alumno;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +30,16 @@ public class AlumnoFacade extends AbstractFacade<Alumno> implements AlumnoFacade
 
     public AlumnoFacade() {
         super(Alumno.class);
+    }
+
+    @Override
+    public List<Alumno> obtenerAlumnosPorEjercicio(String idEjercicio,String idUsuario) {      
+        
+        Query query = em.createNamedQuery("Alumno.findByEjercicioAndIdUsuario");
+        query.setParameter("idEjercicio", Integer.parseInt(idEjercicio));
+        query.setParameter("idUsuario", Integer.parseInt(idUsuario));
+        return query.getResultList();
+     
     }
     
 }

@@ -31,4 +31,6 @@ public interface AlumnoFacadeLocal {
 
     int count();
     
+    List<Alumno> obtenerAlumnosPorEjercicio(String idEjercicio,String idUsuario);
+    
 }

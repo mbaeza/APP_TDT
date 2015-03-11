@@ -30,5 +30,7 @@ public interface EjercicioFacadeLocal {
     List<Ejercicio> findRange(int[] range);
 
     int count();
+
+    List<Ejercicio> obtenerEjercicios(String tipoEjercicio, String idUsuario);
     
 }

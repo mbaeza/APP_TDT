@@ -13,11 +13,20 @@ import com.tdt.entityclass.Usuario;
  */
 public class RespuestaUsuario {
     private String mail;
+    private String idUsuario;
     private String nombreUsuario;
     private String apellidoPaterno;
     private String idCentroEducacional;
     private Respuesta respuesta;
 
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+   
     public String getMail() {
         return mail;
     }

@@ -10,9 +10,12 @@ import UIKit
 
 class MenuInicialViewController: UIViewController {
 
+    var idUsuario:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NSLog("IdUsuario: " + idUsuario);
         // Do any additional setup after loading the view.
     }
 
@@ -20,29 +23,37 @@ class MenuInicialViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func ActionScuencia(sender: UIButton) {
-        
-    }
-    @IBAction func ActionSeleccion(sender: UIButton) {
-    }
-    
-    @IBAction func ActionSemejanza(sender: UIButton) {
-    }
-    
-    @IBAction func ActionMemorize(sender: UIButton) {
-    }
     
     
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SegueSecuencia"{
+            //let nav = segue.destinationViewController as UINavigationController;
+            //let vc = nav.viewControllers[0] as EjerciciosViewController;
+            let vc = segue.destinationViewController as EjerciciosViewController;
+            vc.idUsuario = self.idUsuario;
+            vc.tipoEjercicio = "Secuencia";
+            //vc.delegate = self;
+        }else if segue.identifier == "SegueSemejanza"{
+            let vc = segue.destinationViewController as EjerciciosViewController
+            vc.tipoEjercicio = "Semejanza";
+            // vc.delegate = self
+        }else if segue.identifier == "SegueSeleccion"{
+            let vc = segue.destinationViewController as EjerciciosViewController
+            vc.tipoEjercicio = "Seleccion";
+            // vc.delegate = self
+        }else if segue.identifier == "SegueMemorize"{
+            let vc = segue.destinationViewController as EjerciciosViewController
+            vc.tipoEjercicio = "Memorize";
+            // vc.delegate = self
+        }
+
+
+
     }
-    */
+    
 
 }

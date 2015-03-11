@@ -7,9 +7,12 @@
 package com.tdt.sessionbean;
 
 import com.tdt.entityclass.Ejercicio;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +31,16 @@ public class EjercicioFacade extends AbstractFacade<Ejercicio> implements Ejerci
     public EjercicioFacade() {
         super(Ejercicio.class);
     }
+
+    @Override
+    public List<Ejercicio> obtenerEjercicios(String tipoEjercicio, String idUsuario) {
+        
+        //List<Ejercicio> ejercicios = new ArrayList<>();
+        Query query = em.createNamedQuery("Ejercicio.findByTipo");
+        query.setParameter("nombreTipoEjercicio",tipoEjercicio);
+        query.setParameter("idUsuario",Integer.parseInt(idUsuario));
+        return query.getResultList();
+    }
+    
     
 }

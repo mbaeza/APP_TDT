@@ -112,7 +112,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1873" y="279"/>
+            <point key="canvasLocation" x="3281" y="1195"/>
         </scene>
         <!--ViewControllerSecuencia-->
         <scene sceneID="hb1-yj-Q9I">
@@ -130,7 +130,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itn-Hg-4hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="279"/>
+            <point key="canvasLocation" x="2469" y="1195"/>
         </scene>
         <!--Menu Inicial View Controller-->
         <scene sceneID="ykP-6c-Yhd">
@@ -153,7 +153,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ActionScuencia:" destination="USB-v2-96w" eventType="touchUpInside" id="uuV-Sk-ynu"/>
+                                    <segue destination="xiQ-mg-yb9" kind="show" identifier="SegueSecuencia" id="eoB-5H-pqb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7Z-Jg-qYf">
@@ -164,10 +164,6 @@
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="ActionMemorize:" destination="USB-v2-96w" eventType="touchUpInside" id="l8b-io-tFD"/>
-                                    <action selector="ActionSemejanza:" destination="USB-v2-96w" eventType="touchUpInside" id="Dqv-Vu-otm"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJf-hz-m2g">
                                 <rect key="frame" x="10" y="467" width="287" height="119"/>
@@ -177,28 +173,15 @@
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="ActionSeleccion:" destination="USB-v2-96w" eventType="touchUpInside" id="KUD-vI-G92"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-dQ-u9K">
-                                <rect key="frame" x="305" y="467" width="279" height="119"/>
-                                <color key="backgroundColor" red="0.32131380679999999" green="0.72218276520000002" blue="0.191482498" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="35"/>
-                                <state key="normal" title=" Memorize" image="idea13.png">
-                                    <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="ActionMemorize:" destination="USB-v2-96w" eventType="touchUpInside" id="csn-q4-hdh"/>
-                                    <segue destination="RFw-Sl-Hij" kind="show" id="uat-eU-bIA"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mis Ejercicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-Ry-zub">
                                 <rect key="frame" x="0.0" y="287" width="600" height="50"/>
                                 <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="39"/>
                                 <color key="textColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="287" width="400" height="50"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RF-vP-MfW">
                                 <rect key="frame" x="100" y="95" width="401" height="66"/>
@@ -212,6 +195,15 @@
                                 <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="35"/>
                                 <color key="tintColor" red="0.98528402535822601" green="1" blue="0.98192627660446152" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title=" Mis Alumnos" image="kids1.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYO-dQ-u9K">
+                                <rect key="frame" x="305" y="467" width="279" height="119"/>
+                                <color key="backgroundColor" red="0.32131380679999999" green="0.72218276520000002" blue="0.191482498" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="35"/>
+                                <state key="normal" title=" Memorize" image="idea13.png">
+                                    <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -229,20 +221,20 @@
                             <constraint firstAttribute="centerX" secondItem="6RF-vP-MfW" secondAttribute="centerX" constant="-0.5" id="u5S-HR-vzk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UCd-H1-1cn"/>
-                    <connections>
-                        <outlet property="Memorize" destination="RYO-dQ-u9K" id="elx-pf-A8q"/>
-                        <outlet property="zx" destination="6pE-EO-BBc" id="rfO-y5-k3a"/>
-                    </connections>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="UCd-H1-1cn">
+                        <barButtonItem key="backBarButtonItem" title="Volver" style="plain" id="Ije-Bu-1lt"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMl-k5-Sph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="1016"/>
+            <point key="canvasLocation" x="1820" y="307"/>
         </scene>
-        <!--Ejercicios View Controller-->
+        <!--Ejercicios de Secuencia-->
         <scene sceneID="K8I-0R-qgf">
             <objects>
-                <viewController id="xiQ-mg-yb9" customClass="EjerciciosViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EjerciciosViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xiQ-mg-yb9" customClass="EjerciciosViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D95-pZ-wQL"/>
                         <viewControllerLayoutGuide type="bottom" id="iXJ-48-4bC"/>
@@ -251,13 +243,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vbW-mS-IXh">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="536" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vbW-mS-IXh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="0.0" green="0.36348416970000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCell" id="yOF-Da-cwO">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOF-Da-cwO" id="iNf-mg-Olb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FPq-pn-vgs" kind="show" id="fa5-XR-Lp0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="xiQ-mg-yb9" id="JH2-Ip-76U"/>
                                     <outlet property="delegate" destination="xiQ-mg-yb9" id="Wdk-jt-IQO"/>
@@ -265,51 +271,111 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vbW-mS-IXh" firstAttribute="height" secondItem="4MD-vn-4Fw" secondAttribute="height" id="8NT-sX-4K2"/>
+                            <constraint firstItem="vbW-mS-IXh" firstAttribute="width" secondItem="4MD-vn-4Fw" secondAttribute="width" id="CWe-ab-A5B"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zYY-JQ-2yx"/>
+                    <navigationItem key="navigationItem" title="Ejercicios de Secuencia" id="Ihd-0c-ICf">
+                        <barButtonItem key="backBarButtonItem" title="volver" id="A2V-11-urI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vbW-mS-IXh" id="bGd-Vt-rbW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOq-8H-aaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4132" y="1049"/>
+            <point key="canvasLocation" x="2522" y="289"/>
         </scene>
-        <!--ViewControllerMenuPrincipal-->
-        <scene sceneID="vm2-ZG-SiR">
+        <!--Ejercicio Alumno View Controller-->
+        <scene sceneID="W7y-UN-8DP">
             <objects>
-                <navigationController title="ViewControllerMenuPrincipal" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8ss-0g-mb1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="POI-5s-FiZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="EjercicioAlumnoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FPq-pn-vgs" customClass="EjercicioAlumnoViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ol6-uO-plD"/>
+                        <viewControllerLayoutGuide type="bottom" id="hzO-PE-pBv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jqq-Nw-ZR9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="tableAlumnosEjercicios" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="moC-tQ-F9g">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCellEA" id="lhN-Mz-A2w">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lhN-Mz-A2w" id="kGz-gQ-vlR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="GbM-l2-sPa" kind="show" id="Lvh-XV-r5V"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="FPq-pn-vgs" id="GEW-va-nfh"/>
+                                    <outlet property="delegate" destination="FPq-pn-vgs" id="Jym-ln-me9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="moC-tQ-F9g" secondAttribute="width" id="XqH-Ob-d04"/>
+                            <constraint firstAttribute="height" secondItem="moC-tQ-F9g" secondAttribute="height" id="lHm-aH-lg6"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="USB-v2-96w" kind="relationship" relationship="rootViewController" id="mk5-7b-Bvb"/>
+                        <outlet property="alumnosEjercicios" destination="moC-tQ-F9g" id="dWt-GT-xJm"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iBU-i7-o5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26H-I4-gMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218" y="994"/>
+            <point key="canvasLocation" x="3235" y="291"/>
+        </scene>
+        <!--Secuencia Ejercicio View Controller-->
+        <scene sceneID="qq0-9b-Hga">
+            <objects>
+                <viewController id="GbM-l2-sPa" customClass="SecuenciaEjercicioViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kkM-jn-osR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ihc-HP-HJC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="23T-L3-phy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-06-h5v">
+                                <rect key="frame" x="285" y="149" width="123" height="98"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="ImagenPrimera" destination="Br3-06-h5v" id="4kk-Lh-lFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NM-H4-sbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3956" y="289"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gSq-S4-eyz">
+        <scene sceneID="ddQ-0U-c7t">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RFw-Sl-Hij" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FVU-2A-mr2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2DY-gp-hr8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uIz-S6-7G2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xiQ-mg-yb9" kind="relationship" relationship="rootViewController" id="gkf-5w-0qC"/>
+                        <segue destination="USB-v2-96w" kind="relationship" relationship="rootViewController" id="9nK-XM-BeA"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lMX-1g-ixo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfd-0U-UR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3320" y="1049"/>
+            <point key="canvasLocation" x="1008" y="307"/>
         </scene>
     </scenes>
     <resources>

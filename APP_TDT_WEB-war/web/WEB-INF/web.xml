@@ -107,4 +107,10 @@
         <local>com.tdt.sessionbean.EjercicioFacadeLocal</local>
         <ejb-link>APP_TDT_WEB-ejb.jar#EjercicioFacade</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>AlumnoFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.tdt.sessionbean.AlumnoFacadeLocal</local>
+        <ejb-link>APP_TDT_WEB-ejb.jar#AlumnoFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

@@ -30,5 +30,7 @@ public interface SecuenciaFacadeLocal {
     List<Secuencia> findRange(int[] range);
 
     int count();
+
+    Secuencia obtenerEjercicioSecuencia(String idEjercicio);
     
 }

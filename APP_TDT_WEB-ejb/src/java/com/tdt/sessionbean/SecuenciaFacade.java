@@ -10,6 +10,7 @@ import com.tdt.entityclass.Secuencia;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +29,16 @@ public class SecuenciaFacade extends AbstractFacade<Secuencia> implements Secuen
     public SecuenciaFacade() {
         super(Secuencia.class);
     }
+
+    @Override
+    public Secuencia obtenerEjercicioSecuencia(String idEjercicio) {
+        
+        Query query = em.createNamedQuery("Secuencia.findByIdEjercicio");
+        query.setParameter("idEjercicio", Integer.parseInt(idEjercicio));
+        return (Secuencia) query.getSingleResult();
+       
+    }
+    
+    
     
 }

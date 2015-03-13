@@ -113,4 +113,16 @@
         <local>com.tdt.sessionbean.AlumnoFacadeLocal</local>
         <ejb-link>APP_TDT_WEB-ejb.jar#AlumnoFacade</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>ImagenFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.tdt.sessionbean.ImagenFacadeLocal</local>
+        <ejb-link>APP_TDT_WEB-ejb.jar#ImagenFacade</ejb-link>
+    </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>SecuenciaFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.tdt.sessionbean.SecuenciaFacadeLocal</local>
+        <ejb-link>APP_TDT_WEB-ejb.jar#SecuenciaFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

@@ -9,11 +9,14 @@ import cl.tdt.objeto.AlumnoTemporal;
 import cl.tdt.objeto.Respuesta;
 import cl.tdt.objeto.RespuestaAlumnoEjercicio;
 import cl.tdt.objeto.RespuestaEjercicio;
+import cl.tdt.objeto.RespuestaImagenEjercicio;
 import cl.tdt.objeto.RespuestaUsuario;
 import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.Usuario;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
+import com.tdt.sessionbean.ImagenFacadeLocal;
+import com.tdt.sessionbean.SecuenciaFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,8 @@ import javax.ws.rs.PUT;
  */
 @Path("ServiciosWeb")
 public class ServiciosWeb {
+    SecuenciaFacadeLocal secuenciaFacade = lookupSecuenciaFacadeLocal();
+    ImagenFacadeLocal imagenFacade = lookupImagenFacadeLocal();
     AlumnoFacadeLocal alumnoFacade = lookupAlumnoFacadeLocal();
     EjercicioFacadeLocal ejercicioFacade = lookupEjercicioFacadeLocal();
     UsuarioFacadeLocal usuarioFacade = lookupUsuarioFacadeLocal();
@@ -130,30 +135,19 @@ public class ServiciosWeb {
     
     @GET
     @Produces("application/json")
-    @Path("/ObtenerAlumnosEjercicios/{idEjercicio}/{idUsuario}")
-    public RespuestaAlumnoEjercicio obtenerImágenEjercicios(@PathParam("idEjercicio") String idEjercicio, @PathParam("idUsuario") String idUsuario) {
+    @Path("/ObtenerImagenEjercicio/{idEjercicio}")
+    public RespuestaImagenEjercicio obtenerImágenEjercicios(@PathParam("idEjercicio") String idEjercicio) {
         
-        RespuestaAlumnoEjercicio respuestaAlumno = new RespuestaAlumnoEjercicio();
+        RespuestaImagenEjercicio respuestaImagen = new RespuestaImagenEjercicio();
         Respuesta respuesta = new Respuesta();
-        List<AlumnoTemporal> alumnosTemporal = new ArrayList<>();
         
         respuesta.setCodigo("00");
         respuesta.setGlosa("Correcto");
-        AlumnoTemporal alumnoTemporal = new AlumnoTemporal();
         
-        for(Alumno alumno: alumnoFacade.obtenerAlumnosPorEjercicio(idEjercicio, idUsuario)){
-            alumnoTemporal.setApellidoMaterno(alumno.getApellidoMaternoAlumno());
-            alumnoTemporal.setApellidoPaterno(alumno.getApellidoPaternoAlumno());
-            alumnoTemporal.setFechaNacimiento(alumno.getFechaNacimiento());
-            alumnoTemporal.setNombre(alumno.getNombreAlumno());
-            alumnoTemporal.setIdAlumno(alumno.getIdAlumno().toString());
-            alumnoTemporal.setRut(alumno.getRut());
-            alumnosTemporal.add(alumnoTemporal);
-        }
-        
-        respuestaAlumno.setListaAlumnos(alumnosTemporal);
-        respuestaAlumno.setRespuesta(respuesta);
-        return respuestaAlumno;
+        respuestaImagen.setTitulo(secuenciaFacade.obtenerEjercicioSecuencia(idEjercicio).getTextoPrincipal());
+        respuestaImagen.setImagenes(imagenFacade.obtenerImagenes(idEjercicio));
+        respuestaImagen.setRespuesta(respuesta);
+        return respuestaImagen;
                 
     }
     
@@ -191,6 +185,26 @@ public class ServiciosWeb {
         try {
             javax.naming.Context c = new InitialContext();
             return (AlumnoFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/AlumnoFacade!com.tdt.sessionbean.AlumnoFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private ImagenFacadeLocal lookupImagenFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (ImagenFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/ImagenFacade!com.tdt.sessionbean.ImagenFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private SecuenciaFacadeLocal lookupSecuenciaFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (SecuenciaFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/SecuenciaFacade!com.tdt.sessionbean.SecuenciaFacadeLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

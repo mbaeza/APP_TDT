@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Imagen.findAll", query = "SELECT i FROM Imagen i"),
+    @NamedQuery(name = "Imagen.findByImageByIdEjercicio", query = "SELECT i FROM Ejercicio e LEFT OUTER JOIN e.imagenCollection i WHERE i.idEjercicio.idEjercicio = :idEjercicio"),
     @NamedQuery(name = "Imagen.findByIdImagen", query = "SELECT i FROM Imagen i WHERE i.idImagen = :idImagen"),
     @NamedQuery(name = "Imagen.findByUrlImagen", query = "SELECT i FROM Imagen i WHERE i.urlImagen = :urlImagen"),
     @NamedQuery(name = "Imagen.findByRespuestaCorrecta", query = "SELECT i FROM Imagen i WHERE i.respuestaCorrecta = :respuestaCorrecta"),

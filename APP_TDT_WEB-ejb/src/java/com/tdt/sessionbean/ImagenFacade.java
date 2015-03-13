@@ -7,9 +7,11 @@
 package com.tdt.sessionbean;
 
 import com.tdt.entityclass.Imagen;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +30,14 @@ public class ImagenFacade extends AbstractFacade<Imagen> implements ImagenFacade
     public ImagenFacade() {
         super(Imagen.class);
     }
+
+    @Override
+    public List<Imagen> obtenerImagenes(String idEjercicio) {
+        Query query = em.createNamedQuery("Imagen.findByImageByIdEjercicio");
+        query.setParameter("idEjercicio", Integer.parseInt(idEjercicio));
+        return query.getResultList();
+    }
+    
+    
     
 }

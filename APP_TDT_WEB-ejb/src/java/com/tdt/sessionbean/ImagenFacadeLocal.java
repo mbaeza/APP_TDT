@@ -30,5 +30,7 @@ public interface ImagenFacadeLocal {
     List<Imagen> findRange(int[] range);
 
     int count();
+
+    List<Imagen> obtenerImagenes(String idEjercicio);
     
 }

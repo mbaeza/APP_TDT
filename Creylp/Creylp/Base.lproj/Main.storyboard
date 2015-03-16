@@ -193,6 +193,9 @@
                                 <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="80"/>
                                 <color key="textColor" red="1" green="0.93098744" blue="0.20960847029999999" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="0.93098744" blue="0.20960847029999999" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="101" y="181" width="399" height="94"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGj-jZ-WAF">
                                 <rect key="frame" x="16" y="206" width="568" height="73"/>
@@ -347,7 +350,6 @@
         <!--Secuencia Ejercicio View Controller-->
         <scene sceneID="qq0-9b-Hga">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5NM-H4-sbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GbM-l2-sPa" customClass="SecuenciaEjercicioViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kkM-jn-osR"/>
@@ -357,17 +359,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-06-h5v">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-06-h5v">
                                 <rect key="frame" x="161" y="226" width="135" height="128"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tl0-6m-ndI" appends="YES" id="0kW-qQ-thW"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KL1-xW-HaY">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KL1-xW-HaY">
                                 <rect key="frame" x="18" y="226" width="135" height="128"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="66c-4x-ztB" appends="YES" id="QDQ-Ul-lai"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pte-ha-5lN">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pte-ha-5lN">
                                 <rect key="frame" x="304" y="226" width="135" height="128"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Cqp-4h-NvH" appends="YES" id="rRB-G2-gJp"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gg3-Uz-eYH">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gg3-Uz-eYH">
                                 <rect key="frame" x="447" y="226" width="135" height="128"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3NL-a4-78G" appends="YES" id="lu5-Ms-XEY"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Texto informativo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-to-Iqc">
                                 <rect key="frame" x="16" y="127" width="568" height="91"/>
@@ -449,12 +463,41 @@
                         <outlet property="imagenNDos" destination="BqQ-2A-DUh" id="c1C-Dy-H6k"/>
                         <outlet property="imagenNTres" destination="Dqx-Tf-dtL" id="kDf-Pd-nvq"/>
                         <outlet property="imagenNUno" destination="Eq7-4d-hJU" id="OrC-sM-BZd"/>
+                        <outlet property="imagenPan1" destination="66c-4x-ztB" id="rTT-Ko-Qok"/>
+                        <outlet property="imagenPan2" destination="Tl0-6m-ndI" id="s8F-SN-heP"/>
+                        <outlet property="imagenPan3" destination="Cqp-4h-NvH" id="mN7-Y2-17D"/>
+                        <outlet property="imagenPan4" destination="3NL-a4-78G" id="2HI-f1-yuD"/>
                         <outlet property="imagenPrimera" destination="gg3-Uz-eYH" id="8eJ-VR-4Vc"/>
                         <outlet property="imagenSegunda" destination="Br3-06-h5v" id="WO2-VC-Q0z"/>
                         <outlet property="imagenTercera" destination="KL1-xW-HaY" id="rmp-0o-o6r"/>
                         <outlet property="titulo" destination="MxE-to-Iqc" id="v2c-4A-nfN"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NM-H4-sbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="66c-4x-ztB">
+                    <connections>
+                        <action selector="handlePan:" destination="GbM-l2-sPa" id="o6T-Sd-wB8"/>
+                        <outlet property="delegate" destination="GbM-l2-sPa" id="2x4-zn-oTy"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Tl0-6m-ndI">
+                    <connections>
+                        <action selector="handlePan:" destination="GbM-l2-sPa" id="n4u-XX-zPQ"/>
+                        <outlet property="delegate" destination="GbM-l2-sPa" id="0rg-6a-ngO"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Cqp-4h-NvH">
+                    <connections>
+                        <action selector="handlePan:" destination="GbM-l2-sPa" id="4X5-xg-4Ce"/>
+                        <outlet property="delegate" destination="GbM-l2-sPa" id="EyB-r9-hck"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="3NL-a4-78G">
+                    <connections>
+                        <action selector="handlePan:" destination="GbM-l2-sPa" id="Pbr-8W-L87"/>
+                        <outlet property="delegate" destination="GbM-l2-sPa" id="meY-J8-TvT"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3956" y="288.75"/>
         </scene>

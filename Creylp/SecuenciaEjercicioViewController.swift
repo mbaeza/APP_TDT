@@ -24,18 +24,24 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
     
     @IBOutlet weak var titulo: UILabel!
     
-    @IBOutlet weak var imagenNUno: UILabel!
-    @IBOutlet weak var imagenNDos: UILabel!
-    @IBOutlet weak var imagenNTres: UILabel!
-    @IBOutlet weak var imagenNCuatro: UILabel!
+    
+    @IBOutlet weak var imagenNUno: UIImageView!
+    @IBOutlet weak var imagenNDos: UIImageView!
+    @IBOutlet weak var imagenNCuatro: UIImageView!
+    @IBOutlet weak var imagenNTres: UIImageView!
     
     
     var secuencia:[String]=[]
+    var imagenesSuperior:[UIImageView]=[]
+    var imagenesInferior:[UIImageView]=[]
     var urlImagenes:[String]=[]
     var idEjercicio:String!
     var idAlumno:String!
     var idUsuario:String!
     
+    var imageSupSelecc: UIImageView!
+    var imageInfSelecc: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +51,11 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
         imagenNDos.hidden = true
         imagenNTres.hidden = true
         imagenNCuatro.hidden = true
+        
+        imagenNUno.tag = 0
+        imagenNDos.tag = 1
+        imagenNTres.tag = 2
+        imagenNCuatro.tag = 3
         
        // imagenPrimera.u
         
@@ -112,7 +123,7 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                         var orden:Int = ejercicio.valueForKey("orden") as Int
                         var urlImagen:String = ejercicio.valueForKey("urlImagen") as String
                         
-                        NSLog("Url de imagen: " + urlImagen);
+                        NSLog("Url de imagen: " + String(orden));
                         urlImagenes.append(urlImagen);
                         secuencia.append(String(orden));
                         
@@ -121,16 +132,28 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                         switch i {
                         case 0:
                             imagenPrimera.hnk_setImageFromURL(imagenURL);
+                            imagenPrimera.tag = orden
                             imagenNUno.hidden = false
+                            imagenesSuperior.append(imagenPrimera)
+                            imagenesInferior.append(imagenNUno)
                         case 1:
                             imagenSegunda.hnk_setImageFromURL(imagenURL);
+                            imagenSegunda.tag = orden
                             imagenNDos.hidden = false
+                            imagenesSuperior.append(imagenSegunda)
+                             imagenesInferior.append(imagenNDos)
                         case 2:
                             imagenTercera.hnk_setImageFromURL(imagenURL);
+                            imagenTercera.tag = orden
                             imagenNTres.hidden = false
+                            imagenesSuperior.append(imagenTercera)
+                            imagenesInferior.append(imagenNTres)
                         case 3:
                             imagenCuarta.hnk_setImageFromURL(imagenURL);
+                            imagenCuarta.tag = orden
                             imagenNCuatro.hidden = false
+                            imagenesSuperior.append(imagenCuarta)
+                            imagenesInferior.append(imagenNCuatro)
                         default:
                             imagenPrimera.hnk_setImageFromURL(imagenURL);
                         }
@@ -173,7 +196,7 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
             alertView.show()
         }
         
-        //1
+      /*  //1
         let filteredSubviews = self.view.subviews.filter({
             $0.isKindOfClass(UIImageView) })
         
@@ -196,7 +219,7 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
             view.addGestureRecognizer(recognizer2)
         }
         //self.chompPlayer = self.loadSound("chomp")
-        //self.hehePlayer = self.loadSound("hehehe1")
+        //self.hehePlayer = self.loadSound("hehehe1")*/
 
     }
 
@@ -228,11 +251,88 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
         //ç return;
         
         let translation = recognizer.translationInView(self.view)
-        recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,
-            y:recognizer.view!.center.y + translation.y)
+        recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,y:recognizer.view!.center.y + translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
+        if recognizer.state == UIGestureRecognizerState.Changed {
+            let filteredSubviews = self.view.subviews.filter({
+                $0.isKindOfClass(UIImageView) })
+            
+            let imagenSeleccionada = recognizer.view as UIImageView
+            //for imageS in imagenesSuperior {
+                for imageI in imagenesInferior {
+                    if(CGRectIntersectsRect(imagenSeleccionada.frame, imageI.frame) == true){
+                        imageI.layer.borderColor = UIColor.greenColor().CGColor;
+                        imageI.layer.cornerRadius = 8.0
+                        imageI.layer.borderWidth = 3.5;
+                        //self.imageInfSelecc = imageI;
+                        //self.imageSupSelecc = imagenSeleccionada;
+                        println("imagen seleccionada: \(imagenSeleccionada.tag)")
+                       if(imagenSeleccionada.tag == imageI.tag){
+                             // imageI.image.
+                            self.imageInfSelecc = imageI
+                            self.imageSupSelecc = imagenSeleccionada;
+                           // println("PERFECTO!")
+                       }
+                        
+                        //imagenNUno.
+                    }else if (CGRectIntersectsRect(imagenSeleccionada.frame, imageI.frame) == false){
+                        imageI.layer.borderColor = UIColor.whiteColor().CGColor;
+                    }
+                }
+           // }
+        }
+        
+        
         if recognizer.state == UIGestureRecognizerState.Ended {
+            
+            if(self.imageSupSelecc != nil){
+                switch self.imageSupSelecc.tag{
+                case 0:
+                    if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
+                        for var i = 0; i < self.secuencia.count ; i++ {
+                            if secuencia[i] == "0" {
+                                let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
+                                imagenNUno.hnk_setImageFromURL(imagenURL)
+                                 self.imageSupSelecc.hidden = true
+                            }
+                        }
+                    }
+                case 1:
+                    if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
+                    for var i = 0; i < self.secuencia.count ; i++ {
+                        if secuencia[i] == "1" {
+                            let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
+                            imagenNDos.hnk_setImageFromURL(imagenURL)
+                            self.imageSupSelecc.hidden = true
+                        }
+                    }
+                    }
+                case 2:
+                    if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
+                    for var i = 0; i < self.secuencia.count ; i++ {
+                        if secuencia[i] == "2" {
+                            let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
+                            imagenNTres.hnk_setImageFromURL(imagenURL)
+                             self.imageSupSelecc.hidden = true
+                        }
+                    }
+                    }
+                case 3:
+                    if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
+                    for var i = 0; i < self.secuencia.count ; i++ {
+                        if secuencia[i] == "3" {
+                            let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
+                            imagenNCuatro.hnk_setImageFromURL(imagenURL)
+                             self.imageSupSelecc.hidden = true
+                        }
+                    }
+                    }
+                default:
+                    println("")
+                }
+            }
+            
             // 1
             let velocity = recognizer.velocityInView(self.view)
             let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
@@ -242,8 +342,7 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
             // 2
             let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
             // 3
-            var finalPoint = CGPoint(x:recognizer.view!.center.x + (velocity.x * slideFactor),
-                y:recognizer.view!.center.y + (velocity.y * slideFactor))
+            var finalPoint = CGPoint(x:recognizer.view!.center.x /*+ (velocity.x * slideFactor)*/,y:recognizer.view!.center.y /*+ (velocity.y * slideFactor)*/)
             // 4
             finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
             finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)

@@ -18,7 +18,7 @@ class TickleGestureRecognizer:UIGestureRecognizer {
     var curTickleStart:CGPoint = CGPointZero
     var lastDirection:Direction = .DirectionUnknown
     
-    
+    //seguerecinsertfrsme
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!)  {
         let touch = touches.anyObject() as UITouch

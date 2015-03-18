@@ -76,6 +76,8 @@ class SecuenciaViewController: UIViewController, UIGestureRecognizerDelegate {
             y:recognizer.view!.center.y + translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
+       
+        
         if recognizer.state == UIGestureRecognizerState.Ended {
             
             if(CGRectIntersectsRect(self.targetView.frame, recognizer.view!.frame))

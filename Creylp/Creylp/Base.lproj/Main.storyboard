@@ -16,10 +16,6 @@
             <string>CabinSketch</string>
             <string>CabinSketch</string>
             <string>CabinSketch</string>
-            <string>CabinSketch</string>
-            <string>CabinSketch</string>
-            <string>CabinSketch</string>
-            <string>CabinSketch</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -389,80 +385,60 @@
                                 <color key="textColor" red="0.39149305555555558" green="0.37975336934669085" blue="0.058773581866944154" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq7-4d-hJU">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="clj-7k-e3Q">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.37556417009999998" green="0.76834753789999999" blue="0.26171678370000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="150"/>
-                                <color key="textColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="18" y="481" width="135" height="143"/>
+                                    <rect key="frame" x="18" y="498" width="135" height="128"/>
                                 </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqQ-2A-DUh">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.37556417009999998" green="0.76834753789999999" blue="0.26171678370000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="150"/>
-                                <color key="textColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEG-ZL-c9w">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.93098744" blue="0.20960847029999999" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="161" y="481" width="135" height="143"/>
+                                    <rect key="frame" x="161" y="498" width="135" height="128"/>
                                 </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqx-Tf-dtL">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.37556417009999998" green="0.76834753789999999" blue="0.26171678370000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="150"/>
-                                <color key="textColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mBy-Nh-ITz">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="304" y="481" width="135" height="143"/>
+                                    <rect key="frame" x="304" y="498" width="135" height="128"/>
                                 </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSu-eg-OK7">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.37556417009999998" green="0.76834753789999999" blue="0.26171678370000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="150"/>
-                                <color key="textColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPd-fT-Juw">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.63137254899999995" green="0.81176470590000005" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="447" y="481" width="137" height="143"/>
+                                    <rect key="frame" x="447" y="498" width="135" height="128"/>
                                 </variation>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Eq7-4d-hJU"/>
-                                <exclude reference="BqQ-2A-DUh"/>
-                                <exclude reference="Dqx-Tf-dtL"/>
-                                <exclude reference="sSu-eg-OK7"/>
+                                <exclude reference="clj-7k-e3Q"/>
+                                <exclude reference="TEG-ZL-c9w"/>
+                                <exclude reference="mBy-Nh-ITz"/>
+                                <exclude reference="VPd-fT-Juw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="Eq7-4d-hJU"/>
-                                <include reference="BqQ-2A-DUh"/>
-                                <include reference="Dqx-Tf-dtL"/>
-                                <include reference="sSu-eg-OK7"/>
+                                <include reference="clj-7k-e3Q"/>
+                                <include reference="TEG-ZL-c9w"/>
+                                <include reference="mBy-Nh-ITz"/>
+                                <include reference="VPd-fT-Juw"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="ImagenPrimera" destination="Br3-06-h5v" id="4kk-Lh-lFR"/>
                         <outlet property="imagenCuarta" destination="pte-ha-5lN" id="4KJ-qu-Kn6"/>
-                        <outlet property="imagenNCuatro" destination="sSu-eg-OK7" id="ITZ-aY-eMY"/>
-                        <outlet property="imagenNDos" destination="BqQ-2A-DUh" id="c1C-Dy-H6k"/>
-                        <outlet property="imagenNTres" destination="Dqx-Tf-dtL" id="kDf-Pd-nvq"/>
-                        <outlet property="imagenNUno" destination="Eq7-4d-hJU" id="OrC-sM-BZd"/>
+                        <outlet property="imagenNCuatro" destination="VPd-fT-Juw" id="lmm-DT-REp"/>
+                        <outlet property="imagenNDos" destination="TEG-ZL-c9w" id="707-Mb-j7h"/>
+                        <outlet property="imagenNTres" destination="mBy-Nh-ITz" id="61G-cS-LL5"/>
+                        <outlet property="imagenNUno" destination="clj-7k-e3Q" id="vr7-B9-wG3"/>
                         <outlet property="imagenPan1" destination="66c-4x-ztB" id="rTT-Ko-Qok"/>
                         <outlet property="imagenPan2" destination="Tl0-6m-ndI" id="s8F-SN-heP"/>
                         <outlet property="imagenPan3" destination="Cqp-4h-NvH" id="mN7-Y2-17D"/>

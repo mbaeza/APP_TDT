@@ -18,6 +18,7 @@
 		928365851A5CE14200C5DDA0 /* idea13.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365811A5CE14200C5DDA0 /* idea13.png */; };
 		928365861A5CE14200C5DDA0 /* book135.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365821A5CE14200C5DDA0 /* book135.png */; };
 		928365871A5CE14200C5DDA0 /* two174.png in Resources */ = {isa = PBXBuildFile; fileRef = 928365831A5CE14200C5DDA0 /* two174.png */; };
+		92A4F9561ABF8296006FC40A /* check_mark_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A4F9551ABF8296006FC40A /* check_mark_green.png */; };
 		92B363C41AA3946E004D721B /* MenuInicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B363C31AA3946E004D721B /* MenuInicialViewController.swift */; };
 		92B3B1F11A239BDE0091DA58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B1F01A239BDE0091DA58 /* AppDelegate.swift */; };
 		92B3B1F31A239BDE0091DA58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B1F21A239BDE0091DA58 /* ViewController.swift */; };
@@ -135,6 +136,7 @@
 		928365811A5CE14200C5DDA0 /* idea13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idea13.png; sourceTree = "<group>"; };
 		928365821A5CE14200C5DDA0 /* book135.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book135.png; sourceTree = "<group>"; };
 		928365831A5CE14200C5DDA0 /* two174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two174.png; sourceTree = "<group>"; };
+		92A4F9551ABF8296006FC40A /* check_mark_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_mark_green.png; path = "../../../../../../Volumes/Macintosh HD/Users/marcobaezasalazar/Downloads/check_mark_green.png"; sourceTree = "<group>"; };
 		92B363C31AA3946E004D721B /* MenuInicialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInicialViewController.swift; sourceTree = SOURCE_ROOT; };
 		92B3B1EB1A239BDE0091DA58 /* creylp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creylp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B3B1EF1A239BDE0091DA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		928365791A5CD78400C5DDA0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				92A4F9551ABF8296006FC40A /* check_mark_green.png */,
 				928365801A5CE14200C5DDA0 /* kids1.png */,
 				928365811A5CE14200C5DDA0 /* idea13.png */,
 				928365821A5CE14200C5DDA0 /* book135.png */,
@@ -445,6 +448,7 @@
 				9283657F1A5CDB8D00C5DDA0 /* pen38.png in Resources */,
 				92E8F1E11AAD5014004B7ACF /* Main.storyboard in Resources */,
 				928365871A5CE14200C5DDA0 /* two174.png in Resources */,
+				92A4F9561ABF8296006FC40A /* check_mark_green.png in Resources */,
 				9283657B1A5CDA6200C5DDA0 /* woman81.png in Resources */,
 				928365851A5CE14200C5DDA0 /* idea13.png in Resources */,
 				92B3B1FB1A239BDE0091DA58 /* LaunchScreen.xib in Resources */,

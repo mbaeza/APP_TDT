@@ -149,10 +149,12 @@ public class EjerciciosVer {
         listaImagenes = new ArrayList<>();
         //buscar principal
         for(Imagen img: imagenFacade.findAll() ){
+            System.out.println(img.getUrlImagen());
             if(img.getIdEjercicio().equals(seleccionarSecuencia.getEjercicio())){         
                     List<String> aux = new ArrayList<>();
-                    aux.add(img.getUrlImagen().split("/")[7]);                    
-                    listaImagenes.add(aux);                              
+                    aux.add(img.getUrlImagen().split("/")[6]);                    
+                    listaImagenes.add(aux);  
+                    
             }
         }
         while(listaImagenes.size()<4){

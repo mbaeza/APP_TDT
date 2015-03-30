@@ -197,7 +197,7 @@ private String descripcionEjercicio;
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/APP_TDT_WEB-war/faces/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("http://localhost:8080/APP_TDT_WEB-war/faces/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
                     nuevaImagen2.setOrden(i);
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);

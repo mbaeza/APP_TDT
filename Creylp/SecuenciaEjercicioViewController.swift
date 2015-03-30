@@ -12,6 +12,12 @@ import Haneke
 
 class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    
+    @IBOutlet weak var ticketCuatro: UIImageView!
+    @IBOutlet weak var ticketTres: UIImageView!
+    @IBOutlet weak var ticketDos: UIImageView!
+    @IBOutlet weak var ticketUno: UIImageView!
+    
     @IBOutlet var imagenPan4: UIPanGestureRecognizer!
     @IBOutlet var imagenPan3: UIPanGestureRecognizer!
     @IBOutlet var imagenPan2: UIPanGestureRecognizer!
@@ -41,11 +47,21 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
     
     var imageSupSelecc: UIImageView!
     var imageInfSelecc: UIImageView!
+    
+    var puntoInicialImagen:[CGPoint] = []
+    var puntoInicialSup:CGPoint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var post:NSString = ""
+        
+        puntoInicialImagen.append(imagenPrimera.center);
+        puntoInicialImagen.append(imagenSegunda.center);
+        puntoInicialImagen.append(imagenTercera.center);
+        puntoInicialImagen.append(imagenCuarta.center);
+
+        //imagenNUno.bringSubviewToFront(imagenPrimera)
         
         imagenNUno.hidden = true
         imagenNDos.hidden = true
@@ -254,11 +270,19 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
         recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,y:recognizer.view!.center.y + translation.y)
         recognizer.setTranslation(CGPointZero, inView: self.view)
         
+       
+        if recognizer.state == UIGestureRecognizerState.Began {
+            let imagenSeleccionada1 = recognizer.view as UIImageView
+            puntoInicialSup = imagenSeleccionada1.center
+        }
+        
         if recognizer.state == UIGestureRecognizerState.Changed {
             let filteredSubviews = self.view.subviews.filter({
                 $0.isKindOfClass(UIImageView) })
             
             let imagenSeleccionada = recognizer.view as UIImageView
+            //puntoInicialSup = imagenSeleccionada.center
+            
             //for imageS in imagenesSuperior {
                 for imageI in imagenesInferior {
                     if(CGRectIntersectsRect(imagenSeleccionada.frame, imageI.frame) == true){
@@ -272,12 +296,14 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                              // imageI.image.
                             self.imageInfSelecc = imageI
                             self.imageSupSelecc = imagenSeleccionada;
+                        
                            // println("PERFECTO!")
                        }
                         
                         //imagenNUno.
                     }else if (CGRectIntersectsRect(imagenSeleccionada.frame, imageI.frame) == false){
                         imageI.layer.borderColor = UIColor.whiteColor().CGColor;
+                      
                     }
                 }
            // }
@@ -295,8 +321,18 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                                 let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
                                 imagenNUno.hnk_setImageFromURL(imagenURL)
                                  self.imageSupSelecc.hidden = true
+                                self.ticketUno.hidden = false
+                            }else{
+                                recognizer.view!.center = puntoInicialSup
+                               // recognizer.view!.center = puntoInicialImagen[0]
+                                //recognizer.setTranslation(CGPointZero, inView: self.view)
+
                             }
                         }
+                    }else{
+                        recognizer.view!.center = puntoInicialSup
+                        recognizer.setTranslation(CGPointZero, inView: self.view)
+                        self.imageInfSelecc.layer.borderColor = UIColor.whiteColor().CGColor;
                     }
                 case 1:
                     if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
@@ -305,8 +341,18 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                             let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
                             imagenNDos.hnk_setImageFromURL(imagenURL)
                             self.imageSupSelecc.hidden = true
+                            self.ticketDos.hidden = false
+                        }else{
+                            recognizer.view!.center = puntoInicialSup
+                           // recognizer.view!.center = puntoInicialImagen[1]
+                           // recognizer.setTranslation(CGPointZero, inView: self.view)
+                            // self.imageInfSelecc.layer.borderColor = UIColor.whiteColor().CGColor;
                         }
                     }
+                    }else{
+                       recognizer.view!.center = puntoInicialSup
+                        recognizer.setTranslation(CGPointZero, inView: self.view)
+                        self.imageInfSelecc.layer.borderColor = UIColor.whiteColor().CGColor;
                     }
                 case 2:
                     if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
@@ -315,8 +361,19 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                             let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
                             imagenNTres.hnk_setImageFromURL(imagenURL)
                              self.imageSupSelecc.hidden = true
+                            self.ticketTres.hidden = false
+                        }
+                        else{
+                            recognizer.view!.center = puntoInicialSup
+                           // recognizer.view!.center = puntoInicialImagen[2]
+                           // recognizer.setTranslation(CGPointZero, inView: self.view)
+
                         }
                     }
+                    }else{
+                        recognizer.view!.center = puntoInicialSup
+                        recognizer.setTranslation(CGPointZero, inView: self.view)
+                        self.imageInfSelecc.layer.borderColor = UIColor.whiteColor().CGColor;
                     }
                 case 3:
                     if(CGRectIntersectsRect(self.imageSupSelecc.frame, self.imageInfSelecc.frame) == true){
@@ -325,8 +382,18 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
                             let imagenURL:NSURL = NSURL(string: self.urlImagenes[i].stringByReplacingOccurrencesOfString(" ", withString: "%20"))!;
                             imagenNCuatro.hnk_setImageFromURL(imagenURL)
                              self.imageSupSelecc.hidden = true
+                            self.ticketCuatro.hidden = false
+                        }else{
+                            recognizer.view!.center = puntoInicialSup
+                           // recognizer.view!.center = puntoInicialImagen[3]
+                           // recognizer.setTranslation(CGPointZero, inView: self.view)
+
                         }
                     }
+                    }else{
+                        recognizer.view!.center = puntoInicialSup
+                        recognizer.setTranslation(CGPointZero, inView: self.view)
+                        self.imageInfSelecc.layer.borderColor = UIColor.whiteColor().CGColor;
                     }
                 default:
                     println("")

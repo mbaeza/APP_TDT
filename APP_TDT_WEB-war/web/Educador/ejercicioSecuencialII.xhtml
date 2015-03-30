@@ -13,14 +13,15 @@
         <h:outputStylesheet name="css/component.css" />
         <h:outputScript name="js/modernizr.custom.js"/>
     </h:head>
-    <h:body class="body_general" >
+    <h:body class="body_general"  onload="setInterval('contador()',1000);">
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
                     Agregar un ejercicio de respuesta multiple
             </div>
             <h:form id="myform" class="fs-form fs-form-full" >
+                <p:poll interval="5" async="true"  transient="true" update="elem12"/>
                 <p:growl id="confirmacion" showDetail="true" life="5000" />
-                <p:outputPanel class="base_pequena" style="font-size: .3em;;margin-top: 9%;position: fixed; margin-left: 55%" id="form12" >     
+                <p:outputPanel class="base_pequena" style="font-size: .3em;;margin-top: 8%;position: fixed; margin-left: 55%" id="form12" >     
                     <h:outputText style="width: 200px; margin-left: 80px;margin: 0 auto" id="out2" value="#{ejercicioSecuencial.text}" />
                     <!--<h:panelGrid columns="2" cellpadding="1" id ="elem23" style="margin-top: 2px" >-->
                         <h:panelGrid columns="1" cellpadding="1" id ="elem222" style="margin-top: 20px" >
@@ -36,10 +37,10 @@
                             <h:graphicImage id="imagen32" url="../files/#{ejercicioSecuencial.nombresArchivosUpload.get(2)}" width="35" height="35" />
                             <h:graphicImage id="imagen42"  url="../files/#{ejercicioSecuencial.nombresArchivosUpload.get(3)}" width="35" height="35"/>                            
 
-                            <h:outputText style="font-size: xx-large;" value="1"></h:outputText>
-                            <h:outputText style="font-size: xx-large;" value="2"></h:outputText>
-                            <h:outputText style="font-size: xx-large;" value="3"></h:outputText>
-                            <h:outputText style="font-size: xx-large;" value="4"></h:outputText>
+                            <h:outputText style="font-size: xx-large;margin-left: 10px" value="1"></h:outputText>
+                            <h:outputText style="font-size: xx-large;margin-left: 10px" value="2"></h:outputText>
+                            <h:outputText style="font-size: xx-large;margin-left: 10px" value="3"></h:outputText>
+                            <h:outputText style="font-size: xx-large;margin-left: 10px" value="4"></h:outputText>
                         </h:panelGrid>
                     <!--</h:panelGrid>-->
                  </p:outputPanel>
@@ -70,7 +71,7 @@
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive;width: 600px"  value="Ingresa las imágenes de respuesta correcta" />                                                        
                                     <p:growl id="mensajePrincipal1" showDetail="true" />
-                                    <p:fileUpload update="myform:imagen1,myform:imagen2,myform:imagen3,myform:imagen4,myform:imagen12,myform:imagen22,myform:imagen32,myform:imagen42,mensajePrincipal1" class="fs-anim-lower" value="#{ejercicioSecuencial.filePrincipal}" id="q5" multiple="true" fileLimit="4" fileUploadListener="#{ejercicioSecuencial.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    <p:fileUpload update="myform:imagen1,myform:imagen2,myform:imagen3,myform:imagen4,myform:imagen12,myform:imagen22,myform:imagen32,myform:imagen42,mensajePrincipal1" class="fs-anim-lower" immediate="true" value="#{ejercicioSecuencial.filePrincipal}" id="q5" multiple="true" fileLimit="4" fileUploadListener="#{ejercicioSecuencial.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
                                 </pm:field>							
                             </li>                            
                     </ol><!-- /fs-fields -->
@@ -142,6 +143,17 @@
 			})();
                         
 		</h:outputScript>
+                
+                <h:outputScript>
+                    var cont = 0;
+                    function contador(){
+                            var contador = document.getElementById("contador");
+                            contador.value = cont;
+                            cont++;
+                    }
+                </h:outputScript>
+                
+                
     </h:body>
 </html>
 

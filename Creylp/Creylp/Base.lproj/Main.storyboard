@@ -413,6 +413,30 @@
                                     <rect key="frame" x="447" y="498" width="135" height="128"/>
                                 </variation>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="nhc-EB-0aA">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="634" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCj-cy-h1I">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="185" y="634" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="NPN-9W-g09">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="471" y="634" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-MX-QFf">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="328" y="634" width="86" height="89"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -421,6 +445,10 @@
                                 <exclude reference="TEG-ZL-c9w"/>
                                 <exclude reference="mBy-Nh-ITz"/>
                                 <exclude reference="VPd-fT-Juw"/>
+                                <exclude reference="nhc-EB-0aA"/>
+                                <exclude reference="uCj-cy-h1I"/>
+                                <exclude reference="NPN-9W-g09"/>
+                                <exclude reference="w3L-MX-QFf"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -429,6 +457,10 @@
                                 <include reference="TEG-ZL-c9w"/>
                                 <include reference="mBy-Nh-ITz"/>
                                 <include reference="VPd-fT-Juw"/>
+                                <include reference="nhc-EB-0aA"/>
+                                <include reference="uCj-cy-h1I"/>
+                                <include reference="NPN-9W-g09"/>
+                                <include reference="w3L-MX-QFf"/>
                             </mask>
                         </variation>
                     </view>
@@ -446,6 +478,10 @@
                         <outlet property="imagenPrimera" destination="gg3-Uz-eYH" id="8eJ-VR-4Vc"/>
                         <outlet property="imagenSegunda" destination="Br3-06-h5v" id="WO2-VC-Q0z"/>
                         <outlet property="imagenTercera" destination="KL1-xW-HaY" id="rmp-0o-o6r"/>
+                        <outlet property="ticketCuatro" destination="NPN-9W-g09" id="36Y-DN-kDn"/>
+                        <outlet property="ticketDos" destination="uCj-cy-h1I" id="O9f-HG-r4b"/>
+                        <outlet property="ticketTres" destination="w3L-MX-QFf" id="wyA-yy-AX6"/>
+                        <outlet property="ticketUno" destination="nhc-EB-0aA" id="kGs-ic-S8g"/>
                         <outlet property="titulo" destination="MxE-to-Iqc" id="v2c-4A-nfN"/>
                     </connections>
                 </viewController>
@@ -498,6 +534,7 @@
     </scenes>
     <resources>
         <image name="book135.png" width="64" height="62"/>
+        <image name="check_mark_green.png" width="7855" height="7040"/>
         <image name="idea13.png" width="64" height="64"/>
         <image name="kids1.png" width="64" height="55"/>
         <image name="pen38.png" width="64" height="63"/>

@@ -160,7 +160,7 @@ private String descripcionEjercicio;
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("http://localhost:8080/APP_TDT_WEB-war/faces/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
 //                    nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);

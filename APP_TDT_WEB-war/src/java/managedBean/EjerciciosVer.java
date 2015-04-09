@@ -80,16 +80,17 @@ public class EjerciciosVer {
         for(Imagen img: imagenFacade.findAll() ){
             if(img.getIdEjercicio().equals(seleccionarAbsurdo.getEjercicio())){
                 if(img.getPrincipal()){
-                    imagenTextoPrincipal = img.getUrlImagen().split("/")[7];
+                    imagenTextoPrincipal = img.getUrlImagen().split("/")[6];
+                    System.out.println(imagenTextoPrincipal);
                 }else if(img.getRespuestaCorrecta()){
                     List<String> aux = new ArrayList<>();
-                    aux.add(img.getUrlImagen().split("/")[7]);
-                    System.out.println(img.getUrlImagen().split("/")[7]);
+                    aux.add(img.getUrlImagen().split("/")[6]);
+                    System.out.println(img.getUrlImagen().split("/")[6]);
                     aux.add("border-color: green;border-style:solid");
                     listaImagenes.add(aux);
                 }else{
                     List<String> aux = new ArrayList<>();
-                    aux.add(img.getUrlImagen().split("/")[7]);
+                    aux.add(img.getUrlImagen().split("/")[6]);
                     aux.add("border-color: none;border-style:none");
                     listaImagenes.add(aux);
                 }
@@ -109,7 +110,7 @@ public class EjerciciosVer {
         for(Imagen img: imagenFacade.findAll() ){
             if(img.getIdEjercicio().equals(seleccionarSemejanza.getEjercicio())){
                 if(img.getPrincipal()){
-                    imagenTextoPrincipal = img.getUrlImagen().split("/")[7];
+                    imagenTextoPrincipal = img.getUrlImagen().split("/")[6];
                 }else {
                     List<String> aux = new ArrayList<>();
                     aux.add(img.getUrlImagen().split("/")[7]);                    
@@ -132,7 +133,7 @@ public class EjerciciosVer {
         for(Imagen img: imagenFacade.findAll() ){
             if(img.getIdEjercicio().equals(seleccionarMemorize.getEjercicio())){         
                     List<String> aux = new ArrayList<>();
-                    aux.add(img.getUrlImagen().split("/")[7]);                    
+                    aux.add(img.getUrlImagen().split("/")[6]);                    
                     listaImagenes.add(aux);              
                 
             }

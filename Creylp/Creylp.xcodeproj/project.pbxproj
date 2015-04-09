@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921295931AD222B600F44056 /* EjerciciosMemorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921295921AD222B600F44056 /* EjerciciosMemorizeViewController.swift */; };
+		9212959A1AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921295991AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift */; };
 		92739E1D1A86EE2200929191 /* EjerciciosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92739E1C1A86EE2200929191 /* EjerciciosViewController.swift */; };
 		928365741A5CC8E200C5DDA0 /* CabinSketch-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 928365721A5CC8E100C5DDA0 /* CabinSketch-Bold.otf */; };
 		928365751A5CC8E200C5DDA0 /* CabinSketch-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 928365731A5CC8E200C5DDA0 /* CabinSketch-Regular.otf */; };
@@ -28,6 +30,9 @@
 		92B3B2171A239D580091DA58 /* IniciarSesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B2161A239D580091DA58 /* IniciarSesionViewController.swift */; };
 		92B3B2191A23A10F0091DA58 /* SecuenciaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B2181A23A10F0091DA58 /* SecuenciaViewController.swift */; };
 		92B3B2201A23A1F40091DA58 /* TickleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3B21F1A23A1F40091DA58 /* TickleGestureRecognizer.swift */; };
+		92E4AB0E1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4AB0D1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift */; };
+		92E4AB151AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4AB141AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift */; };
+		92E4AB171AD0C70E00DED289 /* SeleccionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4AB161AD0C70E00DED289 /* SeleccionViewController.swift */; };
 		92E8F1A21AAA1437004B7ACF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8F1A11AAA1437004B7ACF /* SwiftyJSON.swift */; };
 		92E8F1B31AAA14E6004B7ACF /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8F1B21AAA14E6004B7ACF /* Alamofire.swift */; };
 		92E8F1D41AAA1CC9004B7ACF /* Haneke.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92E8F1CB1AAA1C99004B7ACF /* Haneke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -125,6 +130,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		921295921AD222B600F44056 /* EjerciciosMemorizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EjerciciosMemorizeViewController.swift; sourceTree = SOURCE_ROOT; };
+		921295991AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EjercicioAlumnoMemorizeViewController.swift; sourceTree = SOURCE_ROOT; };
 		92739E1C1A86EE2200929191 /* EjerciciosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EjerciciosViewController.swift; path = ../EjerciciosViewController.swift; sourceTree = "<group>"; };
 		928365721A5CC8E100C5DDA0 /* CabinSketch-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Bold.otf"; sourceTree = "<group>"; };
 		928365731A5CC8E200C5DDA0 /* CabinSketch-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Regular.otf"; sourceTree = "<group>"; };
@@ -151,6 +158,9 @@
 		92B3B2181A23A10F0091DA58 /* SecuenciaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuenciaViewController.swift; path = ../SecuenciaViewController.swift; sourceTree = "<group>"; };
 		92B3B21C1A23A1C70091DA58 /* creylp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "creylp-Bridging-Header.h"; sourceTree = "<group>"; };
 		92B3B21F1A23A1F40091DA58 /* TickleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickleGestureRecognizer.swift; sourceTree = "<group>"; };
+		92E4AB0D1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EjerciciosSeleccionViewController.swift; sourceTree = SOURCE_ROOT; };
+		92E4AB141AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EjercicioAlumnoSeleccionViewController.swift; sourceTree = SOURCE_ROOT; };
+		92E4AB161AD0C70E00DED289 /* SeleccionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeleccionViewController.swift; sourceTree = SOURCE_ROOT; };
 		92E8F1A11AAA1437004B7ACF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../../RevivalxCollectionView-master/RevivalxCollectionView/SwiftyJSON.swift"; sourceTree = "<group>"; };
 		92E8F1B21AAA14E6004B7ACF /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = "../../../RevivalxCollectionView-master/Alamofire/Source/Alamofire.swift"; sourceTree = "<group>"; };
 		92E8F1B41AAA1C8E004B7ACF /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -234,11 +244,16 @@
 				92E8F1B21AAA14E6004B7ACF /* Alamofire.swift */,
 				92E8F1A11AAA1437004B7ACF /* SwiftyJSON.swift */,
 				92739E1C1A86EE2200929191 /* EjerciciosViewController.swift */,
+				92E4AB0D1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift */,
 				92B363C31AA3946E004D721B /* MenuInicialViewController.swift */,
 				92B3B2161A239D580091DA58 /* IniciarSesionViewController.swift */,
 				92B3B1F01A239BDE0091DA58 /* AppDelegate.swift */,
 				92B3B1F21A239BDE0091DA58 /* ViewController.swift */,
 				92E8F1DF1AAD5014004B7ACF /* Main.storyboard */,
+				921295921AD222B600F44056 /* EjerciciosMemorizeViewController.swift */,
+				92E4AB161AD0C70E00DED289 /* SeleccionViewController.swift */,
+				92E4AB141AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift */,
+				921295991AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift */,
 				92B3B1F71A239BDE0091DA58 /* Images.xcassets */,
 				92B3B1F91A239BDE0091DA58 /* LaunchScreen.xib */,
 				92B3B1EE1A239BDE0091DA58 /* Supporting Files */,
@@ -476,11 +491,16 @@
 				92B3B2201A23A1F40091DA58 /* TickleGestureRecognizer.swift in Sources */,
 				92E8F1A21AAA1437004B7ACF /* SwiftyJSON.swift in Sources */,
 				92E8F1E71AAD5F3F004B7ACF /* EjercicioAlumnoViewController.swift in Sources */,
+				9212959A1AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift in Sources */,
+				92E4AB0E1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift in Sources */,
 				92B3B1F31A239BDE0091DA58 /* ViewController.swift in Sources */,
+				92E4AB171AD0C70E00DED289 /* SeleccionViewController.swift in Sources */,
 				92B3B1F11A239BDE0091DA58 /* AppDelegate.swift in Sources */,
 				92E8F1B31AAA14E6004B7ACF /* Alamofire.swift in Sources */,
 				92B3B2191A23A10F0091DA58 /* SecuenciaViewController.swift in Sources */,
 				92B363C41AA3946E004D721B /* MenuInicialViewController.swift in Sources */,
+				921295931AD222B600F44056 /* EjerciciosMemorizeViewController.swift in Sources */,
+				92E4AB151AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

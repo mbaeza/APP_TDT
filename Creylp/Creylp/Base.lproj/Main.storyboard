@@ -9,6 +9,7 @@
             <string>CabinSketch-Bold</string>
             <string>CabinSketch-Bold</string>
             <string>CabinSketch-Bold</string>
+            <string>CabinSketch-Bold</string>
         </mutableArray>
         <mutableArray key="CabinSketch-Regular.otf">
             <string>CabinSketch</string>
@@ -113,7 +114,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3281" y="1195"/>
+            <point key="canvasLocation" x="3489" y="2322.75"/>
         </scene>
         <!--ViewControllerSecuencia-->
         <scene sceneID="hb1-yj-Q9I">
@@ -131,7 +132,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itn-Hg-4hq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2469" y="1195"/>
+            <point key="canvasLocation" x="2677" y="2322.75"/>
         </scene>
         <!--Menu Inicial View Controller-->
         <scene sceneID="ykP-6c-Yhd">
@@ -174,6 +175,9 @@
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vcH-OU-Yhv" kind="show" identifier="SegueSeleccion" id="WOx-9M-ll3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mis Ejercicios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-Ry-zub">
                                 <rect key="frame" x="0.0" y="287" width="600" height="50"/>
@@ -210,6 +214,9 @@
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="0Nr-By-91x" kind="show" identifier="SegueMemorize" id="qQF-UE-371"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.63137254899999995" green="0.81176470590000005" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,6 +241,390 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMl-k5-Sph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1820" y="307"/>
+        </scene>
+        <!--Ejercicios de Selección-->
+        <scene sceneID="oDl-rS-vBE">
+            <objects>
+                <viewController storyboardIdentifier="EjerciciosSeleccionViewController" id="vcH-OU-Yhv" customClass="EjerciciosSeleccionViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sri-z2-VzM"/>
+                        <viewControllerLayoutGuide type="bottom" id="3r6-Z2-FC9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EC4-ar-quh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="536" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r9X-un-dwf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCell" id="Sk2-Sx-fuh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sk2-Sx-fuh" id="Hn1-RW-82y">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Mjn-Ez-QYC" kind="show" id="UAH-DE-oCV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="vcH-OU-Yhv" id="BXA-D4-40p"/>
+                                    <outlet property="delegate" destination="vcH-OU-Yhv" id="HH3-Km-P7f"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="r9X-un-dwf" secondAttribute="height" id="KWS-1b-6a2"/>
+                            <constraint firstAttribute="width" secondItem="r9X-un-dwf" secondAttribute="width" id="xM7-NP-m7Z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KWS-1b-6a2"/>
+                                <exclude reference="xM7-NP-m7Z"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="KWS-1b-6a2"/>
+                                <include reference="xM7-NP-m7Z"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ejercicios de Selección" id="7SU-Wh-3JF"/>
+                    <connections>
+                        <outlet property="tableView" destination="r9X-un-dwf" id="CZc-wl-ZNN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZgD-Tf-fVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2677" y="-9.75"/>
+        </scene>
+        <!--Ejercicios de Memoria-->
+        <scene sceneID="2ef-Dm-ni9">
+            <objects>
+                <viewController storyboardIdentifier="EjerciciosMemorizeViewController" id="0Nr-By-91x" customClass="EjerciciosMemorizeViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ba6-zO-ddI"/>
+                        <viewControllerLayoutGuide type="bottom" id="C2U-cM-8h7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZVr-mx-brY">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eAF-JK-37P">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCell" id="UZq-o6-yPo">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UZq-o6-yPo" id="IfY-xd-Y22">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WA5-JO-Q80" kind="show" id="wOQ-oN-b8R"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="756"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Nr-By-91x" id="J0x-aX-kzI"/>
+                                    <outlet property="delegate" destination="0Nr-By-91x" id="iuC-SZ-484"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eAF-JK-37P" firstAttribute="width" secondItem="ZVr-mx-brY" secondAttribute="width" id="88J-8e-qSN"/>
+                            <constraint firstItem="eAF-JK-37P" firstAttribute="height" secondItem="ZVr-mx-brY" secondAttribute="height" id="wEL-GJ-yKM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="88J-8e-qSN"/>
+                                <exclude reference="wEL-GJ-yKM"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="88J-8e-qSN"/>
+                                <include reference="wEL-GJ-yKM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ejercicios de Memoria" id="XeT-Tz-9QU"/>
+                    <connections>
+                        <outlet property="tableView" destination="eAF-JK-37P" id="fZa-eb-dU9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7X9-Ed-GGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2677" y="635.25"/>
+        </scene>
+        <!--Alumnos del Ejercicio-->
+        <scene sceneID="4UW-qi-362">
+            <objects>
+                <viewController id="WA5-JO-Q80" customClass="EjercicioAlumnoMemorizeViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7HH-ER-gwv"/>
+                        <viewControllerLayoutGuide type="bottom" id="DAT-Uz-zFw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iNm-oy-6pt">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2u9-iN-GPw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hOi-IA-SDP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOi-IA-SDP" id="J23-sD-W3m">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="756"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="WA5-JO-Q80" id="fER-Q4-mJW"/>
+                                    <outlet property="delegate" destination="WA5-JO-Q80" id="KxV-Gi-kU8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2u9-iN-GPw" firstAttribute="width" secondItem="iNm-oy-6pt" secondAttribute="width" id="7Lg-6s-UTh"/>
+                            <constraint firstItem="2u9-iN-GPw" firstAttribute="height" secondItem="iNm-oy-6pt" secondAttribute="height" id="BaX-tD-69U"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Lg-6s-UTh"/>
+                                <exclude reference="BaX-tD-69U"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="7Lg-6s-UTh"/>
+                                <include reference="BaX-tD-69U"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Alumnos del Ejercicio" id="jjQ-Mi-WwS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUe-la-Ylg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3405" y="635.25"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tLo-GX-8FV">
+            <objects>
+                <viewController id="8ax-c4-89f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Rs-9s-Siy"/>
+                        <viewControllerLayoutGuide type="bottom" id="X8W-QG-1XS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qgp-ph-8Cd">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx5-yJ-zyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4125" y="635.25"/>
+        </scene>
+        <!--Ejercicio Alumno Seleccion View Controller-->
+        <scene sceneID="RrM-Nx-jlJ">
+            <objects>
+                <viewController id="Mjn-Ez-QYC" customClass="EjercicioAlumnoSeleccionViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GO8-TC-N4c"/>
+                        <viewControllerLayoutGuide type="bottom" id="uta-sL-pqK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6zh-CE-Z8x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Lsq-CR-dVi">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCellEA" id="ZV5-0e-PKw">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZV5-0e-PKw" id="E64-jX-OpU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="i19-fs-bca" kind="show" id="tvk-d1-5ye"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mjn-Ez-QYC" id="so3-4n-gcQ"/>
+                                    <outlet property="delegate" destination="Mjn-Ez-QYC" id="Ffk-mL-t8y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lsq-CR-dVi" firstAttribute="height" secondItem="6zh-CE-Z8x" secondAttribute="height" id="8mC-Vz-khW"/>
+                            <constraint firstItem="Lsq-CR-dVi" firstAttribute="width" secondItem="6zh-CE-Z8x" secondAttribute="width" id="Ysg-Gi-0aS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8mC-Vz-khW"/>
+                                <exclude reference="Ysg-Gi-0aS"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="8mC-Vz-khW"/>
+                                <include reference="Ysg-Gi-0aS"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="alumnosEjercicios" destination="Lsq-CR-dVi" id="aGr-ff-CPy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPn-aq-SPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3405" y="-9.75"/>
+        </scene>
+        <!--Seleccion View Controller-->
+        <scene sceneID="lsc-vH-6UE">
+            <objects>
+                <viewController storyboardIdentifier="SeleccionViewController" id="i19-fs-bca" customClass="SeleccionViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="owj-dz-epr"/>
+                        <viewControllerLayoutGuide type="bottom" id="kwU-qf-72X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cKl-4H-e8P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yaV-Qe-qQt">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="167" y="188" width="266" height="227"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto informativo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-Yl-vE7">
+                                <rect key="frame" x="16" y="127" width="568" height="91"/>
+                                <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="45"/>
+                                <color key="textColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="100" width="568" height="91"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-wz-9ym">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="492" width="138" height="127"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tOx-P5-seP">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="454" y="492" width="138" height="127"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="byh-VQ-kOQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="162" y="492" width="138" height="127"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="41p-TR-Wlu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="186" y="642" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="WZx-LH-l5F">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="472" y="642" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="9n2-HU-m2v">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="329" y="642" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1IK-28-wMT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="308" y="492" width="138" height="127"/>
+                                </variation>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_mark_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="CpG-BI-cPi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="642" width="86" height="89"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yaV-Qe-qQt"/>
+                                <exclude reference="VJS-Yl-vE7"/>
+                                <exclude reference="Lla-wz-9ym"/>
+                                <exclude reference="tOx-P5-seP"/>
+                                <exclude reference="byh-VQ-kOQ"/>
+                                <exclude reference="41p-TR-Wlu"/>
+                                <exclude reference="WZx-LH-l5F"/>
+                                <exclude reference="9n2-HU-m2v"/>
+                                <exclude reference="1IK-28-wMT"/>
+                                <exclude reference="CpG-BI-cPi"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="yaV-Qe-qQt"/>
+                                <include reference="VJS-Yl-vE7"/>
+                                <include reference="Lla-wz-9ym"/>
+                                <include reference="tOx-P5-seP"/>
+                                <include reference="byh-VQ-kOQ"/>
+                                <include reference="41p-TR-Wlu"/>
+                                <include reference="WZx-LH-l5F"/>
+                                <include reference="9n2-HU-m2v"/>
+                                <include reference="1IK-28-wMT"/>
+                                <include reference="CpG-BI-cPi"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imagenCuarta" destination="tOx-P5-seP" id="5i2-en-Gyl"/>
+                        <outlet property="imagenPrimera" destination="Lla-wz-9ym" id="jfu-tx-EMa"/>
+                        <outlet property="imagenPrincipal" destination="yaV-Qe-qQt" id="i5H-gh-XVS"/>
+                        <outlet property="imagenSegunda" destination="byh-VQ-kOQ" id="TFK-HB-oB7"/>
+                        <outlet property="imagenTercera" destination="1IK-28-wMT" id="qOR-1a-pnE"/>
+                        <outlet property="ticketCuatro" destination="WZx-LH-l5F" id="eBM-JB-Kqf"/>
+                        <outlet property="ticketDos" destination="41p-TR-Wlu" id="0RL-mv-SPe"/>
+                        <outlet property="ticketTres" destination="9n2-HU-m2v" id="wJN-GN-Roa"/>
+                        <outlet property="ticketUno" destination="CpG-BI-cPi" id="VEo-Sq-wb3"/>
+                        <outlet property="titulo" destination="VJS-Yl-vE7" id="SwQ-L7-LNl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Qd-Tx-sik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4125" y="-9.75"/>
         </scene>
         <!--Ejercicios de Secuencia-->
         <scene sceneID="K8I-0R-qgf">
@@ -292,9 +683,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOq-8H-aaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="289"/>
+            <point key="canvasLocation" x="2667" y="-701.25"/>
         </scene>
-        <!--Ejercicio Alumno View Controller-->
+        <!--Alumnos del Ejercicio-->
         <scene sceneID="W7y-UN-8DP">
             <objects>
                 <viewController storyboardIdentifier="EjercicioAlumnoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FPq-pn-vgs" customClass="EjercicioAlumnoViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
@@ -335,13 +726,14 @@
                             <constraint firstAttribute="height" secondItem="moC-tQ-F9g" secondAttribute="height" id="lHm-aH-lg6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Alumnos del Ejercicio" id="Zk5-tU-GtF"/>
                     <connections>
                         <outlet property="alumnosEjercicios" destination="moC-tQ-F9g" id="dWt-GT-xJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26H-I4-gMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="291"/>
+            <point key="canvasLocation" x="3380" y="-699"/>
         </scene>
         <!--Secuencia Ejercicio View Controller-->
         <scene sceneID="qq0-9b-Hga">
@@ -511,7 +903,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3956" y="288.75"/>
+            <point key="canvasLocation" x="4101" y="-701.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ddQ-0U-c7t">

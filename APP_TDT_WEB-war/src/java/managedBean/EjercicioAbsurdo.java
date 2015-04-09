@@ -11,10 +11,12 @@ import com.tdt.entityclass.AbsurdoPK;
 import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.Ejercicio;
 import com.tdt.entityclass.Imagen;
+import com.tdt.entityclass.TipoEjercicio;
 import com.tdt.sessionbean.AbsurdoFacadeLocal;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.ImagenFacadeLocal;
+import com.tdt.sessionbean.TipoEjercicioFacadeLocal;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -51,6 +53,8 @@ import org.primefaces.model.UploadedFile;
 @Named(value = "ejercicioAbsurdo")
 @RequestScoped
 public class EjercicioAbsurdo implements Serializable{
+    @EJB
+    private TipoEjercicioFacadeLocal tipoEjercicioFacade;
     @EJB
     private AlumnoFacadeLocal alumnoFacade;
     @EJB
@@ -112,7 +116,7 @@ private String descripcionEjercicio;
             tituloPrincipal= "";
             descripcionEjercicio = "";
             
-            nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
+            //nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
             cont.clear();
         }
         subirArchivo.add(0, false);
@@ -163,6 +167,10 @@ private String descripcionEjercicio;
             Ejercicio nuevoEjercicio = new Ejercicio();
             nuevoEjercicio.setNombreEjercicio(nombreEjercicio);
             nuevoEjercicio.setDescripcionEjercicio(descripcionEjercicio);
+            
+            List<TipoEjercicio> tipoEjercicioList = tipoEjercicioFacade.findAll();
+            TipoEjercicio obtenerTipoEjercicio = tipoEjercicioList.get(1);
+            nuevoEjercicio.setFkTipoEjercicio(obtenerTipoEjercicio);
             ejercicioFacade.create(nuevoEjercicio);                
 
 
@@ -191,7 +199,7 @@ private String descripcionEjercicio;
 
             //se suben las imagenes            
             nuevaImagen.setRespuestaCorrecta(false);
-            nuevaImagen.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUploadPrincipal.get(0));
+            nuevaImagen.setUrlImagen("http://localhost:8080/APP_TDT_WEB-war/faces/files/"+nombresArchivosUploadPrincipal.get(0));
             nuevaImagen.setPrincipal(true);                        
             nuevaImagen.setRespuestaCorrecta(false);
             imagenFacade.create(nuevaImagen);
@@ -208,7 +216,7 @@ private String descripcionEjercicio;
             for(int i = 0;i<4;i++){
                 if(!nombresArchivosUpload.get(i).equals("interrogacion.png")){
                     Imagen nuevaImagen2 = new Imagen();
-                    nuevaImagen2.setUrlImagen("/Users/marcobaeza/Documents/APP_TDT/APP_TDT_WEB-war/web/files/"+nombresArchivosUpload.get(i));
+                    nuevaImagen2.setUrlImagen("http://localhost:8080/APP_TDT_WEB-war/faces/files/"+nombresArchivosUpload.get(i));
                     nuevaImagen2.setPrincipal(false);
                     nuevaImagen2.setRespuestaCorrecta(respuestasCorrecta.get(i));  
                     nuevaImagen2.setIdEjercicio(nuevoEjercicio);

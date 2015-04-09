@@ -13,6 +13,7 @@ import cl.tdt.objeto.RespuestaImagenEjercicio;
 import cl.tdt.objeto.RespuestaUsuario;
 import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.Usuario;
+import com.tdt.sessionbean.AbsurdoFacadeLocal;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.ImagenFacadeLocal;
@@ -40,6 +41,7 @@ import javax.ws.rs.PUT;
  */
 @Path("ServiciosWeb")
 public class ServiciosWeb {
+    AbsurdoFacadeLocal absurdoFacade = lookupAbsurdoFacadeLocal();
     SecuenciaFacadeLocal secuenciaFacade = lookupSecuenciaFacadeLocal();
     ImagenFacadeLocal imagenFacade = lookupImagenFacadeLocal();
     AlumnoFacadeLocal alumnoFacade = lookupAlumnoFacadeLocal();
@@ -151,6 +153,24 @@ public class ServiciosWeb {
                 
     }
     
+    @GET
+    @Produces("application/json")
+    @Path("/ObtenerImagenEjerciciosSeleccion/{idEjercicio}")
+    public RespuestaImagenEjercicio obtenerImagenEjerciciosSeleccion(@PathParam("idEjercicio") String idEjercicio) {
+        
+        RespuestaImagenEjercicio respuestaImagen = new RespuestaImagenEjercicio();
+        Respuesta respuesta = new Respuesta();
+        
+        respuesta.setCodigo("00");
+        respuesta.setGlosa("Correcto");
+        
+        respuestaImagen.setTitulo(absurdoFacade.obtenerEjercicioAbsurdo(idEjercicio).getTextoPrincipal());
+        respuestaImagen.setImagenes(imagenFacade.obtenerImagenes(idEjercicio));
+        respuestaImagen.setRespuesta(respuesta);
+        return respuestaImagen;
+                
+    }
+    
     /**
      * PUT method for updating or creating an instance of ServiciosWeb
      * @param content representation for the resource
@@ -205,6 +225,16 @@ public class ServiciosWeb {
         try {
             javax.naming.Context c = new InitialContext();
             return (SecuenciaFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/SecuenciaFacade!com.tdt.sessionbean.SecuenciaFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private AbsurdoFacadeLocal lookupAbsurdoFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (AbsurdoFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/AbsurdoFacade!com.tdt.sessionbean.AbsurdoFacadeLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

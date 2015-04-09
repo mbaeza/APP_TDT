@@ -31,4 +31,6 @@ public interface AbsurdoFacadeLocal {
 
     int count();
     
+    Absurdo obtenerEjercicioAbsurdo(String idEjercicio);
+    
 }

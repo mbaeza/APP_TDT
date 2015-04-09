@@ -125,4 +125,10 @@
         <local>com.tdt.sessionbean.SecuenciaFacadeLocal</local>
         <ejb-link>APP_TDT_WEB-ejb.jar#SecuenciaFacade</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>AbsurdoFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.tdt.sessionbean.AbsurdoFacadeLocal</local>
+        <ejb-link>APP_TDT_WEB-ejb.jar#AbsurdoFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

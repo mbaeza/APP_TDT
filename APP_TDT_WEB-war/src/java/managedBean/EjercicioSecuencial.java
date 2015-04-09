@@ -11,11 +11,14 @@ import com.tdt.entityclass.Ejercicio;
 import com.tdt.entityclass.Imagen;
 import com.tdt.entityclass.Secuencia;
 import com.tdt.entityclass.SecuenciaPK;
+import com.tdt.entityclass.TipoEjercicio;
+import com.tdt.entityclass.TipoEjercicio_;
 import com.tdt.sessionbean.AbsurdoFacadeLocal;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.ImagenFacadeLocal;
 import com.tdt.sessionbean.SecuenciaFacadeLocal;
+import com.tdt.sessionbean.TipoEjercicioFacadeLocal;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,6 +50,8 @@ import org.primefaces.model.UploadedFile;
 @Named(value = "ejercicioSecuencial")
 @RequestScoped
 public class EjercicioSecuencial implements Serializable{
+    @EJB
+    private TipoEjercicioFacadeLocal tipoEjercicioFacade;
     @EJB
     private SecuenciaFacadeLocal secuenciaFacade;
     @EJB
@@ -161,6 +166,10 @@ private String descripcionEjercicio;
             Ejercicio nuevoEjercicio = new Ejercicio();
             nuevoEjercicio.setNombreEjercicio(nombreEjercicio);
             nuevoEjercicio.setDescripcionEjercicio(descripcionEjercicio);
+            
+            List<TipoEjercicio> tipoEjercicioList = tipoEjercicioFacade.findAll();
+            TipoEjercicio obtenerTipoEjercicio = tipoEjercicioList.get(0);
+            nuevoEjercicio.setFkTipoEjercicio(obtenerTipoEjercicio);
             ejercicioFacade.create(nuevoEjercicio);                
 
 
@@ -171,6 +180,7 @@ private String descripcionEjercicio;
             nuevoSecuencia.setEjercicio(nuevoEjercicio);
             nuevoSecuencia.setNombreEjercicio(nombreEjercicio);
             nuevoSecuencia.setTextoPrincipal(tituloPrincipal); 
+            
 
             
             SecuenciaPK abspk = new SecuenciaPK();

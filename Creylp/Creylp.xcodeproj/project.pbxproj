@@ -40,6 +40,7 @@
 		92E8F1DB1AAA380B004B7ACF /* SecuenciaEjercicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8F1DA1AAA380B004B7ACF /* SecuenciaEjercicioViewController.swift */; };
 		92E8F1E11AAD5014004B7ACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E8F1DF1AAD5014004B7ACF /* Main.storyboard */; };
 		92E8F1E71AAD5F3F004B7ACF /* EjercicioAlumnoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E8F1E61AAD5F3F004B7ACF /* EjercicioAlumnoViewController.swift */; };
+		92FE9F4E1AD8CDAE00C1DBF8 /* MemorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9F4D1AD8CDAE00C1DBF8 /* MemorizeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		92E8F1DA1AAA380B004B7ACF /* SecuenciaEjercicioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuenciaEjercicioViewController.swift; sourceTree = "<group>"; };
 		92E8F1E01AAD5014004B7ACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = creylp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92E8F1E61AAD5F3F004B7ACF /* EjercicioAlumnoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EjercicioAlumnoViewController.swift; sourceTree = "<group>"; };
+		92FE9F4D1AD8CDAE00C1DBF8 /* MemorizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorizeViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				92E4AB161AD0C70E00DED289 /* SeleccionViewController.swift */,
 				92E4AB141AD06C8800DED289 /* EjercicioAlumnoSeleccionViewController.swift */,
 				921295991AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift */,
+				92FE9F4D1AD8CDAE00C1DBF8 /* MemorizeViewController.swift */,
 				92B3B1F71A239BDE0091DA58 /* Images.xcassets */,
 				92B3B1F91A239BDE0091DA58 /* LaunchScreen.xib */,
 				92B3B1EE1A239BDE0091DA58 /* Supporting Files */,
@@ -492,6 +495,7 @@
 				92E8F1A21AAA1437004B7ACF /* SwiftyJSON.swift in Sources */,
 				92E8F1E71AAD5F3F004B7ACF /* EjercicioAlumnoViewController.swift in Sources */,
 				9212959A1AD4D3FA00F44056 /* EjercicioAlumnoMemorizeViewController.swift in Sources */,
+				92FE9F4E1AD8CDAE00C1DBF8 /* MemorizeViewController.swift in Sources */,
 				92E4AB0E1ACF09A800DED289 /* EjerciciosSeleccionViewController.swift in Sources */,
 				92B3B1F31A239BDE0091DA58 /* ViewController.swift in Sources */,
 				92E4AB171AD0C70E00DED289 /* SeleccionViewController.swift in Sources */,

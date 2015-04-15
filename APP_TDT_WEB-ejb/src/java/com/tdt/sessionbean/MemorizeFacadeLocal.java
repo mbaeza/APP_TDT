@@ -31,4 +31,5 @@ public interface MemorizeFacadeLocal {
 
     int count();
     
+    Memorize obtenerEjercicioMemorize(String idEjercicio);
 }

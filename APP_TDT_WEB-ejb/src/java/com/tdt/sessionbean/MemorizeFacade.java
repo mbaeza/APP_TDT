@@ -10,6 +10,7 @@ import com.tdt.entityclass.Memorize;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,15 @@ public class MemorizeFacade extends AbstractFacade<Memorize> implements Memorize
 
     public MemorizeFacade() {
         super(Memorize.class);
+    }
+    
+    @Override
+    public Memorize obtenerEjercicioMemorize(String idEjercicio) {
+        
+        Query query = em.createNamedQuery("Memorize.findByIdEjercicio");
+        query.setParameter("idEjercicio", Integer.parseInt(idEjercicio));
+        return (Memorize) query.getSingleResult();
+       
     }
     
 }

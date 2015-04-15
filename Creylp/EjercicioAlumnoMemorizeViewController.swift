@@ -10,6 +10,8 @@ import UIKit
 
 class EjercicioAlumnoMemorizeViewController: UIViewController {
 
+    @IBOutlet weak var alumnosEjercicios: UITableView!
+    
     var idEjercicio:String!
     var idUsuario:String!
     var items: [String] = []
@@ -153,7 +155,7 @@ class EjercicioAlumnoMemorizeViewController: UIViewController {
         // load the selected model
         let item = self.items[indexPath!.row]
         
-        let viewController = segue.destinationViewController as SeleccionViewController
+        let viewController = segue.destinationViewController as MemorizeViewController
         // set the model to be viewed
         viewController.idUsuario = self.idUsuario;
         viewController.idEjercicio = self.idEjercicio

@@ -156,7 +156,7 @@ class EjerciciosMemorizeViewController: UIViewController {
         // load the selected model
         let item = self.items[indexPath!.row]
         
-        let viewController = segue.destinationViewController as EjercicioAlumnoSeleccionViewController
+        let viewController = segue.destinationViewController as EjercicioAlumnoMemorizeViewController
         // set the model to be viewed
         viewController.idUsuario = self.idUsuario;
         viewController.idEjercicio = self.itemsIdEjercicio[indexPath!.row]

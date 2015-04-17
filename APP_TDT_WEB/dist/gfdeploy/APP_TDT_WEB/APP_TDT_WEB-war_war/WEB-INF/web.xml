@@ -137,4 +137,10 @@
         <local>com.tdt.sessionbean.MemorizeFacadeLocal</local>
         <ejb-link>APP_TDT_WEB-ejb.jar#MemorizeFacade</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>SemejanzaFacade</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>com.tdt.sessionbean.SemejanzaFacadeLocal</local>
+        <ejb-link>APP_TDT_WEB-ejb.jar#SemejanzaFacade</ejb-link>
+    </ejb-local-ref>
 </web-app>

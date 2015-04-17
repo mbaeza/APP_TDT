@@ -11,6 +11,7 @@
             <string>CabinSketch-Bold</string>
             <string>CabinSketch-Bold</string>
             <string>CabinSketch-Bold</string>
+            <string>CabinSketch-Bold</string>
         </mutableArray>
         <mutableArray key="CabinSketch-Regular.otf">
             <string>CabinSketch</string>
@@ -167,6 +168,9 @@
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="WYL-6r-6is" kind="show" identifier="SegueSemejanza" id="hbP-ay-gkz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJf-hz-m2g">
                                 <rect key="frame" x="10" y="467" width="287" height="119"/>
@@ -372,6 +376,69 @@
             </objects>
             <point key="canvasLocation" x="2677" y="635.25"/>
         </scene>
+        <!--Ejercicios Semejanza View Controller-->
+        <scene sceneID="qZb-DU-bys">
+            <objects>
+                <viewController id="WYL-6r-6is" customClass="EjerciciosSemejanzaViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GkF-8h-qY7"/>
+                        <viewControllerLayoutGuide type="bottom" id="81S-pu-YUh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="udI-3h-aAN">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="x8l-LG-MPn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCell" id="vtn-hX-Vpk">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vtn-hX-Vpk" id="JSm-aM-t9i">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="7WH-S3-yu0" kind="show" id="CcW-H8-YvH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="-1" y="0.0" width="601" height="756"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="WYL-6r-6is" id="ACg-RS-nO1"/>
+                                    <outlet property="delegate" destination="WYL-6r-6is" id="uHu-Tf-Szu"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="x8l-LG-MPn" secondAttribute="height" id="M2w-vf-X99"/>
+                            <constraint firstAttribute="width" secondItem="x8l-LG-MPn" secondAttribute="width" id="MVK-LP-IGF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="M2w-vf-X99"/>
+                                <exclude reference="MVK-LP-IGF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="M2w-vf-X99"/>
+                                <include reference="MVK-LP-IGF"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="x8l-LG-MPn" id="J9M-gs-qim"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dx7-dr-JGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2677" y="1313.25"/>
+        </scene>
         <!--Alumnos del Ejercicio-->
         <scene sceneID="4UW-qi-362">
             <objects>
@@ -539,6 +606,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="backCuarta" destination="rOR-S8-UOG" id="wjh-T2-PH4"/>
                         <outlet property="backOctava" destination="pJe-yJ-hUk" id="Lfq-Gw-9s7"/>
@@ -553,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx5-yJ-zyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4125" y="635.25"/>
+            <point key="canvasLocation" x="4349" y="647.25"/>
         </scene>
         <!--Ejercicio Alumno Seleccion View Controller-->
         <scene sceneID="RrM-Nx-jlJ">
@@ -721,6 +790,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="imagenCuarta" destination="tOx-P5-seP" id="5i2-en-Gyl"/>
                         <outlet property="imagenPrimera" destination="Lla-wz-9ym" id="jfu-tx-EMa"/>
@@ -736,7 +807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qd-Tx-sik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4125" y="-9.75"/>
+            <point key="canvasLocation" x="4521" y="14.25"/>
         </scene>
         <!--Ejercicios de Secuencia-->
         <scene sceneID="K8I-0R-qgf">
@@ -968,6 +1039,8 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="ImagenPrimera" destination="Br3-06-h5v" id="4kk-Lh-lFR"/>
                         <outlet property="imagenCuarta" destination="pte-ha-5lN" id="4KJ-qu-Kn6"/>
@@ -1015,7 +1088,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4101" y="-701.25"/>
+            <point key="canvasLocation" x="4409" y="-707.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ddQ-0U-c7t">
@@ -1034,6 +1107,190 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfd-0U-UR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008" y="307"/>
+        </scene>
+        <!--Ejercicio Alumno Semejanza View Controller-->
+        <scene sceneID="RKc-5o-GxM">
+            <objects>
+                <viewController id="7WH-S3-yu0" customClass="EjercicioAlumnoSemejanzaViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dx7-ib-vml"/>
+                        <viewControllerLayoutGuide type="bottom" id="7VQ-bg-pmZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ukj-1N-Cfg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="15" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AmD-cw-gfg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCellEA" id="VQT-o3-9w1">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQT-o3-9w1" id="Qgr-6H-XGK">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ycc-O8-lBg" kind="show" id="irL-zn-QUx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="756"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="7WH-S3-yu0" id="FsT-vF-Sun"/>
+                                    <outlet property="delegate" destination="7WH-S3-yu0" id="5pZ-Vd-TW2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AmD-cw-gfg" firstAttribute="width" secondItem="ukj-1N-Cfg" secondAttribute="width" id="NbT-Uq-LJW"/>
+                            <constraint firstItem="AmD-cw-gfg" firstAttribute="height" secondItem="ukj-1N-Cfg" secondAttribute="height" id="Vmm-K0-yMg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NbT-Uq-LJW"/>
+                                <exclude reference="Vmm-K0-yMg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="NbT-Uq-LJW"/>
+                                <include reference="Vmm-K0-yMg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="alumnosEjercicios" destination="AmD-cw-gfg" id="TAb-Gq-Za0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWk-Ml-dHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3405" y="1313.25"/>
+        </scene>
+        <!--Semejanza View Controller-->
+        <scene sceneID="0N4-0C-H3Y">
+            <objects>
+                <viewController id="Ycc-O8-lBg" customClass="SemejanzaViewController" customModule="creylp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qCg-Kj-5pv"/>
+                        <viewControllerLayoutGuide type="bottom" id="r6B-kQ-NPx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VHC-KG-TLu">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrP-qR-frq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="94" y="272" width="210" height="203"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZHU-MS-Q2E">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="578" y="209" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EKy-LG-iru">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="866" y="347" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qKM-MG-7M8">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="829" y="507" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DN4-H5-Ubx">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="410" y="453" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-i9-yVS">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="743" y="234" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahv-BZ-4PQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="526" y="545" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lj-nm-cFO">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="671" y="608" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto informativo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csR-iV-c5B">
+                                <rect key="frame" x="16" y="127" width="568" height="91"/>
+                                <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="45"/>
+                                <color key="textColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="291" y="64" width="568" height="91"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MqL-9Z-TaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="433" y="309" width="99" height="90"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="xrP-qR-frq"/>
+                                <exclude reference="ZHU-MS-Q2E"/>
+                                <exclude reference="EKy-LG-iru"/>
+                                <exclude reference="qKM-MG-7M8"/>
+                                <exclude reference="DN4-H5-Ubx"/>
+                                <exclude reference="3xY-i9-yVS"/>
+                                <exclude reference="ahv-BZ-4PQ"/>
+                                <exclude reference="4lj-nm-cFO"/>
+                                <exclude reference="csR-iV-c5B"/>
+                                <exclude reference="MqL-9Z-TaQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="xrP-qR-frq"/>
+                                <include reference="ZHU-MS-Q2E"/>
+                                <include reference="EKy-LG-iru"/>
+                                <include reference="qKM-MG-7M8"/>
+                                <include reference="DN4-H5-Ubx"/>
+                                <include reference="3xY-i9-yVS"/>
+                                <include reference="ahv-BZ-4PQ"/>
+                                <include reference="4lj-nm-cFO"/>
+                                <include reference="csR-iV-c5B"/>
+                                <include reference="MqL-9Z-TaQ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="imagenCuarta" destination="EKy-LG-iru" id="5vR-Nf-n6Z"/>
+                        <outlet property="imagenOctava" destination="DN4-H5-Ubx" id="8kz-bh-vwy"/>
+                        <outlet property="imagenPrimera" destination="MqL-9Z-TaQ" id="wLa-1x-acr"/>
+                        <outlet property="imagenPrincipal" destination="xrP-qR-frq" id="zhu-Na-2UJ"/>
+                        <outlet property="imagenQuinta" destination="qKM-MG-7M8" id="6u4-cx-TX5"/>
+                        <outlet property="imagenSegunda" destination="ZHU-MS-Q2E" id="TPk-FF-VWl"/>
+                        <outlet property="imagenSeptima" destination="ahv-BZ-4PQ" id="mkb-f6-Bh5"/>
+                        <outlet property="imagenSexta" destination="4lj-nm-cFO" id="59b-sN-qDY"/>
+                        <outlet property="imagenTercera" destination="3xY-i9-yVS" id="ihX-NF-fYn"/>
+                        <outlet property="titulo" destination="csR-iV-c5B" id="kc8-LM-sPb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSW-uu-iqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4509" y="1331.25"/>
         </scene>
     </scenes>
     <resources>

@@ -38,7 +38,7 @@ class MenuInicialViewController: UIViewController {
             vc.tipoEjercicio = "Secuencia";
             //vc.delegate = self;
         }else if segue.identifier == "SegueSemejanza"{
-            let vc = segue.destinationViewController as EjerciciosSeleccionViewController
+            let vc = segue.destinationViewController as EjerciciosSemejanzaViewController
             vc.idUsuario = self.idUsuario;
             vc.tipoEjercicio = "Semejanza";
             // vc.delegate = self

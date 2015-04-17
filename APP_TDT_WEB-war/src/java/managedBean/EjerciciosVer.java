@@ -111,9 +111,10 @@ public class EjerciciosVer {
             if(img.getIdEjercicio().equals(seleccionarSemejanza.getEjercicio())){
                 if(img.getPrincipal()){
                     imagenTextoPrincipal = img.getUrlImagen().split("/")[6];
+                    System.out.println("prueba: " +  img.getUrlImagen());
                 }else {
                     List<String> aux = new ArrayList<>();
-                    aux.add(img.getUrlImagen().split("/")[7]);                    
+                    aux.add(img.getUrlImagen().split("/")[6]);                    
                     listaImagenes.add(aux);              
                 }
             }

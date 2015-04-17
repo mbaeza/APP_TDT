@@ -19,6 +19,7 @@ import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.ImagenFacadeLocal;
 import com.tdt.sessionbean.MemorizeFacadeLocal;
 import com.tdt.sessionbean.SecuenciaFacadeLocal;
+import com.tdt.sessionbean.SemejanzaFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ import javax.ws.rs.PUT;
  */
 @Path("ServiciosWeb")
 public class ServiciosWeb {
+    SemejanzaFacadeLocal semejanzaFacade = lookupSemejanzaFacadeLocal();
     MemorizeFacadeLocal memorizeFacade = lookupMemorizeFacadeLocal();
     AbsurdoFacadeLocal absurdoFacade = lookupAbsurdoFacadeLocal();
     SecuenciaFacadeLocal secuenciaFacade = lookupSecuenciaFacadeLocal();
@@ -175,6 +177,24 @@ public class ServiciosWeb {
     
     @GET
     @Produces("application/json")
+    @Path("/ObtenerImagenEjerciciosSemejanza/{idEjercicio}")
+    public RespuestaImagenEjercicio obtenerImagenEjerciciosSemejanza(@PathParam("idEjercicio") String idEjercicio) {
+        
+        RespuestaImagenEjercicio respuestaImagen = new RespuestaImagenEjercicio();
+        Respuesta respuesta = new Respuesta();
+        
+        respuesta.setCodigo("00");
+        respuesta.setGlosa("Correcto");
+        
+        respuestaImagen.setTitulo(semejanzaFacade.obtenerEjercicioAbsurdo(idEjercicio).getTextoPrincipal());
+        respuestaImagen.setImagenes(imagenFacade.obtenerImagenes(idEjercicio));
+        respuestaImagen.setRespuesta(respuesta);
+        return respuestaImagen;
+                
+    }
+    
+    @GET
+    @Produces("application/json")
     @Path("/ObtenerImagenEjerciciosMemorize/{idEjercicio}")
     public RespuestaImagenEjercicio obtenerImagenEjerciciosMemorize(@PathParam("idEjercicio") String idEjercicio) {
         
@@ -264,6 +284,16 @@ public class ServiciosWeb {
         try {
             javax.naming.Context c = new InitialContext();
             return (MemorizeFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/MemorizeFacade!com.tdt.sessionbean.MemorizeFacadeLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private SemejanzaFacadeLocal lookupSemejanzaFacadeLocal() {
+        try {
+            javax.naming.Context c = new InitialContext();
+            return (SemejanzaFacadeLocal) c.lookup("java:global/APP_TDT_WEB/APP_TDT_WEB-ejb/SemejanzaFacade!com.tdt.sessionbean.SemejanzaFacadeLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

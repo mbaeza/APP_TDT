@@ -10,6 +10,7 @@ import com.tdt.entityclass.Semejanza;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,15 @@ public class SemejanzaFacade extends AbstractFacade<Semejanza> implements Semeja
 
     public SemejanzaFacade() {
         super(Semejanza.class);
+    }
+    
+    @Override
+    public Semejanza obtenerEjercicioAbsurdo(String idEjercicio) {
+        
+        Query query = em.createNamedQuery("Semejanza.findByIdEjercicio");
+        query.setParameter("idEjercicio", Integer.parseInt(idEjercicio));
+        return (Semejanza) query.getSingleResult();
+       
     }
     
 }

@@ -15,7 +15,6 @@ import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.AsignarEjercicioFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
-import managedBean.LoginBean;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -69,6 +68,7 @@ public class AsignarAlumnoEjercicio {
         asignacion.setObservacionAsignarEjercicio(observacion);
         asignacion.setIdEjercicio(ejercicioSeleccionado);
         asignacion.setUsuario(usuarioSeleccionado);
+        System.out.println("usuario: " + usuarioSeleccionado);
         asignarEjercicioFacade.create(asignacion);
         
         for(Alumno user: alumnosSeleccionados){

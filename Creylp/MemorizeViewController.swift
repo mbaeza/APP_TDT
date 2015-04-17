@@ -307,33 +307,65 @@ class MemorizeViewController: UIViewController {
 
         if(self.elegidoPrimero == -1){
             self.elegidoPrimero = self.imagenPrimera.tag
+            
                 UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
 
         }else if(self.elegidoSegundo == -1){
             if(self.elegidoPrimero != 7){
-                
-                UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
-                    UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
-                        UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
-                        }, completion: nil)
-                })
-                
+               
                 switch(self.elegidoPrimero){
-                case 1:
-                    UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                case 2:
-                    UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                case 3:
-                    UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                case 4:
-                    UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                case 5:
-                    UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                case 6:
-                    UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-                default:
-                    println()
-                }
+                    case 1:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    case 2:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                 UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    case 3:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    case 4:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    case 5:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    case 6:
+                        UIView.transitionFromView(self.redSquareUno, toView: self.imagenPrimera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                            UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                                UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                                }, completion: nil)
+                        })
+                    
+                    default:
+                        println()
+                    }
+
             }else{
                 self.imagenPrimera.layer.borderColor = UIColor.greenColor().CGColor;
                 self.imagenPrimera.layer.cornerRadius = 8.0
@@ -354,28 +386,62 @@ class MemorizeViewController: UIViewController {
     
     func tapGestureDos() {
         
-        UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-        
         if(self.elegidoPrimero == -1){
             self.elegidoPrimero = self.imagenSegunda.tag
+            UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
         }else if(self.elegidoSegundo == -1){
             if(self.elegidoPrimero != 6){
                 
-                UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
-             
+                
                 switch(self.elegidoPrimero){
                 case 0:
-                    UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 2:
-                    UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 3:
-                    UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 4:
-                    UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 5:
-                    UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                   UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 7:
-                    UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareDos, toView: self.imagenSegunda, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 default:
                     UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
                 }
@@ -397,27 +463,62 @@ class MemorizeViewController: UIViewController {
     
     func tapGestureTres() {
         
-        UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
-        
         if(self.elegidoPrimero == -1){
             self.elegidoPrimero = self.imagenTercera.tag
+            UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
         }else if(self.elegidoSegundo == -1){
             if(self.elegidoPrimero != 4){
-                UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                
                 
                 switch(self.elegidoPrimero){
                 case 0:
-                    UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 1:
-                    UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 3:
-                    UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 5:
-                    UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenSexta, toView: self.redSquareSeis, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 6:
-                    UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 7:
-                    UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareTres, toView: self.imagenTercera, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 default:
                     UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
                 }
@@ -438,10 +539,11 @@ class MemorizeViewController: UIViewController {
     
     func tapGestureCuatro() {
         
-        UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+        
         
         if(self.elegidoPrimero == -1){
             self.elegidoPrimero = self.imagenCuarta.tag
+            UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
         }else if(self.elegidoSegundo == -1){
             if(self.elegidoPrimero != 5){
                 
@@ -449,17 +551,53 @@ class MemorizeViewController: UIViewController {
                 
                 switch(self.elegidoPrimero){
                 case 0:
-                    UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+
                 case 1:
-                    UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenSegunda, toView: self.redSquareDos, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 2:
-                    UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenTercera, toView: self.redSquareTres, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 4:
-                    UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenQuinta, toView: self.redSquareCinco, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 6:
-                    UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                            UIView.transitionFromView(self.imagenSeptima, toView: self.redSquareSiete, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                    
                 case 7:
-                    UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                    UIView.transitionFromView(self.redSquareCuatro, toView: self.imagenCuarta, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: {(Bool finished)->() in
+                        UIView.animateWithDuration(0.6, delay: 0.1, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: nil, animations: {
+                            UIView.transitionFromView(self.imagenCuarta, toView: self.redSquareCuatro, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+                             UIView.transitionFromView(self.imagenOctava, toView: self.redSquareOcho, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+                            }, completion: nil)
+                    })
+                   
                 default:
                     UIView.transitionFromView(self.imagenPrimera, toView: self.redSquareUno, duration: 1.0, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
                 }

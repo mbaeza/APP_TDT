@@ -31,4 +31,6 @@ public interface SemejanzaFacadeLocal {
 
     int count();
     
+    Semejanza obtenerEjercicioAbsurdo(String idEjercicio);
+    
 }

@@ -77,8 +77,14 @@ public class LoginBean implements Serializable {
             context.addMessage(null, new FacesMessage("Login failed."));
             return "loginError?faces-redirect=true";
         }
-        System.out.println(request.getHeader(username));
-        return "Educador/Ejercicios/principalEjercicios?faces-redirect=true";
+        
+        if(request.isUserInRole("Educador")){
+            return "Educador/Ejercicios/principalEjercicios?faces-redirect=true";
+        }else if (request.isUserInRole("Administrador")){
+            return "Administrador/CentroEducacional/modificarCentroEducacional?faces-redirect=true";
+        }
+        
+        return "";
     }
     
     public void logout() {

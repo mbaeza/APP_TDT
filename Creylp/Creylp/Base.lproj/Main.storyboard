@@ -152,7 +152,8 @@
                                 <rect key="frame" x="10" y="345" width="287" height="115"/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.50588235290000005" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="CabinSketch" family="CabinSketch" pointSize="35"/>
-                                <state key="normal" title=" Secuencia" image="pen38.png">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title=" Secuencia" image="pen">
                                     <color key="titleColor" red="0.98528402540000004" green="1" blue="0.98192627659999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -648,6 +649,44 @@
                                             <segue destination="i19-fs-bca" kind="show" id="tvk-d1-5ye"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UITableViewCellEA2" rowHeight="135" id="ehA-dt-GBp">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ehA-dt-GBp" id="CC1-kP-FeF">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="777" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-8V-f0o">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <rect key="frame" x="89" y="27" width="455" height="20"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8c9-U1-Zmy">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <rect key="frame" x="80" y="84" width="40" height="14"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="mqb-8V-f0o"/>
+                                                    <exclude reference="8c9-U1-Zmy"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="subviews">
+                                                    <include reference="mqb-8V-f0o"/>
+                                                    <include reference="8c9-U1-Zmy"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <variation key="heightClass=regular" ambiguous="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
@@ -682,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPn-aq-SPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3405" y="-9.75"/>
+            <point key="canvasLocation" x="3405" y="-10.5"/>
         </scene>
         <!--Seleccion View Controller-->
         <scene sceneID="lsc-vH-6UE">
@@ -699,18 +738,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yaV-Qe-qQt">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="167" y="188" width="266" height="227"/>
+                                    <rect key="frame" x="379" y="186" width="266" height="227"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto informativo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-Yl-vE7">
-                                <rect key="frame" x="16" y="127" width="568" height="91"/>
-                                <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="45"/>
-                                <color key="textColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="100" width="568" height="91"/>
-                                </variation>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-wz-9ym">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
@@ -759,12 +789,20 @@
                                     <rect key="frame" x="42" y="642" width="86" height="89"/>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Texto informativo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-Yl-vE7">
+                                <rect key="frame" x="16" y="127" width="568" height="91"/>
+                                <fontDescription key="fontDescription" name="CabinSketch-Bold" family="CabinSketch" pointSize="45"/>
+                                <color key="textColor" red="0.39149305559999997" green="0.37975336929999998" blue="0.058773581870000001" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="231" y="92" width="568" height="91"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="yaV-Qe-qQt"/>
-                                <exclude reference="VJS-Yl-vE7"/>
                                 <exclude reference="Lla-wz-9ym"/>
                                 <exclude reference="tOx-P5-seP"/>
                                 <exclude reference="byh-VQ-kOQ"/>
@@ -773,12 +811,12 @@
                                 <exclude reference="9n2-HU-m2v"/>
                                 <exclude reference="1IK-28-wMT"/>
                                 <exclude reference="CpG-BI-cPi"/>
+                                <exclude reference="VJS-Yl-vE7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="yaV-Qe-qQt"/>
-                                <include reference="VJS-Yl-vE7"/>
                                 <include reference="Lla-wz-9ym"/>
                                 <include reference="tOx-P5-seP"/>
                                 <include reference="byh-VQ-kOQ"/>
@@ -787,6 +825,7 @@
                                 <include reference="9n2-HU-m2v"/>
                                 <include reference="1IK-28-wMT"/>
                                 <include reference="CpG-BI-cPi"/>
+                                <include reference="VJS-Yl-vE7"/>
                             </mask>
                         </variation>
                     </view>
@@ -1298,7 +1337,7 @@
         <image name="check_mark_green.png" width="7855" height="7040"/>
         <image name="idea13.png" width="64" height="64"/>
         <image name="kids1.png" width="64" height="55"/>
-        <image name="pen38.png" width="64" height="63"/>
+        <image name="pen" width="64" height="63"/>
         <image name="two174.png" width="64" height="50"/>
     </resources>
 </document>

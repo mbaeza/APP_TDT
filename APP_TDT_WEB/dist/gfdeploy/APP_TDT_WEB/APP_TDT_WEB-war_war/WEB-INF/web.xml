@@ -71,7 +71,7 @@
     </security-role>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>bootstrap</param-value>
+        <param-value>none</param-value>
     </context-param>
     <filter>
         <filter-name>PrimeFaces FileUpload Filter</filter-name>

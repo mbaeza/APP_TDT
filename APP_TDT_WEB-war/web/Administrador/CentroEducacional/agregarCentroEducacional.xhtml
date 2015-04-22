@@ -16,7 +16,7 @@
     <h:body class="body_general" >
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
-                    Agregar un ejercicio de respuesta multiple
+                    Agregar un centro educacional
             </div>
             <h:form id="myform" class="fs-form fs-form-full" >
                 <p:growl id="confirmacion" showDetail="true" life="5000" />
@@ -32,7 +32,7 @@
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa la direccion del centro educacional" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa la dirección del centro educacional" />
                                     <p:inputTextarea class="fs-anim-lower" maxlength="100" id="q2"  value="#{agregarCentroEducacional.ubicacion}"/>                                                                           
                                 </pm:field>
                             </li>												                               
@@ -43,7 +43,7 @@
                     <!--<button class="fs-submit" type="submit">Send answers</button>-->
 
                     <p:commandButton  class="fs-submit" value="Guardar" action="#{agregarCentroEducacional.agregarCentroEducacional()}" actionListener="#{agregarCentroEducacional.confirmacionAgregar}" update="confirmacion">
-                <p:confirm header="Confirmación" message="¿Está seguro que desea agregar este ejercicio?" icon="ui-icon-alert" />                                        
+                <p:confirm header="Confirmación" message="¿Está seguro que desea agregar este centro?" icon="ui-icon-alert" />                                        
                 </p:commandButton>
                 <!--<p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />-->
 

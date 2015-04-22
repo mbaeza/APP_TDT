@@ -274,6 +274,8 @@ class SecuenciaEjercicioViewController: UIViewController, UIGestureRecognizerDel
         if recognizer.state == UIGestureRecognizerState.Began {
             let imagenSeleccionada1 = recognizer.view as UIImageView
             puntoInicialSup = imagenSeleccionada1.center
+            
+            self.view.bringSubviewToFront(imagenSeleccionada1)
         }
         
         if recognizer.state == UIGestureRecognizerState.Changed {

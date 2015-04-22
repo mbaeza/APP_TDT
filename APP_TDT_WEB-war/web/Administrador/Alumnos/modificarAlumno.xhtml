@@ -94,7 +94,7 @@
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del centro educacional" />                                                                                                
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el centro educacional" />                                                                                                
                                     <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl1" var="centro" value="#{modificarAlumnos.centrosEducacionales}" rowKey="#{centro.idCentroEducacional}" paginator="true" rows="5" selection="#{modificarAlumnos.centroSeleccionado}" selectionMode="single">
                                         <!--<p:ajax event="rowSelect" listener="#{modificarCentroEducacional.onRowSelect}" update=":myform:q1,:myform:q2" />-->
                                         <p:column>

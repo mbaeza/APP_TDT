@@ -9,57 +9,157 @@
         <title>Facelet Title</title>
         <meta charset="UTF-8" />
         <!--<h:outputStylesheet name="css/demo.css" />-->
-        <h:outputStylesheet name="css/style_base.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
         <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
-        <h:outputStylesheet name="css/tabs.css" />       
+        <h:outputStylesheet name="css/tabs.css" />
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
         <h:outputStylesheet name="css/tabstyles.css" />
+         <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
+       
+        
         <!--<h:outputStylesheet name="css/component.css" />-->
-        <h:outputStylesheet name="css/component-menu.css" />
-        <h:outputScript name="js/modernizr.custom.js"/>
+        <!--h:outputStylesheet name="css/component-menu.css" /-->
+        <h:outputScript name="js/modernizr.custom_menu.js"/>
+        <!--h:outputStylesheet name="css/style_base.css"/-->
+        
     </h:head>
     <h:body class="body_general" >
-        <ul id="gn-menu" class="gn-menu-main" style="z-index: 10000"    >
-            <li class="gn-trigger" style="z-index: 10000">
-                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-                <nav class="gn-menu-wrapper">
-                    <div class="gn-scroller">
-                        <ul class="gn-menu" style="z-index: 10000">
-                            <li class="gn-search-item">
-                                <input placeholder="Search" type="search" class="gn-search"/>
-                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                            </li>
-                            <li style="z-index: 10000">
-                                <a class="gn-icon gn-icon-download">Downloads</a>
-                                <ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
-                                    <li><a class="gn-icon gn-icon-photoshop">aDPhotoshop files</a></li>
+
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">All Categories</h2>
+                    <ul>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-display" href="#">Devices</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-display">Devices</h2>
+                                <ul>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="icon icon-phone" href="#">Mobile Phones</a>
+                                        <div class="mp-level">
+                                            <h2>Mobile Phones</h2>
+                                            <ul>
+                                                <li><a href="#">Super Smart Phone</a></li>
+                                                <li><a href="#">Thin Magic Mobile</a></li>
+                                                <li><a href="#">Performance Crusher</a></li>
+                                                <li><a href="#">Futuristic Experience</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="icon icon-tv" href="#">Televisions</a>
+                                        <div class="mp-level">
+                                            <h2>Televisions</h2>
+                                            <ul>
+                                                <li><a href="#">Flat Superscreen</a></li>
+                                                <li><a href="#">Gigantic LED</a></li>
+                                                <li><a href="#">Power Eater</a></li>
+                                                <li><a href="#">3D Experience</a></li>
+                                                <li><a href="#">Classic Comfort</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="icon icon-camera" href="#">Cameras</a>
+                                        <div class="mp-level">
+                                            <h2>Cameras</h2>
+                                            <ul>
+                                                <li><a href="#">Smart Shot</a></li>
+                                                <li><a href="#">Power Shooter</a></li>
+                                                <li><a href="#">Easy Photo Maker</a></li>
+                                                <li><a href="#">Super Pixel</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
                                 </ul>
+                            </div>
+                        </li>
+                            <li class="icon icon-arrow-left">
+                                <a class="icon icon-news" href="#">Magazines</a>
+                                <div class="mp-level">
+                                    <h2 class="icon icon-news">Magazines</h2>
+                                    <ul>
+                                        <li><a href="#">National Geographic</a></li>
+                                        <li><a href="#">Scientific American</a></li>
+                                        <li><a href="#">The Spectator</a></li>
+                                        <li><a href="#">The Rambler</a></li>
+                                        <li><a href="#">Physics World</a></li>
+                                        <li><a href="#">The New Scientist</a></li>
+                                    </ul>
+                                </div>
                             </li>
-                            <li style="z-index: 10000"><a class="gn-icon gn-icon-cog">Settings</a></li>
-                            <li  style="z-index: 10000"><a class="gn-icon gn-icon-help">Help</a></li>
-                            <li style="z-index: 10000">
-                                <a class="gn-icon gn-icon-archive">Archives</a>
-                                <ul class="gn-submenu">
-                                    <li><a class="gn-icon gn-icon-article">Articles</a></li>
-                                    <li><a class="gn-icon gn-icon-pictures">Images</a></li>
-                                    <li><a class="gn-icon gn-icon-videos">Videos</a></li>
-                                </ul>
+                            <li class="icon icon-arrow-left">
+                                <a class="icon icon-shop" href="#">Store</a>
+                                <div class="mp-level">
+                                    <h2 class="icon icon-shop">Store</h2>
+                                    <ul>
+                                        <li class="icon icon-arrow-left">
+                                            <a class="icon icon-t-shirt" href="#">Clothes</a>
+                                            <div class="mp-level">
+                                                <h2 class="icon icon-t-shirt">Clothes</h2>
+                                                <ul>
+                                                    <li class="icon icon-arrow-left">
+                                                        <a class="icon icon-female" href="#">Women's Clothing</a>
+                                                        <div class="mp-level">
+                                                            <h2>Women's Clothing</h2>
+                                                            <ul>
+                                                                <li><a href="#">Tops</a></li>
+                                                                <li><a href="#">Dresses</a></li>
+                                                                <li><a href="#">Trousers</a></li>
+                                                                <li><a href="#">Shoes</a></li>
+                                                                <li><a href="#">Sale</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li class="icon icon-arrow-left">
+                                                        <a class="icon icon-male" href="#">Men's Clothing</a>
+                                                        <div class="mp-level">
+                                                            <h2>Men's Clothing</h2>
+                                                            <ul>
+                                                                <li><a href="#">Shirts</a></li>
+                                                                <li><a href="#">Trousers</a></li>
+                                                                <li><a href="#">Shoes</a></li>
+                                                                <li><a href="#">Sale</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a class="icon icon-diamond" href="#">Jewelry</a>
+                                        </li>
+                                        <li>
+                                            <a class="icon icon-music" href="#">Music</a>
+                                        </li>
+                                        <li>
+                                            <a class="icon icon-food" href="#">Grocery</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
-                        </ul>
-                    </div><!-- /gn-scroller -->
-                </nav>
-            </li>
-            <li><a href="http://tympanus.net/codrops">Codrops</a></li>
-            <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
-            <li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
-        </ul>
-        <div class="fs-form-wrap" id="fs-form-wrap">
-            
-            <h:form id="myform" >                
+                        <li><a class="icon icon-photo" href="#">Collections</a></li>
+                        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                    </ul>
+                </div>
+            </nav>
+        
+        
+        <!-- /mp-menu -->
+        <a href="#" id="trigger" class="menu-trigger">MENÚ</a> 
+        <p:outputLabel class="fs-field-label fs-anim-upper"  style="text-align: center;width: 79%;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Mis Ejercicios" />                                                                                                
+        <div class="fs-form-wrap" id="fs-form-wrap">            
+            <h:form id="myform" class="tablaboostrap" >   
+                
                     <section>
                         <div class="tabs tabs-style-linemove">
-                            <nav style="margin-top: 60px">
+                            <nav >
                                 <ul>
                                     <li><a href="#section-linemove-1" class="icon icon-home"><span>Respuestas Multiples</span></a></li>
                                     <li><a href="#section-linemove-2" class="icon icon-box"><span>Semejanzas</span></a></li>
@@ -70,21 +170,21 @@
                             </nav>
                             <div class="content-wrap">
                                
-                                <section id="section-linemove-1" style="height: 400px">
+                                <section id="section-linemove-1" class="tablaboostrap" style="height: 400px">
                                    
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Ver ejercicios respuesta multiple" />                                                                                                
+                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Respuesta Múltiple" />                                                                                                
                                         <br></br>
-                                        <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px; margin: 0 auto;position: relative;padding-top: 50px;   " id="tbl1" var="ejercicio" value="#{ejerciciosVer.listaAbsurdos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarAbsurdo}" selectionMode="single">
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}"  style="border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;padding-top: 50px;   " id="tbl1" var="ejercicio" value="#{ejerciciosVer.listaAbsurdos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarAbsurdo}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('abs').show()" listener="#{ejerciciosVer.onRowSelectAbsurdo}" update=":myform:absDet" />
-                                            <p:column>
+                                            <p:column  >
                                                 <f:facet name="header">
-                                                    <h:outputText value="Nombre del Ejercicio" />
+                                                    <h:outputText value="Nombre" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.nombreEjercicio}" />
                                             </p:column>                        
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Descrición del Ejercicio" />
+                                                    <h:outputText value="Descrición" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                             </p:column> 
@@ -100,18 +200,18 @@
                                 </section>
                                 <section id="section-linemove-2" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Ver ejercicios semejanza" />                                                                                                                                                                                                             
-                                        <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl2" var="ejercicio" value="#{ejerciciosVer.listaSemejanzas}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSemejanza}" selectionMode="single">
+                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Semejanza" />                                                                                                                                                                                                             
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl2" var="ejercicio" value="#{ejerciciosVer.listaSemejanzas}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSemejanza}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('sem').show()" listener="#{ejerciciosVer.onRowSelectSemejanza}" update=":myform:semDet" />
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Nombre del Ejercicio" />
+                                                    <h:outputText value="Nombre" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.nombreEjercicio}" />
                                             </p:column>                        
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Descrición del Ejercicio" />
+                                                    <h:outputText value="Descrición" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                             </p:column>    
@@ -126,18 +226,18 @@
                                 </section>
                                 <section id="section-linemove-3" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Ver ejercicios memoria" />                                                                                                                                                                                                             
-                                        <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl3" var="ejercicio" value="#{ejerciciosVer.listaMemorize}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarMemorize}" selectionMode="single">
+                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Memoria" />                                                                                                                                                                                                             
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl3" var="ejercicio" value="#{ejerciciosVer.listaMemorize}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarMemorize}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('mem').show()" listener="#{ejerciciosVer.onRowSelectMemoria}" update=":myform:memDet" />
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Nombre del Ejercicio" />
+                                                    <h:outputText value="Nombre" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.nombreEjercicio}" />
                                             </p:column>                        
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Descrición del Ejercicio" />
+                                                    <h:outputText value="Descrición" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                             </p:column>                                             
@@ -146,18 +246,18 @@
                                 </section>
                                 <section id="section-linemove-4" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Ver ejercicios secuencia" />                                                                                                                                                                    
-                                        <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl4" var="ejercicio" value="#{ejerciciosVer.listaSecuenciales}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSecuencia}" selectionMode="single">
+                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Secuencia" />                                                                                                                                                                    
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl4" var="ejercicio" value="#{ejerciciosVer.listaSecuenciales}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSecuencia}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('sec').show()" listener="#{ejerciciosVer.onRowSelectSecuencia}" update=":myform:secDet" />
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Nombre del Ejercicio" />
+                                                    <h:outputText value="Nombre" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.nombreEjercicio}" />
                                             </p:column>                        
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Descrición del Ejercicio" />
+                                                    <h:outputText value="Descrición" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                             </p:column>  
@@ -175,8 +275,8 @@
                             </div><!-- /content -->
                         </div><!-- /tabs -->
                     </section>                                  
-                <p:dialog header="Car Info" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                    <p:outputPanel class="base_izquierda prueba" id="absDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
+                <p:dialog styleClass="modal-content" header="Car Info" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:outputPanel  class="base_izquierda prueba" id="absDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                         <h:outputText style=" margin-left: 80px;" id="out" value="#{ejerciciosVer.seleccionarAbsurdo.textoPrincipal}" />
                             <!--<h:panelGrid columns="2" cellpadding="2" id ="elem2" style="margin-top: 15px" >-->
@@ -272,13 +372,16 @@
 		
         </div><!-- /fs-form-wrap -->
 
-
+</div><!-- /pusher -->
         
-                <h:outputScript name="js/classie.js"></h:outputScript>
-		<h:outputScript name="js/gnmenu.js"></h:outputScript>
-                <h:outputScript name="js/prueba.js"></h:outputScript>
+                <h:outputScript name="js/classie.js"></h:outputScript>                
+                <!--<h:outputScript name="js/prueba.js"></h:outputScript>-->
                 <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
-                <h:outputScript name="js/principal.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>
+                
     </h:body>
 </html>
 

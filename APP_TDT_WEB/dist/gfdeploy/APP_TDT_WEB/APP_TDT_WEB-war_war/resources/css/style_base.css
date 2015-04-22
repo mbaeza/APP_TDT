@@ -9,12 +9,24 @@ and open the template in the editor.
 */
 
 .body_general{
-    background-image: 
-        url("#{resource['images/base_superior2.png']}");
+    *background-image:url("#{resource['images/base_superior2.png']}");
+    background-image: url(../images/base_superior2.png);
     color: #22980B;
     background-repeat: repeat;
     background-color: lightblue;
     font-family: "Cabin Sketch",cursive;
+}
+
+.ui-datatable thead th, 
+.ui-datatable tbody td, 
+.ui-datatable tfoot td{
+    
+    border-style: none;
+}
+
+.ui-datatable thead th{
+    
+    background-color: #FAFAFA;
 }
 .base_superior .fondo{
     
@@ -87,8 +99,8 @@ and open the template in the editor.
 
 .base_izquierda{
     //position: absolute;
-    background-image: 
-        url("#{resource['images/ipad.png']}");
+    *background-image:url("#{resource['images/ipad.png']}");
+    background-image: url(../images/ipad.png);
     background-repeat: no-repeat;
     width: 685px;
     height: 620px;

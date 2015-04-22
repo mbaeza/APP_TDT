@@ -136,6 +136,9 @@ class EjerciciosSeleccionViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("UITableViewCell") as UITableViewCell
         
+        //var numero:NSNumber = 777 as NSNumber
+        //var label:UILabel = cell.viewWithTag(tag: 777)
+        
         cell.textLabel?.text = self.items[indexPath.row]
         
         return cell

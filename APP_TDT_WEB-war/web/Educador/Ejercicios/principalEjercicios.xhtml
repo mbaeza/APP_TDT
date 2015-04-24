@@ -11,14 +11,18 @@
         <!--<h:outputStylesheet name="css/demo.css" />-->
         <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
         <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
         <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+       
         <h:outputStylesheet name="css/tabs.css" />
         <h:outputStylesheet name="css/bootstrap-theme.css" /> 
         <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" /> 
         <h:outputStylesheet name="css/tabstyles.css" />
-         <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/normalize_menu.css" />
         <h:outputStylesheet name="css/component_menu.css" />
        
         
@@ -33,148 +37,85 @@
         <div class="mp-pusher" id="mp-pusher">
             <nav id="mp-menu" class="mp-menu">
                 <div class="mp-level">
-                    <h2 class="icon icon-world">All Categories</h2>
+                    <h2 class="icon icon-world">Menú</h2>
                     <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Ejercicios/principalEjercicios.xhtml">Mis Ejercicios</a></li>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/asignarAlumnoEjercicio.xhtml">Asignación Ejercicio-Alumno</a></li>  
                         <li class="icon icon-arrow-left">
-                            <a class="icon icon-display" href="#">Devices</a>
+                            <a class="icon icon-news" href="#">Respuesta Múltiple</a>
                             <div class="mp-level">
-                                <h2 class="icon icon-display">Devices</h2>
+                                <h2 class="icon icon-news">Respuesta Múltiple</h2>
                                 <ul>
-                                    <li class="icon icon-arrow-left">
-                                        <a class="icon icon-phone" href="#">Mobile Phones</a>
-                                        <div class="mp-level">
-                                            <h2>Mobile Phones</h2>
-                                            <ul>
-                                                <li><a href="#">Super Smart Phone</a></li>
-                                                <li><a href="#">Thin Magic Mobile</a></li>
-                                                <li><a href="#">Performance Crusher</a></li>
-                                                <li><a href="#">Futuristic Experience</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="icon icon-arrow-left">
-                                        <a class="icon icon-tv" href="#">Televisions</a>
-                                        <div class="mp-level">
-                                            <h2>Televisions</h2>
-                                            <ul>
-                                                <li><a href="#">Flat Superscreen</a></li>
-                                                <li><a href="#">Gigantic LED</a></li>
-                                                <li><a href="#">Power Eater</a></li>
-                                                <li><a href="#">3D Experience</a></li>
-                                                <li><a href="#">Classic Comfort</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="icon icon-arrow-left">
-                                        <a class="icon icon-camera" href="#">Cameras</a>
-                                        <div class="mp-level">
-                                            <h2>Cameras</h2>
-                                            <ul>
-                                                <li><a href="#">Smart Shot</a></li>
-                                                <li><a href="#">Power Shooter</a></li>
-                                                <li><a href="#">Easy Photo Maker</a></li>
-                                                <li><a href="#">Super Pixel</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioAbsurdoII.xhtml">Agregar Respuesta Múltiple</a></li>
+                                    <li><a href="#">Modificar Respuesta Múltiple</a></li>
                                 </ul>
                             </div>
                         </li>
-                            <li class="icon icon-arrow-left">
-                                <a class="icon icon-news" href="#">Magazines</a>
-                                <div class="mp-level">
-                                    <h2 class="icon icon-news">Magazines</h2>
-                                    <ul>
-                                        <li><a href="#">National Geographic</a></li>
-                                        <li><a href="#">Scientific American</a></li>
-                                        <li><a href="#">The Spectator</a></li>
-                                        <li><a href="#">The Rambler</a></li>
-                                        <li><a href="#">Physics World</a></li>
-                                        <li><a href="#">The New Scientist</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="icon icon-arrow-left">
-                                <a class="icon icon-shop" href="#">Store</a>
-                                <div class="mp-level">
-                                    <h2 class="icon icon-shop">Store</h2>
-                                    <ul>
-                                        <li class="icon icon-arrow-left">
-                                            <a class="icon icon-t-shirt" href="#">Clothes</a>
-                                            <div class="mp-level">
-                                                <h2 class="icon icon-t-shirt">Clothes</h2>
-                                                <ul>
-                                                    <li class="icon icon-arrow-left">
-                                                        <a class="icon icon-female" href="#">Women's Clothing</a>
-                                                        <div class="mp-level">
-                                                            <h2>Women's Clothing</h2>
-                                                            <ul>
-                                                                <li><a href="#">Tops</a></li>
-                                                                <li><a href="#">Dresses</a></li>
-                                                                <li><a href="#">Trousers</a></li>
-                                                                <li><a href="#">Shoes</a></li>
-                                                                <li><a href="#">Sale</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <li class="icon icon-arrow-left">
-                                                        <a class="icon icon-male" href="#">Men's Clothing</a>
-                                                        <div class="mp-level">
-                                                            <h2>Men's Clothing</h2>
-                                                            <ul>
-                                                                <li><a href="#">Shirts</a></li>
-                                                                <li><a href="#">Trousers</a></li>
-                                                                <li><a href="#">Shoes</a></li>
-                                                                <li><a href="#">Sale</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a class="icon icon-diamond" href="#">Jewelry</a>
-                                        </li>
-                                        <li>
-                                            <a class="icon icon-music" href="#">Music</a>
-                                        </li>
-                                        <li>
-                                            <a class="icon icon-food" href="#">Grocery</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        <li><a class="icon icon-photo" href="#">Collections</a></li>
-                        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Memorize</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Memorize</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioMemoriaII.xhtml">Agregar Memorize</a></li>
+                                    <li><a href="#">Modificar Memorize</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Secuencia</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Secuencia</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSecuencialII.xhtml">Agregar Secuencia</a></li>
+                                    <li><a href="#">Modificar Secuencia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Semejanza</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Semejanza</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSemejanzaII.xhtml">Agregar Semejanza</a></li>
+                                    <li><a href="#">Modificar Semejanza</a></li>
+                                </ul>
+                            </div>
+                        </li>   
                     </ul>
                 </div>
             </nav>
         
         
         <!-- /mp-menu -->
-        <a href="#" id="trigger" class="menu-trigger">MENÚ</a> 
-        <p:outputLabel class="fs-field-label fs-anim-upper"  style="text-align: center;width: 79%;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Mis Ejercicios" />                                                                                                
+         
+        
         <div class="fs-form-wrap" id="fs-form-wrap">            
             <h:form id="myform" class="tablaboostrap" >   
                 
                     <section>
                         <div class="tabs tabs-style-linemove">
-                            <nav >
+                            <nav class="body_top">
+                                <p:outputLabel class="fs-field-label fs-anim-upper"  style="color: #FF6B6B; text-align: center;width: 79%;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Mis Ejercicios" />                                                                                                
                                 <ul>
-                                    <li><a href="#section-linemove-1" class="icon icon-home"><span>Respuestas Multiples</span></a></li>
-                                    <li><a href="#section-linemove-2" class="icon icon-box"><span>Semejanzas</span></a></li>
-                                    <li><a href="#section-linemove-3" class="icon icon-display"><span>Memoria</span></a></li>
-                                    <li><a href="#section-linemove-4" class="icon icon-upload"><span>Secuencias</span></a></li>    
+                                    <a href="#" id="trigger" style="margin-right: 55px;" class="menu-trigger"></a>
+                                    <li><a href="#section-linemove-1" class=""><span>Respuestas Multiples</span></a></li>
+                                    <li><a href="#section-linemove-2" class=""><span>Semejanzas</span></a></li>
+                                    <li><a href="#section-linemove-3" class=""><span>Memoria</span></a></li>
+                                    <li><a href="#section-linemove-4" class=""><span>Secuencias</span></a></li>    
                                     <li style="width: 1px;display: none"></li>    
                                 </ul>
                             </nav>
+                            
                             <div class="content-wrap">
                                
                                 <section id="section-linemove-1" class="tablaboostrap" style="height: 400px">
                                    
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Respuesta Múltiple" />                                                                                                
+                                        
                                         <br></br>
-                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}"  style="border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;padding-top: 50px;   " id="tbl1" var="ejercicio" value="#{ejerciciosVer.listaAbsurdos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarAbsurdo}" selectionMode="single">
+                                        <br></br>
+                                        <br></br>
+                                        <br></br>
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl1" var="ejercicio" value="#{ejerciciosVer.listaAbsurdos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" selection="#{ejerciciosVer.seleccionarAbsurdo}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('abs').show()" listener="#{ejerciciosVer.onRowSelectAbsurdo}" update=":myform:absDet" />
                                             <p:column  >
                                                 <f:facet name="header">
@@ -275,7 +216,7 @@
                             </div><!-- /content -->
                         </div><!-- /tabs -->
                     </section>                                  
-                <p:dialog styleClass="modal-content" header="Car Info" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog closable="true" draggable="false" closeOnEscape="true" styleClass="modal-content" header="Car Info" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                     <p:outputPanel  class="base_izquierda prueba" id="absDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                         <h:outputText style=" margin-left: 80px;" id="out" value="#{ejerciciosVer.seleccionarAbsurdo.textoPrincipal}" />
@@ -297,7 +238,7 @@
                             <!--</h:panelGrid>-->
                         </p:outputPanel>
                     </p:dialog>
-                    <p:dialog header="Car Info" widgetVar="sem" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog header="Car Info" widgetVar="sem"  modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
                         <p:outputPanel class="base_izquierda prueba" id="semDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                             <h:outputText style=" margin-left: 80px;" id="out11" value="#{ejerciciosVer.seleccionarSemejanza.textoPrincipal}" />
@@ -325,7 +266,7 @@
                                 <!--</h:panelGrid>-->
                         </p:outputPanel>
                     </p:dialog>
-                    <p:dialog header="Car Info" widgetVar="mem" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:dialog header="Car Info" widgetVar="mem" modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
                            <p:outputPanel class="base_izquierda prueba" id="memDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
                                <h:outputText style=" margin-left: 80px;" id="out12" value="#{ejerciciosVer.seleccionarMemorize.textoPrincipalMemorize}" />
   
@@ -344,7 +285,7 @@
                                 </h:panelGrid>
                            </p:outputPanel>
                        </p:dialog>
-                <p:dialog header="Car Info" widgetVar="sec" closeOnEscape="true" draggable="false" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog header="Car Info" widgetVar="sec" closeOnEscape="true" draggable="false" styleClass="modal-content" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                                    <p:outputPanel class="base_izquierda prueba" id="secDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
                                        <h:outputText style=" margin-left: 80px;" id="out3" value="#{ejerciciosVer.seleccionarSecuencia.textoPrincipal}" />
                                     <!--<h:panelGrid columns="2" cellpadding="2" id ="elem2" style="margin-top: 15px" >-->

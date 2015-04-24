@@ -326,7 +326,7 @@
 /*****************************/
 
 .tabs-style-linemove nav {
-	background: rgba(255, 255, 255, 0.44);
+	//background: rgba(255, 255, 255, 0.44);
 }
 
 .tabs-style-linemove nav li:last-child::before {
@@ -364,20 +364,24 @@
 
 .tabs-style-linemove nav a {
 	padding: 1em 0;
-	color: #74777b;
-	line-height: 1;
+	color: #9aa6b3;
+	line-height: 0;
 	-webkit-transition: color 0.3s, -webkit-transform 0.3s; 
 	transition: color 0.3s, transform 0.3s;
 }
 
 .tabs-style-linemove nav li.tab-current a {
-	color: #2CC185;
+	color: #4e5a66;
+        font-size: 1.5em;
 	-webkit-transform: translate3d(0,8px,0);
 	transform: translate3d(0,8px,0);
+        background-color: #37c2b8;
+        height: 10px;
 }
 
 .tabs-style-linemove nav a span {
 	font-weight: 700;
+        font-size: 1.3em;
 }
 
 /*****************************/

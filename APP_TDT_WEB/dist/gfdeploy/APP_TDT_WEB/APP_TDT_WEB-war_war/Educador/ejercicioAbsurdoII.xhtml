@@ -7,18 +7,98 @@
     <h:head> 
         <title>Facelet Title</title>
         <meta charset="UTF-8" />
-        <h:outputStylesheet name="css/demo.css" />
-        <h:outputStylesheet name="css/style_base.css"/>
+        <!--<h:outputStylesheet name="css/demo.css" />-->
+        <!--<h:outputStylesheet name="css/style_base.css"/>-->
+        <!--<link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>-->
+       
+                <!--<h:outputStylesheet name="css/demo.css" />-->
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+        <!--<h:outputStylesheet name="css/tabs.css" />-->
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" /> 
+        <!--<h:outputStylesheet name="css/tabstyles.css" />-->
+        <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
         <h:outputStylesheet name="css/component.css" />
+       
+        
+        <!--<h:outputStylesheet name="css/component.css" />-->
+        <!--h:outputStylesheet name="css/component-menu.css" /-->
+<!--        <h:outputScript name="js/modernizr.custom_menu.js"/>-->
+<!--<h:outputScript name="js/modernizr.custom_menu.js"/>-->
         <h:outputScript name="js/modernizr.custom.js"/>
+        
     </h:head>
     <h:body class="body_general" >
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">Menú</h2>
+                    <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Ejercicios/principalEjercicios.xhtml">Mis Ejercicios</a></li>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/asignarAlumnoEjercicio.xhtml">Asignación Ejercicio-Alumno</a></li>  
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Respuesta Múltiple</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Respuesta Múltiple</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioAbsurdoII.xhtml">Agregar Respuesta Múltiple</a></li>
+                                    <li><a href="#">Modificar Respuesta Múltiple</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Memorize</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Memorize</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioMemoriaII.xhtml">Agregar Memorize</a></li>
+                                    <li><a href="#">Modificar Memorize</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Secuencia</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Secuencia</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSecuencialII.xhtml">Agregar Secuencia</a></li>
+                                    <li><a href="#">Modificar Secuencia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Semejanza</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Semejanza</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSemejanzaII.xhtml">Agregar Semejanza</a></li>
+                                    <li><a href="#">Modificar Semejanza</a></li>
+                                </ul>
+                            </div>
+                        </li> 
+                       
+                    </ul>
+                </div>
+            </nav>
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
-                    Agregar un ejercicio de respuesta multiple
+                <a href="#" id="trigger" style="top: 12px;" class="menu-trigger"></a>
+                <h:outputText style="" value="Agregar un ejercicio de respuesta múltiple"></h:outputText>
             </div>
+            <br></br>
+            <br></br>
             <h:form id="myform" class="fs-form fs-form-full" >
+                
                 <p:growl id="confirmacion" showDetail="true" life="5000" />
                 <p:outputPanel class="base_pequena" style="font-size: .3em;;margin-top: 8%;position: fixed; margin-left: 55%" id="form12" >     
                     <h:outputText style="width: 200px; margin-left: 80px;margin: 0 auto" id="out2" value="#{ejercicioAbsurdo.text}" />
@@ -144,10 +224,17 @@
                 </p:confirmDialog> 
             </h:form><!-- /fs-form -->
         </div><!-- /fs-form-wrap -->
+       </div>
 
-
-
-		<h:outputScript name="js/classie.js"></h:outputScript>
+                <!--<h:outputScript name="js/classie.js"></h:outputScript>-->                
+                <!--<h:outputScript name="js/prueba.js"></h:outputScript>-->
+                <h:outputScript name="js/classie.js"></h:outputScript>
+                <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>
+		
 		<h:outputScript name="js/selectFx.js"></h:outputScript>
 		<h:outputScript name="js/fullscreenForm.js"></h:outputScript>
 		<h:outputScript>

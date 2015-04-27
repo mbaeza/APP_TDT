@@ -28,7 +28,7 @@ html, body, .container, .scroller {
 .menu-trigger {
 	position: relative;
 	padding-left: 60px;
-	font-size: 1.9em;
+/*	font-size: 1.9em;*/
         width: 45px;
 	height: 6px;
 }

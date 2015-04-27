@@ -29,5 +29,7 @@ public interface ClientesFacadeLocal {
     List<Clientes> findRange(int[] range);
 
     int count();
+
+    public List<Clientes> consultaRutEnrolados();
     
 }

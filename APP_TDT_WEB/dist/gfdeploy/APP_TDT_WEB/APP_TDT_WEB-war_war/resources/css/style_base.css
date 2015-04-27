@@ -33,6 +33,14 @@ and open the template in the editor.
     border-style: none;
 }
 
+.ui-fileupload-buttonbar{
+    background-color: #fbfef3;    
+}
+
+.ui-fileupload-content{
+    background-color: #f5fde3;   
+}
+
 .ui-datatable table {
     box-shadow: 0px 0px 11px 1px #7d8c9d;
     -webkit-border-radius: 5px;
@@ -40,11 +48,32 @@ and open the template in the editor.
     border-radius: 5px;
 }
 
+.ui-dialog .ui-dialog-titlebar{
+    background-color: #edfaf9;
+}
+
+.ui-dialog .ui-dialog-title{
+    color: #FF6B6B;
+    font-weight: bold;
+}
+.ui-dialog .ui-widget ui-widget-content .ui-corner-all .ui-shadow .modal-content .ui-overlay-visible{
+    z-index: 1101;
+}
+.ui-dialog .ui-dialog-content{
+   background-color: #c5efec; 
+}
+.ui-widget-overlay{
+    background-color: black;
+    opacity: 0.7;
+    filter: alpha(opacity=40);
+}
+
 .ui-dialog .ui-dialog-titlebar-close, 
 .ui-dialog .ui-dialog-titlebar-minimize, 
 .ui-dialog .ui-dialog-titlebar-maximize {
   float: right;
   margin: 18px;
+  background-image: url(../images/x.png);
   top: 0px;
   padding: 0px;
   cursor: pointer;
@@ -53,9 +82,13 @@ and open the template in the editor.
 }
 
 .ui-widget-header .ui-icon {
-    background-image: url(../images/x.png);
+    /*background-image: url(../images/x.png);*/
     width: 20px;
     height: 20px;
+}
+
+.ui-icon .ui-icon-closethick{
+    background-image: url(../images/x.png);
 }
 
 .ui-paginator .ui-paginator-next .ui-icon, 

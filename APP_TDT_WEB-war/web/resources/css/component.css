@@ -12,12 +12,15 @@
 
 /* Title */
 .fs-title {
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 40px;
-	width: 100%;
+    position: absolute;
+    top: 0;
+    height: 110px;
+    left: 0;
+    margin: 0;
+    padding: 40px;
+    width: 100%;
+    background-color: #e0f6f5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .175);
 }
 
 .fs-title h1 {

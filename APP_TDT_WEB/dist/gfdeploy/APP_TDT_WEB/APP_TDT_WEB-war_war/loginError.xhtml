@@ -22,7 +22,9 @@
 
                     <label  style="font-weight: bold;cursor: default;font-size: xx-large; color: white;" for="passwordInput">Contraseña</label>
                     <p:password value="#{loginBean.password}" id="inputPassword" />
-                    <p:commandButton type="submit" value="Entrar" action="#{loginBean.login()}"/>
+                    
+                    <label  style="font-weight: bold;cursor: default;font-size: xx-large; color: rgb(56, 149, 50);" for="passwordInput">.</label>
+                    <p:commandButton type="submit" style="  margin-left: 81px;width: 115px;height: 40px;font-size: 1.5em;color: rgb(74, 74, 74);font-weight: bold;" value="Entrar" action="#{loginBean.login()}"/>
                 </h:panelGrid>
             </h:form>
         </div>

@@ -5,14 +5,11 @@
  */
 package cl.bancochile.gestionmipago.managedbeans;
 
+import cl.bancochile.gestionmipago.entityclass.Clientes;
 import cl.bancochile.gestionmipago.entityclass.TrxsPago;
+import cl.bancochile.gestionmipago.sessionbeans.ClientesFacadeLocal;
 import cl.bancochile.gestionmipago.sessionbeans.TrxsPagoFacadeLocal;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -27,10 +24,13 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class ConsultaTransaccionRut {
     @EJB
+    private ClientesFacadeLocal clientesFacade;
+    @EJB
     private TrxsPagoFacadeLocal trxsPagoFacade;
     
     long timeInicio, timeFin;
     private List<TrxsPago> listaTrxRut = new ArrayList<TrxsPago>();
+    private List<Clientes> listaRutEnrolado = new ArrayList<Clientes>();
     
     
     public ConsultaTransaccionRut() {
@@ -52,6 +52,7 @@ public class ConsultaTransaccionRut {
 //        timeFin = dateFin.getTime();
         
         listaTrxRut = trxsPagoFacade.consultaTransaccionRut(null,null);
+        listaRutEnrolado = clientesFacade.consultaRutEnrolados();
     }
     public List<TrxsPago> getListaTrxRut() {
         return listaTrxRut;

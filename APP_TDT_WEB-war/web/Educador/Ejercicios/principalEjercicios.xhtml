@@ -15,7 +15,7 @@
         <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
         <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
-       
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
         <h:outputStylesheet name="css/tabs.css" />
         <h:outputStylesheet name="css/bootstrap-theme.css" /> 
         <h:outputStylesheet name="css/bootstrap.css" /> 
@@ -80,7 +80,8 @@
                                     <li><a href="#">Modificar Semejanza</a></li>
                                 </ul>
                             </div>
-                        </li>   
+                        </li> 
+                       
                     </ul>
                 </div>
             </nav>
@@ -88,7 +89,8 @@
         
         <!-- /mp-menu -->
          
-        
+                       
+
         <div class="fs-form-wrap" id="fs-form-wrap">            
             <h:form id="myform" class="tablaboostrap" >   
                 
@@ -97,8 +99,8 @@
                             <nav class="body_top">
                                 <p:outputLabel class="fs-field-label fs-anim-upper"  style="color: #FF6B6B; text-align: center;width: 79%;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Mis Ejercicios" />                                                                                                
                                 <ul>
-                                    <a href="#" id="trigger" style="margin-right: 55px;" class="menu-trigger"></a>
-                                    <li><a href="#section-linemove-1" class=""><span>Respuestas Multiples</span></a></li>
+                                    <a href="#" id="trigger" style="margin-right: 55px;font-size: 1.9em;" class="menu-trigger"></a>
+                                    <li><a href="#section-linemove-1" class=""><span>Respuestas Múltiples</span></a></li>
                                     <li><a href="#section-linemove-2" class=""><span>Semejanzas</span></a></li>
                                     <li><a href="#section-linemove-3" class=""><span>Memoria</span></a></li>
                                     <li><a href="#section-linemove-4" class=""><span>Secuencias</span></a></li>    
@@ -109,12 +111,9 @@
                             <div class="content-wrap">
                                
                                 <section id="section-linemove-1" class="tablaboostrap" style="height: 400px">
-                                   
-                                        
                                         <br></br>
                                         <br></br>
-                                        <br></br>
-                                        <br></br>
+                                        <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioAbsurdoII.xhtml" style="  margin-left: 1050px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
                                         <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl1" var="ejercicio" value="#{ejerciciosVer.listaAbsurdos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" selection="#{ejerciciosVer.seleccionarAbsurdo}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('abs').show()" listener="#{ejerciciosVer.onRowSelectAbsurdo}" update=":myform:absDet" />
                                             <p:column  >
@@ -131,7 +130,7 @@
                                             </p:column> 
                                             <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Texto del ejercicio" />
+                                                    <h:outputText value="Titulo principal" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.textoPrincipal}" />
                                             </p:column> 
@@ -141,8 +140,10 @@
                                 </section>
                                 <section id="section-linemove-2" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Semejanza" />                                                                                                                                                                                                             
-                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl2" var="ejercicio" value="#{ejerciciosVer.listaSemejanzas}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSemejanza}" selectionMode="single">
+                                        <br></br>
+                                        <br></br>
+                                        <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSemejanzaII.xhtml" style="  margin-left: 1050px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl2" var="ejercicio" value="#{ejerciciosVer.listaSemejanzas}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" selection="#{ejerciciosVer.seleccionarSemejanza}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('sem').show()" listener="#{ejerciciosVer.onRowSelectSemejanza}" update=":myform:semDet" />
                                             <p:column>
                                                 <f:facet name="header">
@@ -156,19 +157,21 @@
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                             </p:column>    
-                                            <p:column>
+<!--                                            <p:column>
                                                 <f:facet name="header">
-                                                    <h:outputText value="Texto del ejercicio" />
+                                                    <h:outputText value="Título principal" />
                                                 </f:facet>
                                                 <h:outputText value="#{ejercicio.textoPrincipal}" />
-                                            </p:column> 
+                                            </p:column> -->
                                         </p:dataTable>
                                     </pm:field>
                                 </section>
                                 <section id="section-linemove-3" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Memoria" />                                                                                                                                                                                                             
-                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl3" var="ejercicio" value="#{ejerciciosVer.listaMemorize}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarMemorize}" selectionMode="single">
+                                        <br></br>
+                                        <br></br>
+                                        <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioMemoriaII.xhtml" style="  margin-left: 1050px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl3" var="ejercicio" value="#{ejerciciosVer.listaMemorize}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" selection="#{ejerciciosVer.seleccionarMemorize}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('mem').show()" listener="#{ejerciciosVer.onRowSelectMemoria}" update=":myform:memDet" />
                                             <p:column>
                                                 <f:facet name="header">
@@ -187,8 +190,10 @@
                                 </section>
                                 <section id="section-linemove-4" style="height: 400px">
                                     <pm:field>
-                                        <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-weight: 100;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Secuencia" />                                                                                                                                                                    
-                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" styleClass="tablaboostrap" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'warning' : 'color1'}" style="font-size: medium; margin: 0 auto; position: relative;padding-top: 50px;" id="tbl4" var="ejercicio" value="#{ejerciciosVer.listaSecuenciales}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{ejerciciosVer.seleccionarSecuencia}" selectionMode="single">
+                                        <br></br>
+                                        <br></br>
+                                        <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSecuencialII.xhtml" style="  margin-left: 1050px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl4" var="ejercicio" value="#{ejerciciosVer.listaSecuenciales}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" selection="#{ejerciciosVer.seleccionarSecuencia}" selectionMode="single">
                                             <p:ajax event="rowSelect" oncomplete="PF('sec').show()" listener="#{ejerciciosVer.onRowSelectSecuencia}" update=":myform:secDet" />
                                             <p:column>
                                                 <f:facet name="header">
@@ -216,7 +221,7 @@
                             </div><!-- /content -->
                         </div><!-- /tabs -->
                     </section>                                  
-                <p:dialog closable="true" draggable="false" closeOnEscape="true" styleClass="modal-content" header="Car Info" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog style="z-index: 1;" closable="true" draggable="false" closeOnEscape="true" styleClass="modal-content" header="Ejercicio Selección Múltiple" widgetVar="abs" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                     <p:outputPanel  class="base_izquierda prueba" id="absDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                         <h:outputText style=" margin-left: 80px;" id="out" value="#{ejerciciosVer.seleccionarAbsurdo.textoPrincipal}" />
@@ -238,7 +243,7 @@
                             <!--</h:panelGrid>-->
                         </p:outputPanel>
                     </p:dialog>
-                <p:dialog header="Car Info" widgetVar="sem"  modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
+                <p:dialog header="Ejercicio Semejanza" widgetVar="sem"  modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
                         <p:outputPanel class="base_izquierda prueba" id="semDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                             <h:outputText style=" margin-left: 80px;" id="out11" value="#{ejerciciosVer.seleccionarSemejanza.textoPrincipal}" />
@@ -266,7 +271,7 @@
                                 <!--</h:panelGrid>-->
                         </p:outputPanel>
                     </p:dialog>
-                    <p:dialog header="Car Info" widgetVar="mem" modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
+                    <p:dialog header="Ejercicio Memorize" widgetVar="mem" modal="true" showEffect="fade" styleClass="modal-content" hideEffect="fade" resizable="false">
                            <p:outputPanel class="base_izquierda prueba" id="memDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
                                <h:outputText style=" margin-left: 80px;" id="out12" value="#{ejerciciosVer.seleccionarMemorize.textoPrincipalMemorize}" />
   
@@ -285,13 +290,11 @@
                                 </h:panelGrid>
                            </p:outputPanel>
                        </p:dialog>
-                <p:dialog header="Car Info" widgetVar="sec" closeOnEscape="true" draggable="false" styleClass="modal-content" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:dialog header="Ejercicio Secuencias" widgetVar="sec" closeOnEscape="true" draggable="false" styleClass="modal-content" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                                    <p:outputPanel class="base_izquierda prueba" id="secDet" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
                                        <h:outputText style=" margin-left: 80px;" id="out3" value="#{ejerciciosVer.seleccionarSecuencia.textoPrincipal}" />
                                     <!--<h:panelGrid columns="2" cellpadding="2" id ="elem2" style="margin-top: 15px" >-->
                                         <h:panelGrid columns="1" cellpadding="2" id ="elem3" style="width: 180px" >
-
-                                           
 
                                         </h:panelGrid>
 

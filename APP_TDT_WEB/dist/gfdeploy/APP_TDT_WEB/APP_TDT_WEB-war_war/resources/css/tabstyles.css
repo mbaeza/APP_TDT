@@ -372,16 +372,16 @@
 
 .tabs-style-linemove nav li.tab-current a {
 	color: #4e5a66;
-        font-size: 1.5em;
+        font-size: 1.1em;
 	-webkit-transform: translate3d(0,8px,0);
 	transform: translate3d(0,8px,0);
         background-color: #37c2b8;
-        height: 10px;
+        height: 42px;
 }
 
 .tabs-style-linemove nav a span {
-	font-weight: 700;
-        font-size: 1.3em;
+	/*font-weight: 700;*/
+        font-size: 1.8em;
 }
 
 /*****************************/

@@ -40,8 +40,9 @@
 
 /* Views (fullscreen and overview)*/
 .fs-form-full {
-	top: 32%;
+	top: 30%;
 	margin: 0 auto;
+        margin-left: 100px;
 	width: 70%;
 }
 
@@ -61,11 +62,12 @@
 
 .fs-form-overview .fs-fields::before {
 	display: block;
-	margin-bottom: 0.5em;
-	color: #3b3f45;
-	content: 'Guardar cambios';
+	//margin-bottom: 0.5em;
+	color: #556270;
+	content: 'Resumen final';
 	font-weight: 700;
-	font-size: 1.85em;
+        margin-top: 80px;
+	font-size: 2em;
 }
 
 /* Switch view animation (we hide the current view, switch the view class and show it again) */
@@ -167,12 +169,14 @@ button.fs-continue,
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
-	top: 0;
+	top: 0px;
 	list-style: none;
 }
 
 .fs-form-overview ol {
-	max-width: 265px;
+	/*max-width: 265px;*/
+          left: 95px;
+
 }
 
 .fs-fields > li {
@@ -655,10 +659,10 @@ button.fs-continue,
 button.fs-submit,
 button.fs-continue {
 	padding: 0.6em 1.5em;
-	border: 3px solid #232529;
+	border: 3px solid #ff3838;
 	border-radius: 40px;
 	font-weight: 700;
-	color: rgba(0,0,0,0.4);
+	color: #FAFAFA;
 }
 
 .fs-form-overview .fs-submit,
@@ -668,8 +672,8 @@ button.fs-continue {
 }
 
 .fs-form-overview .fs-submit {
-	border-color: #232529;
-	color: #232529;
+    border-color: #ff3838;
+    color: #FAFAFA;
 }
 
 button.fs-continue {
@@ -677,13 +681,13 @@ button.fs-continue {
 	right: 0;
 	bottom: 0;
 	margin: 0 40px 60px 0;
-	font-size: 1.25em;
+	font-size: 1.8em;
 }
 
 button.fs-submit:hover,
 button.fs-submit:focus,
 button.fs-continue:hover {
-	background: #232529;
+	background: #ff3838;
 	color: #fff;
 }
 

@@ -30,6 +30,6 @@ public interface ClientesFacadeLocal {
 
     int count();
 
-    public List<Clientes> consultaRutEnrolados();
+    public List<Clientes> consultaRutEnrolados(String fechaInicio , String fechaFin);
     
 }

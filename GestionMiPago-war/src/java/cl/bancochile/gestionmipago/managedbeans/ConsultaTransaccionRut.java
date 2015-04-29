@@ -5,16 +5,21 @@
  */
 package cl.bancochile.gestionmipago.managedbeans;
 
-import cl.bancochile.gestionmipago.entityclass.Clientes;
 import cl.bancochile.gestionmipago.entityclass.TrxsPago;
-import cl.bancochile.gestionmipago.sessionbeans.ClientesFacadeLocal;
 import cl.bancochile.gestionmipago.sessionbeans.TrxsPagoFacadeLocal;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.html.HtmlDataTable;
 
 /**
  *
@@ -23,14 +28,14 @@ import javax.enterprise.context.RequestScoped;
 @Named(value = "consultaTransaccionRut")
 @RequestScoped
 public class ConsultaTransaccionRut {
-    @EJB
-    private ClientesFacadeLocal clientesFacade;
+
     @EJB
     private TrxsPagoFacadeLocal trxsPagoFacade;
     
     long timeInicio, timeFin;
     private List<TrxsPago> listaTrxRut = new ArrayList<TrxsPago>();
-    private List<Clientes> listaRutEnrolado = new ArrayList<Clientes>();
+    private HtmlDataTable dataTableTrxRut;
+//    private List<Clientes> listaRutEnrolado = new ArrayList<Clientes>();
     
     
     public ConsultaTransaccionRut() {
@@ -39,21 +44,43 @@ public class ConsultaTransaccionRut {
     
     @PostConstruct
     public void init(){
-  
+        
     }
 
     public void obtenerTrxRangoFecha() {
-//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        
-//        Date dateInicio = dateFormat.parse("01/04/2015");
-//        timeInicio = dateInicio.getTime();
-//        
-//        Date dateFin = dateFormat.parse("02/04/2015");
-//        timeFin = dateFin.getTime();
+        listaTrxRut = trxsPagoFacade.consultaTransaccionRut("01/03/2015 17:27:03.047", "29/03/2015 17:27:03.047");
         
-        listaTrxRut = trxsPagoFacade.consultaTransaccionRut(null,null);
-        listaRutEnrolado = clientesFacade.consultaRutEnrolados();
+        //Crear el CSV
+        File file = new File("/Volumes/Macintosh HD/Users/marcobaezasalazar/archivo.csv");        
+        FileWriter fw;
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            
+            fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            bw.write("RUT_ORIGEN,CUENTA_ORIGEN,RUT_DESTINO,CTA_DESTINO,MONTOTRX,FECHAHORATRX\n");
+            for(TrxsPago trxRut:listaTrxRut){
+                bw.write(trxRut.getIdcliente().getRutcliente(),trxRut.getIdcliente().getCuentasList().);
+            }
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ConsultaTransaccionRut.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
+
+    public HtmlDataTable getDataTableTrxRut() {
+        return dataTableTrxRut;
+    }
+
+    public void setDataTableTrxRut(HtmlDataTable dataTableTrxRut) {
+        this.dataTableTrxRut = dataTableTrxRut;
+    }
+        
     public List<TrxsPago> getListaTrxRut() {
         return listaTrxRut;
     }
@@ -61,7 +88,4 @@ public class ConsultaTransaccionRut {
     public void setListaTrxRut(List<TrxsPago> listaTrxRut) {
         this.listaTrxRut = listaTrxRut;
     }
-    
-    
-    
 }

@@ -95,11 +95,12 @@ private Alumno alumnoSeleccionado;
 private String nombreEjercicio;
 private String descripcionEjercicio;
 
-
+private String variableStyleOff = "border-color: none;border-style:none";
+private String variableStyleOn = "border-color: green;border-style:solid";
 
 
     public EjercicioAbsurdo() {
-        
+        variableStyleOn = "border-color: green;border-style:solid";
 //        nombresArchivosUpload = new ArrayList<>();
         if(subirArchivo.get(0) == false){
             setImagenPrincipal("interrogacion.png");
@@ -120,45 +121,20 @@ private String descripcionEjercicio;
             cont.clear();
         }
         subirArchivo.add(0, false);
-//        nombresArchivosUpload = new ArrayList<>();
-//        
-//        model = new DefaultDashboardModel();
-//        column1 = new DefaultDashboardColumn();
-//        column2 = new DefaultDashboardColumn();
-//        column3 = new DefaultDashboardColumn();
-//        column4 = new DefaultDashboardColumn();
-//        
-//        
-//        //column5 = new DefaultDashboardColumn();
-//        //DashboardColumn column3 = new DefaultDashboardColumn();
-//         
-//        
-//        column1.addWidget("imagen1");
-//        column1.addWidget("imagen1");
-//        column2.addWidget("imagen2");
-//        column3.addWidget("imagen3");
-//        column4.addWidget("imagen4");
-//        
-//        model.addColumn(column1);
-//        model.addColumn(column2);
-//        model.addColumn(column3);
-//        model.addColumn(column4);
-//        model.addColumn(column5);
-       // model.addColumn(column3);
         
     }
 
     @PostConstruct
     public void init() {
         listaAlumnos = alumnoFacade.findAll();
-//        nombresArchivosUpload.add(0,"interrogacion.png");
-//        nombresArchivosUpload.add(1,"interrogacion.png");
-//        nombresArchivosUpload.add(2,"interrogacion.png");
-//        nombresArchivosUpload.add(3,"interrogacion.png");
     }
     
     public List<String> getNombresArchivosUpload() {
         return nombresArchivosUpload;
+    }
+    
+    public List<String> getNombresArchivosUploadPrincipal() {
+        return nombresArchivosUploadPrincipal;
     }
     
     public void generarEjercicio() throws IOException{
@@ -286,18 +262,6 @@ private String descripcionEjercicio;
         text = tituloPrincipal.toUpperCase();
     }
 
-//    public void addWidget(){
-//        final DashboardColumn a  = new DefaultDashboardColumn();
-//        final Panel p = new Panel();
-//        p.setCloseTitle("asdasd");
-//        p.setId("er");
-//        p.setVisible(true);
-//        UIComponent component = FacesContext.getCurrentInstance().getViewRoot().findComponent("board");
-//        component.getChildren().add(p);
-//        a.addWidget("er");
-//        getModel().addColumn(a);
-//        System.out.println(getModel().getColumnCount());
-//    }
     public UploadedFile getFile() {
         return file;
     }
@@ -366,15 +330,15 @@ private String descripcionEjercicio;
             fileOutputStream.close();
             inputStream.close();
 
-            FacesMessage msg = new FacesMessage("File Description", "file name: " + event.getFile().getFileName() + "file size: " + event.getFile().getSize() / 1024 +
-            " Kb.content type: " + event.getFile().getContentType() + "The file was uploaded.");
+            FacesMessage msg = new FacesMessage("Imágen subida", "La imagen " + event.getFile().getFileName() + " - " + event.getFile().getSize() / 1024 +
+            " Kb" + ", fue subida con éxito.");
             FacesContext.getCurrentInstance().addMessage(null, msg);
 
         } catch (IOException e) {
             e.printStackTrace();
 
             FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "The files were not uploaded!", "");
+            "La imágen no se ha subido.", "");
             FacesContext.getCurrentInstance().addMessage(null, error);
         }  
         
@@ -385,7 +349,7 @@ private String descripcionEjercicio;
         if(respuestaCorrecta1 == true)
             setStyle1("border-color: green;border-style:solid");
         else
-            setStyle1("border-color: none;border-style:none");
+            setStyle1("border-color: green;border-style:solid");
         
           subirArchivo.add(0, true);
     }
@@ -445,28 +409,18 @@ private String descripcionEjercicio;
             fileOutputStream.close();
             inputStream.close();
 
-            FacesMessage msg = new FacesMessage("File Description", "file name: " + event.getFile().getFileName() + "file size: " + event.getFile().getSize() / 1024 +
-            " Kb.content type: " + event.getFile().getContentType() + "The file was uploaded.");
+            FacesMessage msg = new FacesMessage("Imágen subida", "La imagen " + event.getFile().getFileName() + " - " + event.getFile().getSize() / 1024 +
+            " Kb" + ", fue subida con éxito.");
             FacesContext.getCurrentInstance().addMessage(null, msg);
 
         } catch (IOException e) {
             e.printStackTrace();
 
             FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "The files were not uploaded!", "");
+            "La imágen no se ha subido.", "");
             FacesContext.getCurrentInstance().addMessage(null, error);
         }  
     }
-//    public void addPanel(ActionEvent event) {
-//        UIComponent component = FacesContext.getCurrentInstance().getViewRoot().findComponent("myPanelGrid");
-//        if (component != null) {
-//            Panel p = new Panel();
-//            p.setClosable(true);
-//            p.setHeader("Test");
-//            p.setVisible(true);
-//            component.getChildren().add(p);
-//        }
-//    }
     public static String remove2(String input) {
         // Descomposición canónica
         String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
@@ -633,6 +587,22 @@ private String descripcionEjercicio;
 
     public void setDescripcionEjercicio(String descripcionEjercicio) {
         this.descripcionEjercicio = descripcionEjercicio;
+    }
+
+    public String getVariableStyleOff() {
+        return variableStyleOff;
+    }
+
+    public void setVariableStyleOff(String variableStyleOff) {
+        this.variableStyleOff = variableStyleOff;
+    }
+
+    public String getVariableStyleOn() {
+        return variableStyleOn;
+    }
+
+    public void setVariableStyleOn(String variableStyleOn) {
+        this.variableStyleOn = variableStyleOn;
     }
     
     

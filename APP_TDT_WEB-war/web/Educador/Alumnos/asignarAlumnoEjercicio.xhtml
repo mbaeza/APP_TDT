@@ -6,27 +6,91 @@
       xmlns:pm="http://primefaces.org/mobile"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head> 
-        <title>Facelet Title</title>
+        <title>Asignar Ejercicio</title>
         <meta charset="UTF-8" />
-        <h:outputStylesheet name="css/demo.css" />
-        <h:outputStylesheet name="css/style_base.css"/>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>        
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>        
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" />       
+        <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
         <h:outputStylesheet name="css/component.css" />
         <h:outputScript name="js/modernizr.custom.js"/>
     </h:head>
     <h:body class="body_general" >
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">Menú</h2>
+                    <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Ejercicios/principalEjercicios.xhtml">Mis Ejercicios</a></li>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/asignarAlumnoEjercicio.xhtml">Asignación Ejercicio-Alumno</a></li>  
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Respuesta Múltiple</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Respuesta Múltiple</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioAbsurdoII.xhtml">Agregar Respuesta Múltiple</a></li>
+                                    <li><a href="#">Modificar Respuesta Múltiple</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Memorize</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Memorize</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioMemoriaII.xhtml">Agregar Memorize</a></li>
+                                    <li><a href="#">Modificar Memorize</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Secuencia</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Secuencia</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSecuencialII.xhtml">Agregar Secuencia</a></li>
+                                    <li><a href="#">Modificar Secuencia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Semejanza</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Semejanza</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSemejanzaII.xhtml">Agregar Semejanza</a></li>
+                                    <li><a href="#">Modificar Semejanza</a></li>
+                                </ul>
+                            </div>
+                        </li> 
+                       
+                    </ul>
+                </div>
+            </nav>
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
-                    Agregar un ejercicio de respuesta multiple
+                <a href="#" id="trigger" style="top: 12px;" class="menu-trigger"></a>
+                <h:outputText style="color: #FF6B6B;" value="Asignar un ejercicio a un alumno"></h:outputText>
             </div>
+
             <h:form id="myform" class="fs-form fs-form-full" >
                 <p:growl id="confirmacion" showDetail="true" life="5000" />
 
                     <ol class="fs-fields"> 
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el ejercicio a asignar" />                                                                                                
-                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl" var="ejercicio" value="#{asignarAlumnoEjercicio.ejercicios}" rowKey="#{ejercicio.idEjercicio}" paginator="true" rows="5" selection="#{asignarAlumnoEjercicio.ejercicioSeleccionado}" selectionMode="single">
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona un ejercicio" />                                                                                                
+                                    <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;top:0;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl" var="ejercicio" value="#{asignarAlumnoEjercicio.ejercicios}" rowKey="#{ejercicio.idEjercicio}" paginator="true" rows="7" selection="#{asignarAlumnoEjercicio.ejercicioSeleccionado}" selectionMode="single">
                                         <!--<p:ajax event="rowSelect" listener="#{asignarAlumnoEjercicio.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />-->
                                         <p:column>
                                             <f:facet name="header">
@@ -36,7 +100,7 @@
                                         </p:column>                        
                                         <p:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Descrición del Ejercicio" />
+                                                <h:outputText value="Descripción del Ejercicio" />
                                             </f:facet>
                                             <h:outputText value="#{ejercicio.descripcionEjercicio}" />
                                         </p:column>                      
@@ -44,9 +108,9 @@
                                 </pm:field>
                             </li>
                             <li>
-                                <pm:field>
+                                <pm:field>                                    
                                     <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona los alumnos que participan en el ejercicio" />                                                                                                
-                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 850px; height: 250px" id="tbl1" var="alumno" value="#{asignarAlumnoEjercicio.listaAlumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{asignarAlumnoEjercicio.alumnosSeleccionados}" >
+                                    <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;top:0;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl1" var="alumno" value="#{asignarAlumnoEjercicio.listaAlumnos}" rowKey="#{alumno.rut}" paginator="true" rows="5" selection="#{asignarAlumnoEjercicio.alumnosSeleccionados}" >
                                         <!--<p:ajax event="rowSelect" listener="#{modificarAlumnos.onRowSelect}" update=":myform:q1,:myform:q2,:myform:q3,:myform:q4,:myform:q5" />-->
                                         <p:column selectionMode="multiple" style="width:30px;text-align:center"/>
                                         <p:column>
@@ -78,8 +142,8 @@
                             </li>   
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa la finalidad de la realción ejercicio alumno" />
-                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{asignarAlumnoEjercicio.observacion}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el objetivo de la relación ejercicio-alumno" />
+                                    <p:inputTextarea style="font-family: Lato ,cursive" required="true" id="q1" class="fs-anim-lower" maxlength="100" value="#{asignarAlumnoEjercicio.observacion}" />
                                     <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
                                 </pm:field>
                                 
@@ -87,19 +151,23 @@
                             <li>
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Explicar los alumnos seleccionados" />
-                                    <p:inputText  required="true" id="q2" class="fs-anim-lower" type="text" value="#{asignarAlumnoEjercicio.observacionColaboracion}" />
+                                    <p:inputTextarea style="font-family: Lato ,cursive" required="true" id="q2" class="fs-anim-lower" maxlength="100" value="#{asignarAlumnoEjercicio.observacionColaboracion}" />
                                     <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
                                 </pm:field>
                                 
                             </li>                                              
                     </ol><!-- /fs-fields -->
-                   <div id="xx" class="prueba" style="margin-top: 6%;">
-                       Guardar Cambios
-                    </div>
-                    <!--<button class="fs-submit" type="submit">Send answers</button>-->
+                    <div id="xx" class="prueba" >
+                        <p:outputPanel  id="form1" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
+                            <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Objetivo de la relación ejercicio-alumno" />
+                            <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="#{asignarAlumnoEjercicio.observacion}" />
+                        </p:outputPanel>
+
+
+                    </div> 
 
                     <p:commandButton  class="fs-submit" value="Guardar" action="#{asignarAlumnoEjercicio.asignarAlumnoEjercicio()}" actionListener="#{asignarAlumnoEjercicio.confirmacionAgregar}" update="confirmacion">
-                <p:confirm header="Confirmación" message="¿Está seguro que desea modificar esta información?" icon="ui-icon-alert" />                                        
+                <p:confirm header="Confirmación" message="¿Está seguro que desea guardar esta asignación?" icon="ui-icon-alert" />                                        
                 </p:commandButton>
                 <!--<p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />-->
 
@@ -110,9 +178,14 @@
             </h:form><!-- /fs-form -->
         </div><!-- /fs-form-wrap -->
 
-
+ </div><!-- /fs-form-wrap -->
 
 		<h:outputScript name="js/classie.js"></h:outputScript>
+                <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>		
 		<h:outputScript name="js/selectFx.js"></h:outputScript>
 		<h:outputScript name="js/fullscreenForm.js"></h:outputScript>
 		<h:outputScript>

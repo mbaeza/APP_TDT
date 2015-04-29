@@ -357,17 +357,17 @@ private String descripcionEjercicio;
             fileOutputStream.close();
             inputStream.close();
 
-            FacesMessage msg = new FacesMessage("File Description", "file name: " + event.getFile().getFileName() + "file size: " + event.getFile().getSize() / 1024 +
-            " Kb.content type: " + event.getFile().getContentType() + "The file was uploaded.");
+            FacesMessage msg = new FacesMessage("Imágen subida", "La imagen " + event.getFile().getFileName() + " - " + event.getFile().getSize() / 1024 +
+            " Kb" + ", fue subida con éxito.");
             FacesContext.getCurrentInstance().addMessage(null, msg);
 
         } catch (IOException e) {
             e.printStackTrace();
 
             FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "The files were not uploaded!", "");
+            "La imágen no se ha subido.", "");
             FacesContext.getCurrentInstance().addMessage(null, error);
-        }  
+        } 
         
         
         

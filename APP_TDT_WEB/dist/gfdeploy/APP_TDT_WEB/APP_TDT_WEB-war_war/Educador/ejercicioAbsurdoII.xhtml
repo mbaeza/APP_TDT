@@ -3,38 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pm="http://primefaces.org/mobile">
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head> 
-        <title>Facelet Title</title>
+        <title>Respuesta Múltiple</title>
         <meta charset="UTF-8" />
-        <!--<h:outputStylesheet name="css/demo.css" />-->
-        <!--<h:outputStylesheet name="css/style_base.css"/>-->
-        <!--<link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>-->
-       
-                <!--<h:outputStylesheet name="css/demo.css" />-->
-        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
         <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
         <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
-        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
-        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>        
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
-        <!--<h:outputStylesheet name="css/tabs.css" />-->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>        
         <h:outputStylesheet name="css/bootstrap-theme.css" /> 
         <h:outputStylesheet name="css/bootstrap.css" /> 
         <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
-        <h:outputStylesheet name="css/bootstrap.css.map" /> 
-        <!--<h:outputStylesheet name="css/tabstyles.css" />-->
+        <h:outputStylesheet name="css/bootstrap.css.map" />       
         <h:outputStylesheet name="css/normalize_menu.css" />
         <h:outputStylesheet name="css/component_menu.css" />
         <h:outputStylesheet name="css/component.css" />
-       
-        
-        <!--<h:outputStylesheet name="css/component.css" />-->
-        <!--h:outputStylesheet name="css/component-menu.css" /-->
-<!--        <h:outputScript name="js/modernizr.custom_menu.js"/>-->
-<!--<h:outputScript name="js/modernizr.custom_menu.js"/>-->
         <h:outputScript name="js/modernizr.custom.js"/>
         
     </h:head>
@@ -93,7 +80,7 @@
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
                 <a href="#" id="trigger" style="top: 12px;" class="menu-trigger"></a>
-                <h:outputText style="" value="Agregar un ejercicio de respuesta múltiple"></h:outputText>
+                <h:outputText style="color: #FF6B6B;" value="Agregar un ejercicio de respuesta múltiple"></h:outputText>
             </div>
             <br></br>
             <br></br>
@@ -111,10 +98,10 @@
 
                         <h:panelGrid columns="4" cellpadding="1" id ="elem12" style="margin-left: 30px">
 
-                            <h:graphicImage id="imagen12" style="#{ejercicioAbsurdo.style1}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(0)}" width="35" height="35" />
-                            <h:graphicImage id="imagen22" style="#{ejercicioAbsurdo.style2}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(1)}" width="35" height="35"/>
-                            <h:graphicImage id="imagen32" style="#{ejercicioAbsurdo.style3}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(2)}" width="35" height="35" />
-                            <h:graphicImage id="imagen42" style="#{ejercicioAbsurdo.style4}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(3)}" width="35" height="35"/>                            
+                            <h:graphicImage id="imagen12" style="#{ejercicioAbsurdo.respuestaCorrecta1 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(0)}" width="35" height="35" />
+                            <h:graphicImage id="imagen22" style="#{ejercicioAbsurdo.respuestaCorrecta2 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(1)}" width="35" height="35"/>
+                            <h:graphicImage id="imagen32" style="#{ejercicioAbsurdo.respuestaCorrecta3 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(2)}" width="35" height="35" />
+                            <h:graphicImage id="imagen42" style="#{ejercicioAbsurdo.respuestaCorrecta4 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(3)}" width="35" height="35"/>                            
 
                         </h:panelGrid>
                     <!--</h:panelGrid>-->
@@ -123,7 +110,7 @@
                             <li>
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del ejercicio" />
-                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{ejercicioAbsurdo.nombreEjercicio}" />
+                                    <p:inputText style="font-family: Lato ,cursive" required="true" id="q1" class="fs-anim-lower"  type="text" value="#{ejercicioAbsurdo.nombreEjercicio}" />
                                     <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
                                 </pm:field>
                                 
@@ -131,63 +118,63 @@
                             <li>
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa una descripción del ejercicio" />
-                                    <p:inputTextarea class="fs-anim-lower" maxlength="100" id="q2"  value="#{ejercicioAbsurdo.descripcionEjercicio}"/>                                                                           
+                                    <p:inputTextarea style="font-family: Lato ,cursive" class="fs-anim-lower" maxlength="100" id="q2"  value="#{ejercicioAbsurdo.descripcionEjercicio}"/>                                                                           
                                 </pm:field>
                             </li>												
                             <li>                                                                                                        
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper" for="q3" style="font-family: Cabin Sketch ,cursive"  value="Ingresa la pregunta del ejercicio" />                                                        
-                                    <p:inputText class="fs-anim-lower"  id="q3" value="#{ejercicioAbsurdo.tituloPrincipal}">
+                                    <p:inputText style="font-family: Lato ,cursive"  class="fs-anim-lower"  id="q3" value="#{ejercicioAbsurdo.tituloPrincipal}">
                                         <p:ajax event="keyup" update="myform:out,myform:out2"  listener="#{ejercicioAbsurdo.handleKeyEvent}" />
                                     </p:inputText>                                                       
                                 </pm:field>							
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive; width: 600px"  value="Ingresa la imagen principal" />                                                        
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive; width: 600px"  value="Ingresa la imágen principal" />                                                        
                                     <p:growl id="mensajePrincipal12" showDetail="true" />
-                                    <p:fileUpload update="imagenPrincipal,imagenPrincipalmini,mensajePrincipal12" class="fs-anim-lower" value="#{ejercicioAbsurdo.filePrincipal}" id="q4" fileLimit="1" fileUploadListener="#{ejercicioAbsurdo.handleFileUploadImagenPrincipal}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    <p:fileUpload update="imagenPrincipal,imagenPrincipalmini,mensajePrincipal12" class="fs-anim-lower" value="#{ejercicioAbsurdo.filePrincipal}" id="q4" fileLimit="1" fileUploadListener="#{ejercicioAbsurdo.handleFileUploadImagenPrincipal}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imágen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Formato incorrecto" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                                                                                                    
                                 </pm:field>							
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive;width: 600px"  value="Ingresa las imágenes de respuesta correcta" />                                                        
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive;width: 600px"  value="Ingresa las imágenes de respuesta" />                                                        
                                     <p:growl id="mensajePrincipal1" showDetail="true" />
-                                    <p:fileUpload update="myform:imagen11a,myform:imagen21,myform:imagen31,myform:imagen41,myform:imagen1,myform:imagen2,myform:imagen3,myform:imagen4,myform:imagen12,myform:imagen22,myform:imagen32,myform:imagen42,mensajePrincipal1" class="fs-anim-lower" value="#{ejercicioAbsurdo.filePrincipal}" id="q5" multiple="true" fileLimit="4" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imagen" fileLimitMessage="Solo se puede subir un archivo" invalidFileMessage="Solo se deben subir imágenes" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
+                                    <p:fileUpload update="myform:imagen11a,myform:imagen21,myform:imagen31,myform:imagen41,myform:imagen1,myform:imagen2,myform:imagen3,myform:imagen4,myform:imagen12,myform:imagen22,myform:imagen32,myform:imagen42,mensajePrincipal1" class="fs-anim-lower" value="#{ejercicioAbsurdo.filePrincipal}" id="q5" multiple="true" fileLimit="4" fileUploadListener="#{ejercicioAbsurdo.handleFileUpload}" uploadLabel="Subir" cancelLabel="Cancelar" dragDropSupport="true " label="Seleccionar Imágen" fileLimitMessage="Solo se pueden subir 4 imágenes" invalidFileMessage="Formato incorrecto" style="font-size: 20px;width: 800px;height: 300px" previewWidth="30" mode="advanced" allowTypes="/(\.|\/)(gif|jpg|jpeg|gif|png|PNG|GIF|JPG|JPEG)$/" />                            
                                 </pm:field>							
                             </li>
                             <li>
-                                <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive;width: 600px"  value="Ingresa las imágenes de respuesta correcta" />                                                            
+                                <p:outputLabel class="fs-field-label fs-anim-upper" style="font-family: Cabin Sketch ,cursive;width: 600px"  value="Selecciona las imágenes de respuesta correcta" />                                                            
  				<h:panelGrid columns="4" cellpadding="20" id ="elem3" style="margin: 0 auto">                                        
                                 
-                                <pm:field>                                   
-                                        <p:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta1}">                                            
+                                    <pm:field>                                   
+                                        <h:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta1}">                                            
                                             <h:graphicImage class="fs-anim-lower" id="imagen11a" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(0)}" width="150" height="150" />
-                                            <p:ajax update="myform:imagen1,myform:imagen12"  listener="#{ejercicioAbsurdo.generarStyle1()}" />
-                                        </p:selectBooleanCheckbox>  
+                                            <p:ajax update="myform:imagen1,myform:imagen12"  event="change"  />
+                                        </h:selectBooleanCheckbox>  
                                     </pm:field>
                                     <pm:field>
-                                        <p:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta2}">
+                                        <h:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta2}">
                                             <h:graphicImage class="fs-anim-lower" id="imagen21" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(1)}" width="150" height="150"/>
                                             <p:ajax update="myform:imagen2,myform:imagen22" listener="#{ejercicioAbsurdo.generarStyle2()}" />
-                                        </p:selectBooleanCheckbox>
+                                        </h:selectBooleanCheckbox>
                                     </pm:field>
                                     <pm:field>
-                                        <p:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta3}">
+                                        <h:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta3}">
                                             <h:graphicImage class="fs-anim-lower" id="imagen31" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(2)}" width="150" height="150" />
                                             <p:ajax update="myform:imagen3,myform:imagen32" listener="#{ejercicioAbsurdo.generarStyle3()}" />
-                                        </p:selectBooleanCheckbox>
+                                        </h:selectBooleanCheckbox>
                                     </pm:field>
                                     <pm:field>
-                                        <p:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta4}">
+                                        <h:selectBooleanCheckbox class="fs-anim-lower" value="#{ejercicioAbsurdo.respuestaCorrecta4}">
                                             <h:graphicImage class="fs-anim-lower" id="imagen41" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(3)}" width="150" height="150"/>                            
                                             <p:ajax update="myform:imagen4,myform:imagen42" listener="#{ejercicioAbsurdo.generarStyle4()}" />
-                                        </p:selectBooleanCheckbox>
+                                        </h:selectBooleanCheckbox>
                                     </pm:field>
                                 </h:panelGrid>			
                             </li>
                     </ol><!-- /fs-fields -->
-                    <div id="xx" class="prueba" style="margin-top: 6%;">
+                    <div id="xx" class="prueba" >
                         <p:outputPanel class="base_izquierda prueba" id="form1" style="margin-top: 6%;font-size: xx-large;margin: 0 auto;height: 470px" >     
 
                             <h:outputText style=" margin-left: 80px;" id="out" value="#{ejercicioAbsurdo.text}" />
@@ -199,19 +186,18 @@
                                 </h:panelGrid>
 
                                 <h:panelGrid columns="4" cellpadding="1" id ="elem1" style="margin-left:90px">
-
-                                    <h:graphicImage id="imagen1" style="#{ejercicioAbsurdo.style1}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(0)}" width="100" height="100" />
-                                    <h:graphicImage id="imagen2" style="#{ejercicioAbsurdo.style2}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(1)}" width="100" height="100"/>
-                                    <h:graphicImage id="imagen3" style="#{ejercicioAbsurdo.style3}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(2)}" width="100" height="100" />
-                                    <h:graphicImage id="imagen4" style="#{ejercicioAbsurdo.style4}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(3)}" width="100" height="100"/>                                   
+                                        
+                                    <h:graphicImage id="imagen1" style="#{ejercicioAbsurdo.respuestaCorrecta1 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(0)}" width="100" height="100" />
+                                    <h:graphicImage id="imagen2" style="#{ejercicioAbsurdo.respuestaCorrecta2 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(1)}" width="100" height="100"/>
+                                    <h:graphicImage id="imagen3" style="#{ejercicioAbsurdo.respuestaCorrecta3 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(2)}" width="100" height="100" />
+                                    <h:graphicImage id="imagen4" style="#{ejercicioAbsurdo.respuestaCorrecta4 == true ? 'border:solid;color:green' : 'border:none;color:transparent'}" url="../files/#{ejercicioAbsurdo.nombresArchivosUpload.get(3)}" width="100" height="100"/>                                   
 
                                 </h:panelGrid>
                             <!--</h:panelGrid>-->
                         </p:outputPanel>
 
 
-                    </div>
-                    <!--<button class="fs-submit" type="submit">Send answers</button>-->
+                    </div>                   
 
                 <p:commandButton  class="fs-submit" value="Guardar" action="#{ejercicioAbsurdo.generarEjercicio()}" actionListener="#{ejercicioAbsurdo.confirmacionAgregar}" update="confirmacion">
                 <p:confirm header="Confirmación" message="¿Está seguro que desea agregar este ejercicio?" icon="ui-icon-alert" />                                        
@@ -233,8 +219,7 @@
                 <h:outputScript name="js/principal.js"></h:outputScript>  
                 <h:outputScript name="js/classie_menu.js"></h:outputScript>
                 <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
-		<h:outputScript name="js/menu.js"></h:outputScript>
-		
+		<h:outputScript name="js/menu.js"></h:outputScript>		
 		<h:outputScript name="js/selectFx.js"></h:outputScript>
 		<h:outputScript name="js/fullscreenForm.js"></h:outputScript>
 		<h:outputScript>

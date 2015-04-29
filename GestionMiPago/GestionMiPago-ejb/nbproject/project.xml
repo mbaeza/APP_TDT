@@ -6,6 +6,8 @@
             <name>GestionMiPago-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <explicit-platform explicit-source-supported="true"/>
+            <included-library dirs="200">file.reference.slf4j-api__V1.6.3.jar</included-library>
+            <included-library dirs="200">file.reference.slf4j-jdk14__V1.6.3.jar</included-library>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

@@ -31,6 +31,12 @@ public interface TrxsPagoFacadeLocal {
 
     int count();
     
-    public List<TrxsPago> consultaTransaccionRut(String fechaInicio1, String fechaFin1);
+    /**
+     *
+     * @param fechaInicioView
+     * @param fechaFinView
+     * @return
+     */
+    public List<TrxsPago> consultaTransaccionRut(String fechaInicioView, String fechaFinView);
     
 }

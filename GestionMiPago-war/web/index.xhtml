@@ -16,14 +16,14 @@
             
             <h:commandButton value="Ingresar fecha" action="#{consultaTransaccionRut.obtenerTrxRangoFecha()}" ></h:commandButton>
         </h:form>
-<!--        <p:dataTable var="consulta" value="">
-            <p:column>
+<!--        <h:dataTable value="{consultaTransaccionRut.listaTrxRut}" var="trxRut" binding="{consultaTransaccionRut.dataTableTrxRut}" >          
+            <h:column>
                 <f:facet name="header">
                     <h:outputText value="Rut Cliente" />
-                </f:facet>
-                 
-            </p:column>
-        </p:dataTable>-->
+                </f:facet> 
+                <h:outputText value="{trxRut.idcliente.nombrecliente}" />
+            </h:column>
+        </h:dataTable>-->
     </h:body>
 </html>
 

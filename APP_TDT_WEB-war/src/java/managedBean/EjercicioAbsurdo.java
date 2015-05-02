@@ -214,7 +214,7 @@ private String variableStyleOn = "border-color: green;border-style:solid";
         nombresArchivosUpload.add(2,"interrogacion.png");
         nombresArchivosUpload.add(3,"interrogacion.png");
         nombresArchivosUploadPrincipal.add(0,"interrogacion.png");
-        FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioAbsurdo.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalEjercicios.xhtml");
     }
 
     public void handleReorder(DashboardReorderEvent event) {

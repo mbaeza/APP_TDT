@@ -82,7 +82,7 @@ public class LoginBean implements Serializable {
         if(request.isUserInRole("Educador")){
             return "Educador/Ejercicios/principalEjercicios?faces-redirect=true";
         }else if (request.isUserInRole("Administrador")){
-            return "Administrador/CentroEducacional/modificarCentroEducacional?faces-redirect=true";
+            return "Administrador/principalAdministracion?faces-redirect=true";
         }
         
         return "";

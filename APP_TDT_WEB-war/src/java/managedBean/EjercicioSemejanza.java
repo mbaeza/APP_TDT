@@ -189,7 +189,7 @@ private String descripcionEjercicio;
             }
 
         // reinicializar variables
-        FacesContext.getCurrentInstance().getExternalContext().redirect("ejercicioAbsurdo.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalEjercicios.xhtml");
     }
 
     public void handleReorder(DashboardReorderEvent event) {

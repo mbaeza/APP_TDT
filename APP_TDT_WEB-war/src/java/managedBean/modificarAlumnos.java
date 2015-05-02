@@ -9,6 +9,7 @@ import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.CentroEducacional;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.CentroEducacionalFacadeLocal;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -51,7 +52,7 @@ public class modificarAlumnos {
         centrosEducacionales = centroEducacionalFacade.findAll();    
     }        
 
-    public void modificarAlumno(){
+    public void modificarAlumno() throws IOException{
                
         alumnoSeleccionado.setApellidoMaternoAlumno(getSegundoApellido());
         alumnoSeleccionado.setApellidoPaternoAlumno(getPrimerApellido());
@@ -60,6 +61,7 @@ public class modificarAlumnos {
         alumnoSeleccionado.setRut(getRut());
         alumnoSeleccionado.setIdCentroEducacional(getCentroSeleccionado());
         alumnoFacade.edit(alumnoSeleccionado);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalAdministracion.xhtml");
     }
         
     public void onRowSelect(SelectEvent event) {

@@ -9,6 +9,7 @@ import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.CentroEducacional;
 import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.CentroEducacionalFacadeLocal;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -41,7 +42,7 @@ public class AgregarAlumnos {
     
     public AgregarAlumnos() {
     }
-        public void agregarAlumno(){
+        public void agregarAlumno() throws IOException{
         Alumno alumno = new Alumno();        
         alumno.setApellidoMaternoAlumno(segundoApellido);
         alumno.setApellidoPaternoAlumno(primerApellido);
@@ -51,6 +52,7 @@ public class AgregarAlumnos {
 //        alumno.setEspecificacion(fechaNacimiento);
         alumno.setFechaNacimiento(fechaNacimiento);
         alumnoFacade.create(alumno);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalAdministracion.xhtml");
     }
 
         

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head> 
+        <title>Mi Administración</title>
+        <meta charset="UTF-8" />
+        <!--<h:outputStylesheet name="css/demo.css" />-->
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+        <h:outputStylesheet name="css/tabs.css" />
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" /> 
+        <h:outputStylesheet name="css/tabstyles.css" />
+        <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
+       
+        
+        <!--<h:outputStylesheet name="css/component.css" />-->
+        <!--h:outputStylesheet name="css/component-menu.css" /-->
+        <h:outputScript name="js/modernizr.custom_menu.js"/>
+        <!--h:outputStylesheet name="css/style_base.css"/-->
+        
+    </h:head>
+    <h:body class="body_general" >
+
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">Menú</h2>
+                    <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/principalAdministracion">Mi Administración</a></li>                        
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Alumnos</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Alumnos</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/agregarAlumno.xhtml">Agregar Alumno</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/modificarAlumno.xhtml">Modificar Alumno</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Centro Educacional</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Centro Educacional</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/agregarCentroEducacional.xhtml">Agregar Centro Educacional</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/modificarCentroEducacional.xhtml">Modificar Centro Educacional</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Profesores</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Profesores</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/agregarProfesor.xhtml">Agregar Profesor</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/modificarProfesor.xhtml">Modificar Profesor</a></li>
+                                </ul>
+                            </div>
+                        </li>                                               
+                    </ul>
+                </div>
+            </nav>                
+
+        <div class="fs-form-wrap" id="fs-form-wrap">            
+            <h:form id="myform" class="tablaboostrap" >   
+                
+                    <section>
+                        <div class="tabs tabs-style-linemove">
+                            <nav class="body_top">
+                                <p:outputLabel class="fs-field-label fs-anim-upper"  style="color: #FF6B6B; text-align: center;width: 79%;font-size: 3em;font-family: Cabin Sketch ,cursive"  value="Mi Administración" />                                                                                                
+                                <ul>
+                                    <a href="#" id="trigger" style="margin-right: 55px;font-size: 1.9em;" class="menu-trigger"></a>
+                                    <li><a href="#section-linemove-1" class=""><span>Profesores</span></a></li>
+                                    <li><a href="#section-linemove-2" class=""><span>Alumnos</span></a></li>
+                                    <li><a href="#section-linemove-3" class=""><span>Centros Educacionales</span></a></li>                                   
+                                    <li style="width: 1px;display: none"></li>    
+                                </ul>
+                            </nav>
+                            
+                            <div class="content-wrap">
+                               
+                                <section id="section-linemove-1" class="tablaboostrap" style="height: 400px">
+                                        <br></br>
+                                        <br></br>
+                                        <h:panelGrid columns="2" >                                            
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/modificarProfesor.xhtml" style="  margin-left: 905px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Modificar</a> 
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/agregarProfesor.xhtml" style="  margin-left: 10px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        </h:panelGrid>
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl1" var="profesor" value="#{verAdministracion.listaProfesor}" rowKey="#{profesor.usuarioPK.idUsuario}" paginator="true" rows="10" >
+                                            <!--<p:ajax event="rowSelect" oncomplete="PF('abs').show()" listener="#{ejerciciosVer.onRowSelectAbsurdo}" update=":myform:absDet" />-->
+                                            <p:column  >
+                                                <f:facet name="header">
+                                                    <h:outputText value="Nombre" />
+                                                </f:facet>
+                                                <h:outputText value="#{profesor.nombreUsuario}" />
+                                            </p:column>     
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Apellido Paterno" />
+                                                </f:facet>
+                                                <h:outputText value="#{profesor.apellidoPaterno}" />
+                                            </p:column> 
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Apellido Materno" />
+                                                </f:facet>
+                                                <h:outputText value="#{profesor.apellidoMaterno}" />
+                                            </p:column>
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Rut" />
+                                                </f:facet>
+                                                <h:outputText value="#{profesor.rut}" />
+                                            </p:column>                                                                                         
+                                        </p:dataTable>
+                                
+                                </section>
+                                <section id="section-linemove-2" style="height: 400px">
+                                    <pm:field>
+                                        <br></br>
+                                        <br></br>
+                                        <h:panelGrid columns="2" >                                            
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/modificarAlumno.xhtml" style="  margin-left: 905px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Modificar</a> 
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/agregarAlumno.xhtml" style="  margin-left: 10px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        </h:panelGrid>
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl2" var="alumno" value="#{verAdministracion.listaAlumnos}" rowKey="#{ejercicio.ejercicio.idEjercicio}" paginator="true" rows="10" >
+                                            <!--<p:ajax event="rowSelect" oncomplete="PF('sem').show()" listener="#{ejerciciosVer.onRowSelectSemejanza}" update=":myform:semDet" />-->
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Nombre" />
+                                                </f:facet>
+                                                <h:outputText value="#{alumno.nombreAlumno}" />
+                                            </p:column>                        
+                                           <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Apellido Paterno" />
+                                                </f:facet>
+                                               <h:outputText value="#{alumno.apellidoPaternoAlumno}" />
+                                            </p:column> 
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Apellido Materno" />
+                                                </f:facet>
+                                                <h:outputText value="#{alumno.apellidoMaternoAlumno}" />
+                                            </p:column>
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Rut" />
+                                                </f:facet>
+                                                <h:outputText value="#{alumno.rut}" />
+                                            </p:column> 
+                                        </p:dataTable>
+                                    </pm:field>
+                                </section>
+                                <section id="section-linemove-3" style="height: 400px">
+                                    <pm:field>
+                                        <br></br>
+                                        <br></br>
+                                        <h:panelGrid columns="2" >                                            
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/modificarCentroEducacional.xhtml" style="  margin-left: 905px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Modificar</a> 
+                                            <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/agregarCentroEducacional.xhtml" style="  margin-left: 10px;width: 125px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Agregar</a> 
+                                        </h:panelGrid>
+                                        <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl3" var="centroEducacional" value="#{verAdministracion.listaCentroEducacional}" rowKey="#{centroEducacional.idCentroEducacional}" paginator="true" rows="10" >
+                                            <!--<p:ajax event="rowSelect" oncomplete="PF('mem').show()" listener="#{ejerciciosVer.onRowSelectMemoria}" update=":myform:memDet" />-->
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Nombre" />
+                                                </f:facet>
+                                                <h:outputText value="#{centroEducacional.nombreCentroEducacional}" />
+                                            </p:column>                        
+                                            <p:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="Ubicación" />
+                                                </f:facet>
+                                                <h:outputText value="#{centroEducacional.ubicacion}" />
+                                            </p:column>                                             
+                                        </p:dataTable>
+                                    </pm:field>
+                                </section>                                                                
+                                
+                            </div><!-- /content -->
+                        </div><!-- /tabs -->
+                    </section>                                                 
+                </h:form>
+		
+        </div><!-- /fs-form-wrap -->
+
+</div><!-- /pusher -->
+        
+                <h:outputScript name="js/classie.js"></h:outputScript>                
+                <!--<h:outputScript name="js/prueba.js"></h:outputScript>-->
+                <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>
+                
+    </h:body>
+</html>
+

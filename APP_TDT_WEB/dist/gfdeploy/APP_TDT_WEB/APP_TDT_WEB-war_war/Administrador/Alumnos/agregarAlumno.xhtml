@@ -6,65 +6,124 @@
       xmlns:pm="http://primefaces.org/mobile"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head> 
-        <title>Facelet Title</title>
+        <title>Agregar Alumno</title>
         <meta charset="UTF-8" />
-        <h:outputStylesheet name="css/demo.css" />
-        <h:outputStylesheet name="css/style_base.css"/>
+        <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>        
         <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>        
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" />       
+        <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
         <h:outputStylesheet name="css/component.css" />
         <h:outputScript name="js/modernizr.custom.js"/>
+        
     </h:head>
     <h:body class="body_general" >
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">Menú</h2>
+                    <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/principalAdministracion.xhtml">Mi Administración</a></li>                        
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Alumnos</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Alumnos</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/agregarAlumno.xhtml">Agregar Alumno</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Alumnos/modificarAlumno.xhtml">Modificar Alumno</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Centro Educacional</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Centro Educacional</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/agregarCentroEducacional.xhtml">Agregar Centro Educacional</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/CentroEducacional/modificarCentroEducacional.xhtml">Modificar Centro Educacional</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Profesores</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Profesores</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/agregarProfesor.xhtml">Agregar Profesor</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Administrador/Profesores/modificarProfesor.xhtml">Modificar Profesor</a></li>
+                                </ul>
+                            </div>
+                        </li>                                               
+                    </ul>
+                </div>
+            </nav>                
+
         <div class="fs-form-wrap" id="fs-form-wrap">
             <div class="fs-title" style="font-size: 50px;">
-                    Agregar un ejercicio de respuesta multiple
+                <a href="#" id="trigger" style="top: 12px;" class="menu-trigger"></a>
+                <h:outputText style="color: #FF6B6B;" value="Agregar un nuevo alumno"></h:outputText>
             </div>
+             <br></br>
+            <br></br>
             <h:form id="myform" class="fs-form fs-form-full" >
                 <p:growl id="confirmacion" showDetail="true" life="5000" />
-
+                
                     <ol class="fs-fields"> 
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el Rut" />
-                                    <p:inputText  required="true" id="q1" class="fs-anim-lower" type="text" value="#{agregarAlumnos.rut}" />
-                                    <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
+                                    <p:outputLabel  class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el Rut" />
+                                    <p:inputText style="font-family: Lato ,cursive" id="q1" class="fs-anim-lower" type="text" value="#{agregarAlumnos.rut}" >
+                                        <p:ajax event="keyup" update=":myform:out1" />
+                                    </p:inputText>
                                 </pm:field>
                                 
                             </li>
                             <li>
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Ingresa el nombre del alumno" />
-                                    <p:inputText  required="true" id="q2" class="fs-anim-lower" type="text" value="#{agregarAlumnos.nombre}" />
-                                    <!--<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Dean Moriarty" required="true" value=""/>-->
+                                    <p:inputText style="font-family: Lato ,cursive"  required="true" id="q2" class="fs-anim-lower" type="text" value="#{agregarAlumnos.nombre}" >
+                                        <p:ajax event="keyup" update=":myform:out2" />
+                                    </p:inputText>
                                 </pm:field>
                                 
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido paterno" />
-                                    
-                                    <p:inputText  required="true" id="q3" class="fs-anim-lower" type="text" value="#{agregarAlumnos.primerApellido}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q2" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido paterno" />                                    
+                                    <p:inputText style="font-family: Lato ,cursive"  id="q3" class="fs-anim-lower" type="text" value="#{agregarAlumnos.primerApellido}" >
+                                            <p:ajax event="keyup" update=":myform:out3" />
+                                    </p:inputText>
                                 </pm:field>
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q3" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido materno" />
-                                   
-                                    <p:inputText  required="true" id="q4" class="fs-anim-lower" type="text" value="#{agregarAlumnos.segundoApellido}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q3" style="font-family: Cabin Sketch ,cursive"  value="Ingresa el apellido materno" />                                   
+                                    <p:inputText style="font-family: Lato ,cursive"  id="q4" class="fs-anim-lower" type="text" value="#{agregarAlumnos.segundoApellido}" >
+                                            <p:ajax event="keyup" update=":myform:out4" />
+                                    </p:inputText>
                                 </pm:field>
                             </li>
                             <li>
                                 <pm:field>
-                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q4" style="font-family: Cabin Sketch ,cursive"  value="Ingresa fecha de nacimiento" />
-                                   
-                                    <p:inputMask  mask="99/99/9999" required="true" id="q5" class="fs-anim-lower"  value="#{agregarAlumnos.fechaNacimiento}" />
+                                    <p:outputLabel class="fs-field-label fs-anim-upper" for="q4" style="font-family: Cabin Sketch ,cursive"  value="Ingresa fecha de nacimiento" />                                   
+                                    <p:inputMask style="font-family: Lato ,cursive"  mask="99/99/9999" id="q5" class="fs-anim-lower"  value="#{agregarAlumnos.fechaNacimiento}" >
+                                            <p:ajax event="keyup" update=":myform:out5" />
+                                    </p:inputMask>
                                 </pm:field>
                             </li>
                             <li>
                                 <pm:field>
                                     <p:outputLabel class="fs-field-label fs-anim-upper"  style="font-family: Cabin Sketch ,cursive"  value="Selecciona el centro educacional" />                                                                                                
-                                    <p:dataTable class="fs-anim-lower" style="font-size: medium;width: 800px; height: 250px" id="tbl" var="centro" value="#{agregarAlumnos.centrosEducacionales}" rowKey="#{centro.idCentroEducacional}" paginator="true" rows="5" selection="#{agregarAlumnos.centroSeleccionado}" selectionMode="single">
-                                        <!--<p:ajax event="rowSelect" listener="#{modificarCentroEducacional.onRowSelect}" update=":myform:q1,:myform:q2" />-->
+                                    <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;top:0;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl" var="centro" value="#{agregarAlumnos.centrosEducacionales}" rowKey="#{centro.idCentroEducacional}" paginator="true" rows="5" selection="#{agregarAlumnos.centroSeleccionado}" selectionMode="single">
+                                        <p:ajax event="rowSelect"  update=":myform:out6" />
                                         <p:column>
                                             <f:facet name="header">
                                                 <h:outputText value="Nombre Centro Educacional" />
@@ -81,12 +140,27 @@
                                 </pm:field>
                             </li> 
                     </ol><!-- /fs-fields -->
-                   <div id="xx" class="prueba" style="margin-top: 6%;">
-                       Guardar Cambios
-                    </div>
-                    <!--<button class="fs-submit" type="submit">Send answers</button>-->
 
-                    <p:commandButton  class="fs-submit" value="Guardar" action="#{agregarAlumnos.agregarAlumno()}" actionListener="#{agregarAlumnos.confirmacionAgregar}" update="confirmacion">
+                <div id="xx" class="prueba" >
+                        <p:outputPanel id="form1" style="font-size: xx-large;margin-left: 95px;height: 400px;" >     
+
+                            <h:panelGrid columns="2" cellpadding="1" id ="elem" style="-webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;margin-top: 70px;width: 1060px;margin-right: 250px;background-color: #fbfef3;" >
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;"  value="Rut del alumno: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out1" value="#{agregarAlumnos.rut}" />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" value="Nombre del alumno: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out2" value="#{agregarAlumnos.nombre}" />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;"  value="Apellido paterno del alumno: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out3" value="#{agregarAlumnos.primerApellido}" />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;"  value="Apellido materno del alumno: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out4" value="#{agregarAlumnos.segundoApellido}" />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;"  value="fecha de nacimiento del alumno: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out5" value="#{agregarAlumnos.fechaNacimiento}" />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" value="Centro educacional seleccionado: " />
+                                <h:outputText style="font-family: Lato ,cursive; color: #556270; margin-left: 20px;" id="out6" value="#{agregarAlumnos.centroSeleccionado.nombreCentroEducacional}" />                                                               
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </div>           
+                <p:commandButton  class="fs-submit" value="Guardar" action="#{agregarAlumnos.agregarAlumno()}" actionListener="#{agregarAlumnos.confirmacionAgregar}" update="confirmacion">
                 <p:confirm header="Confirmación" message="¿Está seguro que desea agregar esta información?" icon="ui-icon-alert" />                                        
                 </p:commandButton>
                 <!--<p:commandButton value="Borrar formulario" type="reset" icon="ui-icon-cancel" />-->
@@ -97,10 +171,13 @@
                 </p:confirmDialog> 
             </h:form><!-- /fs-form -->
         </div><!-- /fs-form-wrap -->
-
-
-
+        </div>
 		<h:outputScript name="js/classie.js"></h:outputScript>
+                <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>		
 		<h:outputScript name="js/selectFx.js"></h:outputScript>
 		<h:outputScript name="js/fullscreenForm.js"></h:outputScript>
 		<h:outputScript>

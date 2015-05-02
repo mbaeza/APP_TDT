@@ -9,6 +9,7 @@ import com.tdt.entityclass.Alumno;
 import com.tdt.entityclass.CentroEducacional;
 import com.tdt.entityclass.Usuario;
 import com.tdt.sessionbean.CentroEducacionalFacadeLocal;
+import java.io.IOException;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
@@ -34,12 +35,13 @@ public class AgregarCentroEducacional {
     public AgregarCentroEducacional() {
     }
     
-    public void agregarCentroEducacional(){
+    public void agregarCentroEducacional() throws IOException{
         CentroEducacional centroEducacional = new CentroEducacional();        
         centroEducacional.setUbicacion(ubicacion);        
         centroEducacional.setUsuario(new Usuario(1, "ceespin1@uc.cl"));
         centroEducacional.setNombreCentroEducacional(nombreCentroEducacional);
         centroEducacionalFacade.create(centroEducacional);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalAdministracion.xhtml");
     }
         
     

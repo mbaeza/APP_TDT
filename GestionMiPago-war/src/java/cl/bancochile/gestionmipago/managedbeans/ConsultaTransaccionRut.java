@@ -5,6 +5,7 @@
  */
 package cl.bancochile.gestionmipago.managedbeans;
 
+import cl.bancochile.gestionmipago.entityclass.Cuentas;
 import cl.bancochile.gestionmipago.entityclass.TrxsPago;
 import cl.bancochile.gestionmipago.sessionbeans.TrxsPagoFacadeLocal;
 import java.io.BufferedWriter;
@@ -63,7 +64,15 @@ public class ConsultaTransaccionRut {
             
             bw.write("RUT_ORIGEN,CUENTA_ORIGEN,RUT_DESTINO,CTA_DESTINO,MONTOTRX,FECHAHORATRX\n");
             for(TrxsPago trxRut:listaTrxRut){
-                bw.write(trxRut.getIdcliente().getRutcliente(),trxRut.getIdcliente().getCuentasList().);
+                for(Cuentas cuenta: trxRut.getIdcliente().getCuentasList()){
+                    bw.write(trxRut.getIdcliente().getRutcliente() + ","
+                            + cuenta.getNrocuenta() + "," 
+                            + trxRut.getIdconvenio().getIdcomercio().getRutcomercio() + ","
+                            + trxRut.getNrocuentacomercio() + ","
+                            + trxRut.getMontotrx().toString() + ","
+                            + trxRut.getFechahoratrx().toString() + "\n"
+                    );
+                }
             }
             
             bw.close();

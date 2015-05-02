@@ -56,7 +56,7 @@ class IniciarSesionViewController: UIViewController {
             var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
             request.HTTPMethod = "GET"
             //request.HTTPBody = postData
-            request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+            request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             
@@ -67,7 +67,7 @@ class IniciarSesionViewController: UIViewController {
             var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
             
             if ( urlData != nil ) {
-                let res = response as NSHTTPURLResponse!;
+                let res = response as! NSHTTPURLResponse!;
                 
                 NSLog("Response code: %ld", res.statusCode);
                 
@@ -79,14 +79,14 @@ class IniciarSesionViewController: UIViewController {
                     
                     var error: NSError?
                     
-                    let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+                    let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
                     
                     
-                    let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as NSString
+                    let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as! NSString
                     
                     //[jsonData[@"success"] integerValue];
                     
-                    NSLog("Success: " + success);
+                   // NSLog("Success: " + (success as String));
                     
                     if(success == "00")
                     {
@@ -104,10 +104,10 @@ class IniciarSesionViewController: UIViewController {
                         iniciarSesion = 1;
                        
                         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let viewController = storyBoard.instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as MenuInicialViewController
+                        let viewController = storyBoard.instantiateViewControllerWithIdentifier("viewControllerMenuPrincipal") as! MenuInicialViewController
                         
-                        let idUsuarioValor:NSString = jsonData.valueForKey("idUsuario")  as NSString
-                        viewController.idUsuario = idUsuarioValor;
+                        let idUsuarioValor:NSString = jsonData.valueForKey("idUsuario")  as! NSString
+                        viewController.idUsuario = idUsuarioValor as String;
                         
                         //viewController.segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: <#UIViewController#>, identifier: "SegueMenuPrincipal");
                         
@@ -124,13 +124,13 @@ class IniciarSesionViewController: UIViewController {
                         var error_msg:NSString
                         
                         if success == "99" {
-                            error_msg = jsonData.valueForKey("respuesta")?.valueForKey("glosa") as NSString
+                            error_msg = jsonData.valueForKey("respuesta")?.valueForKey("glosa") as! NSString
                         } else {
                             error_msg = "Unknown Error"
                         }
                         var alertView:UIAlertView = UIAlertView()
                         alertView.title = "Sign in Failed!"
-                        alertView.message = error_msg
+                        alertView.message = error_msg as String
                         alertView.delegate = self
                         alertView.addButtonWithTitle("OK")
                         alertView.show()

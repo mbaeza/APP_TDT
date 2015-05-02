@@ -15,6 +15,7 @@ import com.tdt.sessionbean.AlumnoFacadeLocal;
 import com.tdt.sessionbean.AsignarEjercicioFacadeLocal;
 import com.tdt.sessionbean.EjercicioFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -63,7 +64,7 @@ public class AsignarAlumnoEjercicio {
         ejercicios = ejercicioFacade.findAll();
     } 
     
-    public void asignarAlumnoEjercicio(){
+    public void asignarAlumnoEjercicio() throws IOException{
         AsignarEjercicio asignacion = new AsignarEjercicio();
         asignacion.setObservacionAsignarEjercicio(observacion);
         asignacion.setIdEjercicio(ejercicioSeleccionado);
@@ -79,7 +80,18 @@ public class AsignarAlumnoEjercicio {
             alumnoColaborativoFacade.create(colaboracion);
             
         }
-            
+           
+        FacesContext.getCurrentInstance().getExternalContext().redirect("verAsignarAlumnoEjercicio.xhtml");
+    }
+    
+    public String nombrarAlumnos(){
+        String mostrarNombres="";
+        
+        for(Alumno alumnoSeleccionado : alumnosSeleccionados){
+            mostrarNombres = mostrarNombres + "\n" + "<h:outputText style=\"font-family: Lato ,cursive; margin-left: 120px;\" id=\"out4\" value=\""+alumnoSeleccionado.getNombreAlumno()+" "+alumnoSeleccionado.getApellidoPaternoAlumno() +"\" />";
+        }
+        
+        return mostrarNombres;
     }
     
     public void confirmacionAgregar(ActionEvent actionEvent){

@@ -48,7 +48,7 @@ class EjerciciosMemorizeViewController: UIViewController {
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
         
         if ( urlData != nil ) {
-            let res = response as NSHTTPURLResponse!;
+            let res = response as! NSHTTPURLResponse!;
             
             NSLog("Response code: %ld", res.statusCode);
             
@@ -60,35 +60,35 @@ class EjerciciosMemorizeViewController: UIViewController {
                 
                 var error: NSError?
                 
-                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
                 
                 
-                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as NSString
+                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as! NSString
                 
                 //[jsonData[@"success"] integerValue];
                 
-                NSLog("Success: " + success);
+                NSLog("Success: " + (success as String));
                 
                 if(success == "00")
                 {
                     
                     NSLog("Obtener Ejercicios SUCCESS");
                     
-                    let ejercicios:NSArray = jsonData.valueForKey("listaEjercicios")?  as NSArray
+                    let ejercicios:NSArray = jsonData.valueForKey("listaEjercicios")  as! NSArray
                     NSLog("Obtener Ejercicios SUCCESS");
-                    // var ej:NSDictionary = ejercicios[0] as NSDictionary
+                    // var ej:NSDictionary = ejercicios[0] as! NSDictionary
                     
-                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as NSString
+                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as! NSString
                     // NSLog("Valor de la descripcion: " +  valor);
                     
                     for( var i = 0;i<ejercicios.count;i++ ){
                         
-                        var ejercicio:NSDictionary = ejercicios[i] as NSDictionary
-                        var nombreEjercicio:NSString = ejercicio.valueForKey("nombreEjercicio") as NSString
-                        var idEjercicio:Int = ejercicio.valueForKey("idEjercicio") as Int
+                        var ejercicio:NSDictionary = ejercicios[i] as! NSDictionary
+                        var nombreEjercicio:NSString = ejercicio.valueForKey("nombreEjercicio") as! NSString
+                        var idEjercicio:Int = ejercicio.valueForKey("idEjercicio") as! Int
                         
-                        NSLog("Nombre del ejercicio: " + nombreEjercicio);
-                        items.append(nombreEjercicio);
+                        NSLog("Nombre del ejercicio: " + (nombreEjercicio as String));
+                        items.append(nombreEjercicio as String);
                         itemsIdEjercicio.append(String(idEjercicio))
                         
                     }
@@ -134,7 +134,7 @@ class EjerciciosMemorizeViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("UITableViewCell") as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("UITableViewCell") as! UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         
@@ -150,13 +150,13 @@ class EjerciciosMemorizeViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as UITableViewCell
+        let cell = sender as!UITableViewCell
         let indexPath = self.tableView.indexPathForCell(cell)
         
         // load the selected model
         let item = self.items[indexPath!.row]
         
-        let viewController = segue.destinationViewController as EjercicioAlumnoMemorizeViewController
+        let viewController = segue.destinationViewController as!EjercicioAlumnoMemorizeViewController
         // set the model to be viewed
         viewController.idUsuario = self.idUsuario;
         viewController.idEjercicio = self.itemsIdEjercicio[indexPath!.row]

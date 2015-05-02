@@ -8,6 +8,7 @@ package managedBean;
 import com.tdt.entityclass.CentroEducacional;
 import com.tdt.entityclass.Usuario;
 import com.tdt.sessionbean.CentroEducacionalFacadeLocal;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -42,12 +43,13 @@ public class ModificarCentroEducacional {
         centrosSeleccionados = centroEducacionalFacade.findAll();    
     }
     
-    public void modificarCentroEducacional(){
+    public void modificarCentroEducacional() throws IOException{
                
         centroSeleccionado.setUbicacion(getUbicacion());        
 //        centroSeleccionado.setUsuario(new Usuario(1, "ceespin1@uc.cl"));
         centroSeleccionado.setNombreCentroEducacional(getNombreCentroEducacional());
         centroEducacionalFacade.edit(centroSeleccionado);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalAdministracion.xhtml");
     }
         
     public void onRowSelect(SelectEvent event) {

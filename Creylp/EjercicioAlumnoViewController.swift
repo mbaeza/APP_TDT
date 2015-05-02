@@ -47,7 +47,7 @@ class EjercicioAlumnoViewController: UIViewController, UITableViewDelegate, UITa
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
         
         if ( urlData != nil ) {
-            let res = response as NSHTTPURLResponse!;
+            let res = response as! NSHTTPURLResponse!;
             
             NSLog("Response code: %ld", res.statusCode);
             
@@ -59,35 +59,35 @@ class EjercicioAlumnoViewController: UIViewController, UITableViewDelegate, UITa
                 
                 var error: NSError?
                 
-                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
                 
                 
-                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as NSString
+                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as! NSString
                 
                 //[jsonData[@"success"] integerValue];
                 
-                NSLog("Success: " + success);
+                NSLog("Success: " + (success as String));
                 
                 if(success == "00")
                 {
                     
                     NSLog("Obtener Ejercicios SUCCESS");
                     
-                    let ejercicios:NSArray = jsonData.valueForKey("listaAlumnos")?  as NSArray
+                    let ejercicios:NSArray = jsonData.valueForKey("listaAlumnos")  as! NSArray
                     
-                    // var ej:NSDictionary = ejercicios[0] as NSDictionary
+                    // var ej:NSDictionary = ejercicios[0] as! NSDictionary
                     
-                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as NSString
+                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as! NSString
                     // NSLog("Valor de la descripcion: " +  valor);
                     
                     for( var i = 0;i<ejercicios.count;i++ ){
-                        var ejercicio:NSDictionary = ejercicios[i] as NSDictionary
-                        var nombreAlumno:NSString = ejercicio.valueForKey("nombre") as NSString
-                        var apellidoPaternoAlumno:NSString = ejercicio.valueForKey("apellidoPaterno") as NSString
-                        var apellidoMaternoAlumno:NSString = ejercicio.valueForKey("apellidoMaterno") as NSString
+                        var ejercicio:NSDictionary = ejercicios[i] as! NSDictionary
+                        var nombreAlumno:NSString = ejercicio.valueForKey("nombre") as! NSString
+                        var apellidoPaternoAlumno:NSString = ejercicio.valueForKey("apellidoPaterno") as! NSString
+                        var apellidoMaternoAlumno:NSString = ejercicio.valueForKey("apellidoMaterno") as! NSString
                         
-                        NSLog("Nombre del Alumno: " + nombreAlumno + " " + apellidoPaternoAlumno);
-                        items.append(nombreAlumno + " "+apellidoPaternoAlumno + " " + apellidoMaternoAlumno);
+                        NSLog("Nombre del Alumno: " + (nombreAlumno as String) + " " + (apellidoPaternoAlumno as String));
+                        items.append((nombreAlumno as String) + " " + (apellidoPaternoAlumno as String) + " " + (apellidoMaternoAlumno as String));
                         
                         
                     }
@@ -133,7 +133,7 @@ class EjercicioAlumnoViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.alumnosEjercicios.dequeueReusableCellWithIdentifier("UITableViewCellEA") as UITableViewCell
+        var cell:UITableViewCell = self.alumnosEjercicios.dequeueReusableCellWithIdentifier("UITableViewCellEA") as! UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
         
@@ -149,13 +149,13 @@ class EjercicioAlumnoViewController: UIViewController, UITableViewDelegate, UITa
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as UITableViewCell
+        let cell = sender as! UITableViewCell
         let indexPath = self.alumnosEjercicios.indexPathForCell(cell)
         
         // load the selected model
         let item = self.items[indexPath!.row]
         
-        let viewController = segue.destinationViewController as SecuenciaEjercicioViewController
+        let viewController = segue.destinationViewController as! SecuenciaEjercicioViewController
         // set the model to be viewed
         viewController.idUsuario = self.idUsuario;
         viewController.idEjercicio = self.idEjercicio

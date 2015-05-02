@@ -669,6 +669,8 @@ button.fs-continue {
 .no-js .fs-form .fs-submit  {
 	display: block;
 	float: right;
+        margin-right: 20px;
+        margin-top: -20px;
 }
 
 .fs-form-overview .fs-submit {

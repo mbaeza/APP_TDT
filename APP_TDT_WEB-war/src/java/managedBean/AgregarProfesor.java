@@ -12,6 +12,7 @@ import com.tdt.entityclass.Usuario;
 import com.tdt.entityclass.UsuarioPK;
 import com.tdt.sessionbean.CentroEducacionalFacadeLocal;
 import com.tdt.sessionbean.UsuarioFacadeLocal;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -50,7 +51,7 @@ public class AgregarProfesor {
         centrosEducacionales = centroEducacionalFacade.findAll();    
     }
 
-    public void agregarUsuario(){
+    public void agregarUsuario() throws IOException{
         Usuario usuario = new Usuario();
         UsuarioPK usuarioPk = new UsuarioPK();
         usuarioPk.setEmail(mail);
@@ -68,6 +69,8 @@ public class AgregarProfesor {
         agregarUsuario.setNombre(mail);
         agregarUsuario.setNombreGrupo("Educador");
         agregarUsuario.setUsuario(usuario);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("principalAdministracion.xhtml");
+        
     }
     
      public void confirmacionAgregar(ActionEvent actionEvent){

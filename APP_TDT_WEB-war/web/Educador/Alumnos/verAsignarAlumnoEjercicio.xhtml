@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head> 
+        <title>Facelet Title</title>
+        <meta charset="UTF-8" />
+        <!--<h:outputStylesheet name="css/demo.css" />-->
+        <link rel="stylesheet" type="text/css" href="../../resources/css/style_base.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/fonts" />
+        <link rel="shortcut icon" href="../../resources/favicon.ico"></link>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+        <link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'></link>
+        <h:outputStylesheet name="css/tabs.css" />
+        <h:outputStylesheet name="css/bootstrap-theme.css" /> 
+        <h:outputStylesheet name="css/bootstrap.css" /> 
+        <h:outputStylesheet name="css/bootstrap-theme.css.map" /> 
+        <h:outputStylesheet name="css/bootstrap.css.map" /> 
+        <h:outputStylesheet name="css/tabstyles.css" />
+        <h:outputStylesheet name="css/normalize_menu.css" />
+        <h:outputStylesheet name="css/component_menu.css" />
+        <h:outputScript name="js/modernizr.custom_menu.js"/> 
+    </h:head>
+    <h:body class="body_general" >
+        <div class="mp-pusher" id="mp-pusher">
+            <nav id="mp-menu" class="mp-menu">
+                <div class="mp-level">
+                    <h2 class="icon icon-world">Menú</h2>
+                    <ul>
+                        <li><a class="icon icon-photo" href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Ejercicios/principalEjercicios.xhtml">Mis Ejercicios</a></li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Asignación Ejercicio-Alumno</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Asignación Ejercicio-Alumno</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/asignarAlumnoEjercicio.xhtml">Asignar Ejercicio a Alumno</a></li>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/verAsignarAlumnoEjercicio.xhtml">Mis Asignaciones</a></li>
+                                </ul>
+                            </div>
+                        </li>                        
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Respuesta Múltiple</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Respuesta Múltiple</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioAbsurdoII.xhtml">Agregar Respuesta Múltiple</a></li>
+                                    <li><a href="#">Modificar Respuesta Múltiple</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Memorize</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Memorize</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioMemoriaII.xhtml">Agregar Memorize</a></li>
+                                    <li><a href="#">Modificar Memorize</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Secuencia</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Secuencia</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSecuencialII.xhtml">Agregar Secuencia</a></li>
+                                    <li><a href="#">Modificar Secuencia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="icon icon-news" href="#">Semejanza</a>
+                            <div class="mp-level">
+                                <h2 class="icon icon-news">Semejanza</h2>
+                                <ul>
+                                    <li><a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/ejercicioSemejanzaII.xhtml">Agregar Semejanza</a></li>
+                                    <li><a href="#">Modificar Semejanza</a></li>
+                                </ul>
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+            </nav>     
+            <div class="fs-form-wrap" id="fs-form-wrap">            
+               <h:form id="myform" class="tablaboostrap" >   
+                
+                    <section>
+                        <div class="tabs tabs-style-linemove">
+                        <div class="body_top" >
+                            <div class="fs-title" style="font-size: 50px;padding-top: 35px;padding-left: 40px">
+                                <a href="#" id="trigger" style="top: 12px;" class="menu-trigger"></a>
+                                <h:outputText style="color: #FF6B6B;" value="Mis asignaciones"></h:outputText>
+                            </div>
+                        </div>
+                            
+                            <div  class="content-current" style="padding: 3em;height: 400px">
+                                <br></br>
+                                <br></br>
+                                <a href="http://localhost:8080/APP_TDT_WEB-war/faces/Educador/Alumnos/asignarAlumnoEjercicio.xhtml" style="  margin-left: 990px;width: 200px;font-size: 1.8em; background-color: #95d20f; color: #FAFAFA" class="btn btn-default">Asignar Ejercicio</a> 
+                                <p:dataTable class="fs-anim-lower" tableStyleClass="table table-hover" style="color: black;font-family: Lato;border-left: none; border-right: none;font-size: medium;  margin: 0 auto;position: relative;" rowIndexVar="rowIndex" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'color2' : 'color1'}" id="tbl1" var="asigacion" value="#{verAsignarAlumnoEjercicio.listaAsignaciones}" rowKey="#{asigacion.idAsignarEjercicio}" paginator="true" rows="7" selection="#{verAsignarAlumnoEjercicio.asigancionSeleccionda}" selectionMode="single">
+                                    <!--<p:ajax event="rowSelect" oncomplete="PF('abs').show()" listener="{ejerciciosVer.onRowSelectAbsurdo}" update=":myform:absDet" />-->
+                                    <p:column  >
+                                        <f:facet name="header">
+                                            <h:outputText value="Nombre Ejercicio" />
+                                        </f:facet>
+                                        <h:outputText value="#{asigacion.idEjercicio.nombreEjercicio}" />
+                                    </p:column> 
+                                    <p:column  >
+                                        <f:facet name="header">
+                                            <h:outputText value="Tipo Ejercicio" />
+                                        </f:facet>
+                                        <h:outputText value="#{asigacion.idEjercicio.fkTipoEjercicio.nombreTipoEjercicio}" />
+                                    </p:column> 
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Nombre Alumno" />
+                                        </f:facet>
+                                        <h:outputText value="#{asigacion.alumnoColaborativoCollection.get(0).idAlumno.nombreAlumno} #{asigacion.alumnoColaborativoCollection.get(0).idAlumno.apellidoPaternoAlumno}" />
+                                    </p:column> 
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Objetivo del ejercicio" />
+                                        </f:facet>
+                                        <h:outputText value="#{asigacion.observacionAsignarEjercicio}" />
+                                    </p:column> 
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Antecedentes de los alumnos" />
+                                        </f:facet>
+                                        <h:outputText value="#{asigacion.alumnoColaborativoCollection.get(0).observacionColaboracion}" />
+                                    </p:column> 
+
+                                </p:dataTable>
+                                                                                                                            
+                            </div><!-- /content -->
+                        </div><!-- /tabs -->
+                    </section>                                  
+                
+                </h:form>		
+            </div><!-- /fs-form-wrap -->
+        </div><!-- /pusher -->
+        
+                <h:outputScript name="js/classie.js"></h:outputScript>                
+                <!--<h:outputScript name="js/prueba.js"></h:outputScript>-->
+                <h:outputScript name="js/cbpFWTabs.js"></h:outputScript>
+                <h:outputScript name="js/principal.js"></h:outputScript>  
+                <h:outputScript name="js/classie_menu.js"></h:outputScript>
+                <h:outputScript name="js/mlpushmenu.js"></h:outputScript>
+		<h:outputScript name="js/menu.js"></h:outputScript>
+                
+    </h:body>
+</html>
+

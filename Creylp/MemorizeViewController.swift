@@ -73,7 +73,7 @@ class MemorizeViewController: UIViewController {
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         //request.HTTPBody = postData
-        request.setValue(postLength, forHTTPHeaderField: "Content-Length")
+        request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -84,7 +84,7 @@ class MemorizeViewController: UIViewController {
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
         
         if ( urlData != nil ) {
-            let res = response as NSHTTPURLResponse!;
+            let res = response as! NSHTTPURLResponse!;
             
             NSLog("Response code: %ld", res.statusCode);
             
@@ -96,36 +96,36 @@ class MemorizeViewController: UIViewController {
                 
                 var error: NSError?
                 
-                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as! NSDictionary
                 
                 
-                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as NSString
+                let success:NSString = jsonData.valueForKey("respuesta")?.valueForKey("codigo")  as! NSString
                 
                 //[jsonData[@"success"] integerValue];
                 
-                NSLog("Success: " + success);
+                NSLog("Success: " + (success as String));
                 
                 if(success == "00")
                 {
                     NSLog("Imagenes SUCCESS");
                     
-                    let nombreTitulo:NSString = jsonData.valueForKey("titulo")?  as NSString
+                    let nombreTitulo:NSString = jsonData.valueForKey("titulo")  as! NSString
                     
-                    self.titulo.text = nombreTitulo;
+                    self.titulo.text = nombreTitulo as String
                     
-                    let imagenes:NSArray = jsonData.valueForKey("imagenes")?  as NSArray
+                    let imagenes:NSArray = jsonData.valueForKey("imagenes")  as! NSArray
                     NSLog("Obtener Ejercicios imagenes SUCCESS");
-                    // var ej:NSDictionary = ejercicios[0] as NSDictionary
+                    // var ej:NSDictionary = ejercicios[0] as! NSDictionary
                     
-                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as NSString
+                    // var valor:NSString = ej.valueForKey("descripcionEjercicio")? as! NSString
                     // NSLog("Valor de la descripcion: " +  valor);
                     
                     for( var i = 0;i<imagenes.count;i++ ){
                         
-                        var ejercicio:NSDictionary = imagenes[i] as NSDictionary
-                      //  var principal:Bool = ejercicio.valueForKey("principal") as Bool
-                       // var respuestaCorrecta:Bool = ejercicio.valueForKey("respuestaCorrecta") as Bool
-                        var urlImagen:String = ejercicio.valueForKey("urlImagen") as String
+                        var ejercicio:NSDictionary = imagenes[i] as! NSDictionary
+                      //  var principal:Bool = ejercicio.valueForKey("principal") as! Bool
+                       // var respuestaCorrecta:Bool = ejercicio.valueForKey("respuestaCorrecta") as! Bool
+                        var urlImagen:String = ejercicio.valueForKey("urlImagen") as! String
                         
                         NSLog("Url de imagen: " + String(i) + urlImagen);
                         urlImagenes.append(urlImagen);
@@ -267,13 +267,13 @@ class MemorizeViewController: UIViewController {
                     var error_msg:NSString
                     
                     if success == "99" {
-                        error_msg = jsonData.valueForKey("respuesta")?.valueForKey("glosa") as NSString
+                        error_msg = jsonData.valueForKey("respuesta")?.valueForKey("glosa") as! NSString
                     } else {
                         error_msg = "Unknown Error"
                     }
                     var alertView:UIAlertView = UIAlertView()
                     alertView.title = "Sign in Failed!"
-                    alertView.message = error_msg
+                    alertView.message = error_msg as String
                     alertView.delegate = self
                     alertView.addButtonWithTitle("OK")
                     alertView.show()
@@ -939,7 +939,7 @@ class MemorizeViewController: UIViewController {
     
     
     if recognizer.state == UIGestureRecognizerState.Began {
-    let imagenSeleccionada1 = recognizer.view as UIImageView
+    let imagenSeleccionada1 = recognizer.view as! UIImageView
     puntoInicialSup = imagenSeleccionada1.center
     }
     
@@ -947,7 +947,7 @@ class MemorizeViewController: UIViewController {
     let filteredSubviews = self.view.subviews.filter({
     $0.isKindOfClass(UIImageView) })
     
-    let imagenSeleccionada = recognizer.view as UIImageView
+    let imagenSeleccionada = recognizer.view as! UIImageView
     //puntoInicialSup = imagenSeleccionada.center
     
     //for imageS in imagenesSuperior {
